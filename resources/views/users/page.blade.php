@@ -8,48 +8,53 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_content">
-
-                    <table id="datatable" class="table table-striped table-bordered">
-                        <table id="datatable" class="table table-striped table-bordered">
-                            <tr>
-                                <th>MUSCOLO</th>
-                                <th>ESERCIZIO</th>
-                                <th>SERIE</th>
-                                <th>RIPETIZIONI</th>
-                                <th>RECUPERO</th>
-                                <th>NOTE</th>
-                                <th>ACTION</th>
-                                <!--<th>DELETE</th>-->
-                            </tr>
-                            @foreach($userTables as $userTable)
-                                <tr >
-                                <td>{{$userTable->muscolo}}</td>
-                                <td>{{$userTable->esercizio}}</td>
-                                <td>{{$userTable->serie}}</td>
-                                <td>{{$userTable->repetizioni}}</td>
-                                <td>{{$userTable->recupero}}</td>
-                                <td>{{$userTable->note}}</td>
-                                <td>
-                                    <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('/admin/usersTable/delete/'.$userTable->id) !!}'" value="DELETE">
-                                </td>
+                    <div class="table-responsive">
+                            <table id="datatable" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">MUSCOLO</th>
+                                        <th scope="col">ESERCIZIO</th>
+                                        <th scope="col">SERIE</th>
+                                        <th scope="col">RIPETIZIONI</th>
+                                        <th scope="col">RECUPERO</th>
+                                        <th scope="col">NOTE</th>
+                                        <th scope="col">ACTION</th>
+                                        <th scope="col">REPLICATE</th>
+                                        <!--<th>DELETE</th>-->
+                                    </tr>
+                                </thead>
+                                @foreach($userTables as $userTable)
+                                    <tr>
+                                        <td>{{$userTable->muscolo}}</td>
+                                        <td>{{$userTable->esercizio}}</td>
+                                        <td>{{$userTable->serie}}</td>
+                                        <td>{{$userTable->repetizioni}}</td>
+                                        <td>{{$userTable->recupero}}</td>
+                                        <td>{{$userTable->note}}</td>
+                                        <td>
+                                            <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('/admin/usersTable/delete/'.$userTable->id) !!}'" value="DELETE">
+                                        </td>
+                                        <td>
+                                            <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('/admin/usersTable/replicate/'.$userTable->id) !!}'" value="REPLICATE">
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                <tr>
+                                    <form action="{{route('admin.usersTable.store')}}" method="POST" >
+                                        @csrf
+                                        <td><input name="muscolo" type="text"/></td>
+                                        <td><input name="esercizio" type="text"/></td>
+                                        <td><input name="serie" type="text"/></td>
+                                        <td><input name="repetizioni" type="text"/></td>
+                                        <td><input name="recupero" type="text"/></td>
+                                        <td><input name="note" type="text"/></td>
+                                        <input name="user_id" type="hidden" value="{{$user->id}}"/>
+                                        <td><input  type="Submit" class="btn btn-sm btn btn-block"  value="Save"/></td>
+                                    </form>
                                 </tr>
-                            @endforeach
-                            <tr>
-                                <form action="{{route('admin.usersTable.store')}}" method="POST" >
-                                    @csrf
-                                    <td><input name="muscolo" type="text"/></td>
-                                    <td><input name="esercizio" type="text"/></td>
-                                    <td><input name="serie" type="text"/></td>
-                                    <td><input name="repetizioni" type="text"/></td>
-                                    <td><input name="recupero" type="text"/></td>
-                                    <td><input name="note" type="text"/></td>
-                                    <input name="user_id" type="hidden" value="{{$user->id}}"/>
-                                    <td><input  type="Submit" class="btn btn-sm btn btn-block"  value="Save"/></td>
-                                </form>
-                            </tr>
+                            </table>
+                    </div>
 
-
-                        </table>
                         @if(isset($secondBoxTables[0]->title) && isset($secondBoxTables[0]->description))
                         <form  action="{!! url('admin/secondBox/'.$secondBoxTables[0]->id.'/edit') !!}" method="GET" class="form-signin">
                             @csrf

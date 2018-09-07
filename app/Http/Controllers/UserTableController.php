@@ -90,4 +90,14 @@ class UserTableController extends Controller
         UserTable::destroy($id);
         return redirect('admin/user/'. User::find($secondBox->user_id)->id);
     }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function replicate($id){
+        $secondBox = UserTable::find($id);
+        return redirect('admin/usersTable/userId/'.$secondBox->user_id.'/replicate/'.$id);
+    }
 }

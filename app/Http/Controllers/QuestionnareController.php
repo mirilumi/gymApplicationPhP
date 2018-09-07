@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Questionnare;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -17,7 +18,9 @@ class QuestionnareController extends Controller
      */
     public function index()
     {
-        return view('questionnare.questionnare');
+        $user = DB::table('users')->orderBy('id', 'desc')->first();
+
+        return view('questionnare.questionnare',array('user'=>$user));
     }
 
     /**

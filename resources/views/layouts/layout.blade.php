@@ -6,6 +6,7 @@
     {{--<meta name="viewport" content="width=device-width, initial-scale=1">--}}
 
     <!-- CSRF Token -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>MaestroDelFitnessAPP</title>
@@ -67,7 +68,7 @@
                             </li>
                             <li ><a><i class="fa fa-calendar"></i> Programmi <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{route('admin.defaultProgramm.index')}}"> Crea Nuovo Programma Default</a></li>
+                                    <li><a href="{{route('admin.defaultProgramm.index')}}"> Crea nuovo programma MDF-FIT</a></li>
                                     <li><a href="{{route('admin.defaultProgramm.see')}}">Lista Programmi</a></li>
                                 </ul>
 
@@ -132,7 +133,7 @@
                                 <!--<span>Settings</span>-->
                                 <!--</a>-->
                                 <!--</li>-->
-                                <li><a href="javascript:;">Help</a></li>
+                                <li><a href="{!! route('changePasswordIndex') !!}">Change Password</a></li>
                                 <li><a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -233,6 +234,7 @@
                 </div>
 
                 <div class="clearfix"></div>
+                <button onclick="window.history.back();">Go Back</button>
 
                 <main class="py-4">
                     @yield('content')

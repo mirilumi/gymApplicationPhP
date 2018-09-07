@@ -25,7 +25,7 @@
                                         </div>
 
 
-                                        <form action="{{route('createQuestionare')}}" method="POST" >
+                                        <form action="{!! url('admin/editQuestionare/'.$user->id) !!}" method="POST" >
                                             @csrf
                                             <br>
                                             <input name="user_id" type="hidden" value="{{$user->id}}"/>
@@ -214,7 +214,7 @@
                                                     <input id="ten_question" type="text" class="form-control" placeholder="Your answer" name="ten_question" value="{{$questionnare->ten_question}}"  autofocus required>
                                                 </div>
                                             </div>
-                                            {{--<button class="btn btn-sm btn btn-block" name="Submit" value="Invia" type="Submit" >Invia</button>--}}
+                                            <button class="btn btn-sm btn btn-block" name="Submit" value="Invia" type="Submit" >Invia</button>
                                         </form>
                                     </div>
                                 </div>

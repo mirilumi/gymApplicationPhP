@@ -7,6 +7,7 @@
  * });
  */
 (function($,sr){
+
     // debouncing function from John Hann
     // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
     var debounce = function (func, threshold, execAsap) {
@@ -178,6 +179,9 @@ $(document).ready(function() {
 
 // Tooltip
 $(document).ready(function() {
+    function goBack() {
+        window.history.back();
+    }
     $('[data-toggle="tooltip"]').tooltip({
         container: 'body'
     });

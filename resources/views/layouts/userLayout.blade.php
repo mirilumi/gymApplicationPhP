@@ -59,7 +59,7 @@
                                 <!--</ul>-->
                             </li>
                             <li><a href="{{route('myQuestionare')}}"><i class="fa fa-user"></i> My Info</a>
-                            <li ><a><i class="fa fa-star-o"></i> Programme <span class="fa fa-chevron-down"></span></a>
+                            <li ><a><i class="fa fa-star-o"></i> Programmi <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     @foreach($userProgrammes as $programme)
                                     <li><a href=" {!! url('user/default/programme/'.$programme->id) !!}">{{$programme->name}}</a></li>
@@ -97,7 +97,7 @@
                                 <!--<span>Settings</span>-->
                                 <!--</a>-->
                                 <!--</li>-->
-                                <li><a href="javascript:;">Help</a></li>
+                                <li><a href="{!! route('changePassword') !!}">Change Password</a></li>
                                 <li><a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

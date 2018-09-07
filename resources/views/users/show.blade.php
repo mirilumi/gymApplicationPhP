@@ -13,7 +13,11 @@
                             {{--<th>Cognome</th>--}}
                             <th>Email</th>
                             <th>Action</th>
+                            <th>Replicate</th>
+                            <th>Make Admin</th>
+                            <th>Reset Password</th>
                             <th>Approved</th>
+                            <th>Delete</th>
                         </tr>
 
                             @foreach ($users as $user)
@@ -29,6 +33,19 @@
                             <td>
                                 <a href=" {!! url('admin/user/'.$user->id) !!}" class="btn btn-dark">Crea Pagina</a>
                             </td>
+                            <td>
+                                <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('admin/defaultProgram/replicate/'.$user->id) !!}'" value="Replicate">
+                            </td>
+                            <td>
+                                @if(!$user->is_admin)
+                                <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('admin/user/makeAdmin/'.$user->id) !!}'" value="Make Admin">
+                                @else
+                                    <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('admin/user/makeAdmin/'.$user->id) !!}'" value="Make User">
+                                @endif
+                            </td>
+                            <td>
+                                <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('admin/user/resetPassword/'.$user->id) !!}'" value="Reset Password">
+                            </td>
                                 @if($user->active == 1)
                                     <td>
                                         <a href=" {!! url('admin/user/'.$user->id.'/edit') !!}" class="btn btn-dark">Disattiva</a>
@@ -38,8 +55,12 @@
                                         <a href=" {!! url('admin/user/'.$user->id.'/edit') !!}" class="btn btn-dark">Attiva</a>
                                     </td>
                                 @endif
+                                    <td>
+                                        <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('admin/user/delete/'.$user->id) !!}'" value="DELETE">
+                                    </td>
                                 </tr>
                                     @endforeach
+
 
                     </table>
 

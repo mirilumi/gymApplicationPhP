@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use App\DefaultProgram;
 use App\Questionnare;
 use App\SecondBox;
+use App\SecondBoxDefault;
 use App\ThirdBoxTable;
+use App\ThirdBoxTableDefault;
 use App\User;
 use App\UserProgramme;
 use App\UserTable;
+use App\UserTableDefault;
+use App\UserTableMapping;
+use niklasravnsborg\LaravelPdf\Facades\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
 
 class FitnessUserController extends Controller
 {
@@ -42,6 +48,29 @@ class FitnessUserController extends Controller
     public function create()
     {
         //
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     */
+    public function pdfGenerate()
+    {
+        $user = User::find(Auth::user()->id);
+        $id = $user->id;
+        $userTables = UserTable::where('user_id', $id)->get();
+        $secondBoxTables = SecondBox::where('user_id', $id)->get();
+        $thirdBoxTables = ThirdBoxTable::where('user_id', $id)->get();
+        $userProgrammes = UserProgramme::where('user_id',$id)->get();
+        $programmes = [];
+        foreach ($userProgrammes as $userProgramme){
+            $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
+        }
+        $data = [
+            'user'=>$user,'userTables'=>$userTables,'secondBoxTables'=>$secondBoxTables,'thirdBoxTables'=>$thirdBoxTables,'userProgrammes'=>$programmes
+        ];
+//        dd($data);
+        $pdf = PDF::loadView('users.download',$data);
+        return $pdf->download('invoice.pdf');
     }
     /**
      * Show the form for creating a new resource.

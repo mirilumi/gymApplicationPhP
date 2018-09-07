@@ -39,16 +39,28 @@ Route::group(['middleware' => 'admin','prefix' => 'admin', 'as' => 'admin.'], fu
     Route::resource('thirdBoxDefault', 'ThirdBoxControllerDefault');
     Route::resource('defaultProgramm', 'DefaultProgramController');
     Route::get('defaultProgram/see', 'DefaultProgramController@see')->name('defaultProgramm.see');
+    Route::get('defaultProgram/replicate/{id}', 'DefaultProgramController@replicate')->name('defaultProgramm.replicate');
+    Route::post('defaultProgram/add', 'DefaultProgramController@add')->name('defaultProgramm.add');
     Route::get('usersTable/delete/{id}',  'UserTableController@delete')->name('usersTable.delete');
+    Route::get('usersTable/replicate/{id}',  'UserTableController@replicate')->name('usersTable.replicate');
+    Route::get('usersTable/userId/{userId}/replicate/{id}',  'UserController@replicate')->name('usersTable.user.replicate');
     Route::post('thirdBox/{id}/thirdBoxEdit',  'ThirdBoxController@thirdBoxEdit')->name('thirdBoxEdit.edit');
     Route::get('user/preview/{id}',  'UserController@preview')->name('user.preview');
+    Route::get('user/makeAdmin/{id}',  'UserController@makeAdmin')->name('user.makeAdmin');
+    Route::get('user/resetPassword/{id}',  'UserController@resetPassword')->name('user.resetPassword');
     Route::get('user/programme/{id}',  'UserController@see')->name('user.programme');
     Route::get('user/addOrRemove/{userId}/programme/{programmeId}',  'UserController@addOrRemove')->name('user.programme.addOrRemove');
     Route::get('userQuestionare/{id}',  'UserController@userQuestionare')->name('userQuestionare');
+    Route::post('editQuestionare/{id}',  'UserController@editQuestionare')->name('editQuestionare');
+    Route::get('user/default/programme/{id}',  'UserController@adminPreview')->name('user.programme.admin.default');
+    Route::get('user/programme/delete/{id}',  'DefaultProgramController@delete')->name('default.program.delete');
+    Route::get('user/delete/{id}',  'UserController@delete')->name('user.delete');
 });
-
+Route::get('changePassword',  'UserController@changePassowrdIndex')->name('changePasswordIndex');
+Route::post('changePassword',  'UserController@changePassowrd')->name('changePassword');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('fitnessUser', 'FitnessUserController');
 Route::get('/myQuestionnare','FitnessUserController@myQuestionare')->name('myQuestionare');
 Route::get('user/default/programme/{id}',  'UserController@preview')->name('user.programme.default');
+Route::get('user/pdf',  'FitnessUserController@pdfGenerate')->name('user.pdf.generate');
 

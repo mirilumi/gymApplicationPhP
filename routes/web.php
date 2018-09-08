@@ -58,6 +58,7 @@ Route::group(['middleware' => 'admin','prefix' => 'admin', 'as' => 'admin.'], fu
 });
 Route::get('changePassword',  'UserController@changePassowrdIndex')->name('changePasswordIndex');
 Route::post('changePassword',  'UserController@changePassowrd')->name('changePassword');
+Route::resource('email', 'EmailController');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('fitnessUser', 'FitnessUserController');
 Route::get('/myQuestionnare','FitnessUserController@myQuestionare')->name('myQuestionare');

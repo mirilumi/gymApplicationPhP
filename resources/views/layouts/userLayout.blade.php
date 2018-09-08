@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    {{--<meta charset="utf-8">--}}
+<head><meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+    {{----}}
     {{--<meta http-equiv="X-UA-Compatible" content="IE=edge">--}}
     {{--<meta name="viewport" content="width=device-width, initial-scale=1">--}}
 
@@ -97,7 +97,8 @@
                                 <!--<span>Settings</span>-->
                                 <!--</a>-->
                                 <!--</li>-->
-                                <li><a href="{!! route('changePassword') !!}">Change Password</a></li>
+                                <li><a href="{!! route('changePasswordIndex') !!}">Change Password</a></li>
+                                <li><a href="{!! route('email.index') !!}">Help</a></li>
                                 <li><a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -197,7 +198,9 @@
                     <!--</div>-->
                 </div>
 
-                <div class="clearfix"></div>
+                 <div class="clearfix">
+                    <a type="button" href="{!! url('user/pdf') !!} ">Generate Pdf</a>
+                </div>
 
                 <main class="py-4">
                     @yield('content')

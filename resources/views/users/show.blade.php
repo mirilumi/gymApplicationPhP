@@ -13,7 +13,7 @@
                             {{--<th>Cognome</th>--}}
                             <th>Email</th>
                             <th>Action</th>
-                            <th>Replicate</th>
+                            <th>Replica</th>
                             <th>Make Admin</th>
                             <th>Reset Password</th>
                             <th>Approved</th>
@@ -34,13 +34,13 @@
                                 <a href=" {!! url('admin/user/'.$user->id) !!}" class="btn btn-dark">Crea Pagina</a>
                             </td>
                             <td>
-                                <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('admin/defaultProgram/replicate/'.$user->id) !!}'" value="Replicate">
+                                <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('admin/defaultProgram/replicate/'.$user->id) !!}'" value="Replica">
                             </td>
                             <td>
                                 @if(!$user->is_admin)
-                                <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('admin/user/makeAdmin/'.$user->id) !!}'" value="Make Admin">
+                                <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('admin/user/makeAdmin/'.$user->id) !!}'" value="Rendi Admin">
                                 @else
-                                    <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('admin/user/makeAdmin/'.$user->id) !!}'" value="Make User">
+                                    <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('admin/user/makeAdmin/'.$user->id) !!}'" value="Rendi Utente">
                                 @endif
                             </td>
                             <td>

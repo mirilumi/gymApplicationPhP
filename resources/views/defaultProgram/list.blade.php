@@ -23,7 +23,7 @@
                                     <a href=" {!! url('admin/defaultProgramm/'.$defaultProgram->id) !!}" class="btn btn-dark">Display</a>
                                 </td>
                                 <td>
-                                    <a href=" {!! url('admin/defaultProgramm/'.$defaultProgram->id) !!}" class="btn btn-dark">Edit</a>
+                                    <a href=" {!! url('admin/defaultProgramm/'.$defaultProgram->id) !!}" class="btn btn-dark">Modifica</a>
                                 </td>
                                 <td>
                                     <a href=" {!! url('admin/user/programme/'.$defaultProgram->id) !!}" class="btn btn-dark">Users</a>

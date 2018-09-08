@@ -68,7 +68,6 @@ class FitnessUserController extends Controller
         $data = [
             'user'=>$user,'userTables'=>$userTables,'secondBoxTables'=>$secondBoxTables,'thirdBoxTables'=>$thirdBoxTables,'userProgrammes'=>$programmes
         ];
-//        dd($data);
         $pdf = PDF::loadView('users.download',$data);
         return $pdf->download('invoice.pdf');
     }

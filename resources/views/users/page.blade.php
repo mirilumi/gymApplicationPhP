@@ -19,7 +19,7 @@
                                         <th scope="col">RECUPERO</th>
                                         <th scope="col">NOTE</th>
                                         <th scope="col">ACTION</th>
-                                        <th scope="col">REPLICATE</th>
+                                        <th scope="col">Replica</th>
                                         <!--<th>DELETE</th>-->
                                     </tr>
                                 </thead>
@@ -35,7 +35,7 @@
                                             <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('/admin/usersTable/delete/'.$userTable->id) !!}'" value="DELETE">
                                         </td>
                                         <td>
-                                            <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('/admin/usersTable/replicate/'.$userTable->id) !!}'" value="REPLICATE">
+                                            <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('/admin/usersTable/replicate/'.$userTable->id) !!}'" value="Replica">
                                         </td>
                                     </tr>
                                 @endforeach

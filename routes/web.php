@@ -14,7 +14,15 @@
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::get('/paypalIndex', 'PaymentController@index');
 
+// route for processing payment
+Route::post('paypal', 'PaymentController@payWithpaypal')->name('pay');
+
+// route for check status of the payment
+Route::get('status', 'PaymentController@getPaymentStatus');
+Route::get('addmoney/stripe', array('as' => 'addmoney.paywithstripe','uses' => 'AddMoneyController@payWithStripe'));
+Route::post('addmoney/stripe', array('as' => 'addmoney.stripe','uses' => 'AddMoneyController@postPaymentWithStripe'));
 //Route::get('/questionnare ', function () {
 //    return view('questionnare.questionnare');
 //});

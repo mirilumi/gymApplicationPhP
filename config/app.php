@@ -160,6 +160,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
+        Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
 //        Barryvdh\DomPDF\ServiceProvider::class,
 //        niklasravnsborg\LaravelPdf\PdfServiceProvider::class
     ],
@@ -212,6 +213,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
+        'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
 //        'PDF' => Barryvdh\DomPDF\Facade::class,
 //        'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class
     ],

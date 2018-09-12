@@ -44,6 +44,7 @@ Route::group(['middleware' => 'admin','prefix' => 'admin', 'as' => 'admin.'], fu
     Route::post('userTableDefaultStore/{defaultProgramId}', 'UserTableControllerDefault@save')->name('userTableDefault.save');
     Route::resource('secondBox', 'SecondBoxController');
     Route::resource('thirdBox', 'ThirdBoxController');
+    Route::resource('buyer', 'BuyerController');
     Route::resource('thirdBoxDefault', 'ThirdBoxControllerDefault');
     Route::resource('defaultProgramm', 'DefaultProgramController');
     Route::get('defaultProgram/see', 'DefaultProgramController@see')->name('defaultProgramm.see');

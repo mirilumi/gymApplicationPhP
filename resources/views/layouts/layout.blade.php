@@ -73,7 +73,12 @@
                                 </ul>
 
                             </li>
+                            <li ><a><i class="fa fa-calendar"></i> Acquirenti <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{route('admin.buyer.index')}}">Elenco degli acquirenti</a></li>
+                                </ul>
 
+                            </li>
                             <!--<li><a><i class="fa fa-tasks"></i> Jobs <span class="fa fa-chevron-down"></span></a>-->
                             <!--<ul class="nav child_menu">-->
                             <!--<li><a href="/admin/tasks/my-tasks">My Tasks</a></li>-->

@@ -5,6 +5,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 use PayPal\Api\Amount;
 use PayPal\Api\Item;
 
@@ -17,7 +18,6 @@ use PayPal\Api\RedirectUrls;
 use PayPal\Api\Transaction;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Rest\ApiContext;
-use Redirect;
 use Session;
 use URL;
 
@@ -53,7 +53,7 @@ class PaymentController extends Controller
 
         $item_1 = new Item();
 
-        $item_1->setName('Item 1') /** item name **/
+        $item_1->setName($this->getPurchase($request->get('amount'))) /** item name **/
         ->setCurrency('USD')
             ->setQuantity(1)
             ->setPrice($request->get('amount')); /** unit price **/
@@ -68,7 +68,7 @@ class PaymentController extends Controller
         $transaction = new Transaction();
         $transaction->setAmount($amount)
             ->setItemList($item_list)
-            ->setDescription('Your transaction description');
+            ->setDescription('Payment for '.$this->getPurchase($request->get('amount')));
 
         $redirect_urls = new RedirectUrls();
         $redirect_urls->setReturnUrl(URL::to('status')) /** Specify return URL **/
@@ -89,6 +89,7 @@ class PaymentController extends Controller
                     $user->cognome = $request->cognome;
                 if($request->indirizzio != null)
                     $user->indirizzio = $request->indirizzio;
+                $user->purchase = $this->getPurchase($request->get('amount'));
             }else{
                 $user = new User();
                 $user->email = $request->email;
@@ -99,6 +100,7 @@ class PaymentController extends Controller
                 if($request->indirizzio != null)
                     $user->indirizzio = $request->indirizzio;
                 $user->password = Hash::make('$request->email');
+                $user->purchase = $this->getPurchase($request->get('amount'));
                 $user->save();
             }
             $payment->create($this->_api_context);
@@ -108,12 +110,12 @@ class PaymentController extends Controller
             if (\Config::get('app.debug')) {
 
                 \Session::put('error', 'Connection timeout');
-                return Redirect::to('/');
+                return Redirect::to('/paypalIndex');
 
             } else {
 
                 \Session::put('error', 'Some error occur, sorry for inconvenient');
-                return Redirect::to('/');
+                return redirect()->back();;
 
             }
 
@@ -141,10 +143,33 @@ class PaymentController extends Controller
         }
 
         \Session::put('error', 'Unknown error occurred');
-        return Redirect::to('/');
+        return redirect()->back();;
 
     }
-
+    public function getPurchase($amount){
+        switch ($amount) {
+            case 20:
+                return "MDF FIT (1 Programma) 20";
+                break;
+            case 30:
+                return "MDF FIT (2 Programmi) 30";
+                break;
+            case 40:
+                return "MDF Programma Personalizzato Basic 40";
+                break;
+            case 50:
+                return "MDF FIT (3 Programmi) 50";
+                break;
+            case 70:
+                return "MDF Programma Personalizzato Pro70";
+                break;
+            case 100:
+                return "MDF Programma Personalizzato Plus100";
+                break;
+            default:
+                return "Did Not Pay";
+        }
+    }
     public function getPaymentStatus()
     {
         /** Get the payment ID before session clear **/
@@ -155,7 +180,7 @@ class PaymentController extends Controller
         if (empty(Input::get('PayerID')) || empty(Input::get('token'))) {
 
             \Session::put('error', 'Payment failed');
-            return Redirect::to('/');
+            return redirect()->back();;
 
         }
 
@@ -168,12 +193,13 @@ class PaymentController extends Controller
         if ($result->getState() == 'approved') {
 
             \Session::put('success', 'Payment success');
-            return Redirect::to('/');
+            $user = User::all()->orderBy('id', 'desc')->first();
+            return view('auth.registrationFilled',$user);
 
         }
 
         \Session::put('error', 'Payment failed');
-        return Redirect::to('/');
+        return redirect()->back();;
 
     }
 

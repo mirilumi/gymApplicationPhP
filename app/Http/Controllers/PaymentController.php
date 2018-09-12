@@ -193,7 +193,7 @@ class PaymentController extends Controller
         if ($result->getState() == 'approved') {
 
             \Session::put('success', 'Payment success');
-            $user = User::all()->orderBy('id', 'desc')->first();
+            $user = User::orderBy('id', 'desc')->first();
             return view('auth.registrationFilled',$user);
 
         }

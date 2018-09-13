@@ -81,7 +81,7 @@
                             </li>
                             <li ><a><i class="fa fa-calendar"></i> Progressi <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{route('admin.progress.index')}}">Progressi</a></li>
+                                    <li><a href="{{route('progress.index')}}">Progressi</a></li>
                                 </ul>
 
                             </li>

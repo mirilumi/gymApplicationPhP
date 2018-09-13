@@ -67,6 +67,7 @@
                                 </ul>
 
                             </li>
+                            <li ><a href="{!! url('progress/0') !!}"><i class="fa fa-calendar"></i>Il mio Progressi</a></li>
 
                         </ul>
                     </div>

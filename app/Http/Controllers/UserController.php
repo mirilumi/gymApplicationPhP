@@ -80,6 +80,7 @@ class UserController extends Controller
         $questionare->name = $request->name;
         $questionare->cognome = $request->cognome;
         $questionare->altezza = $request->altezza;
+        $questionare->peso = $request->peso;
         $questionare->allenato = $request->allenato;
         $questionare->struttura_programma = $request->struttura_programma;
         $questionare->durata_allenamento = $request->durata_allenamento;

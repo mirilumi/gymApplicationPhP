@@ -70,6 +70,7 @@ Route::get('edit/progress/{id}', 'ProgressController@editProgress')->name('edit.
 Route::get('changePassword',  'UserController@changePassowrdIndex')->name('changePasswordIndex');
 Route::post('changePassword',  'UserController@changePassowrd')->name('changePassword');
 Route::resource('email', 'EmailController');
+Route::resource('profile', 'ProfileController');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('fitnessUser', 'FitnessUserController');
 Route::get('/myQuestionnare','FitnessUserController@myQuestionare')->name('myQuestionare');

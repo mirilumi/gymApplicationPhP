@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="title_left">
-            <a  href=" {!! url('admin/user/preview/'.$user->id) !!}" class="btn btn-sm btn" >Preview</a></td>
+            <a  href=" {!! url('admin/user/preview/'.$user->id.'/'.$page_nr) !!}" class="btn btn-sm btn" >Preview</a></td>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
@@ -32,16 +32,17 @@
                                         <td>{{$userTable->recupero}}</td>
                                         <td>{{$userTable->note}}</td>
                                         <td>
-                                            <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('/admin/usersTable/delete/'.$userTable->id) !!}'" value="DELETE">
+                                            <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('/admin/usersTable/delete/'.$userTable->id.'/'.$page_nr) !!}'" value="DELETE">
                                         </td>
                                         <td>
-                                            <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('/admin/usersTable/replicate/'.$userTable->id) !!}'" value="Replica">
+                                            <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('/admin/usersTable/replicate/'.$userTable->id.'/'.$page_nr) !!}'" value="Replica">
                                         </td>
                                     </tr>
                                 @endforeach
                                 <tr>
                                     <form action="{{route('admin.usersTable.store')}}" method="POST" >
                                         @csrf
+                                        <input name="page_nr" type="hidden" value="{{$page_nr}}"/>
                                         <td><input name="muscolo" type="text"/></td>
                                         <td><input name="esercizio" type="text"/></td>
                                         <td><input name="serie" type="text"/></td>
@@ -61,7 +62,7 @@
                             <h1 class="form-signin-heading">Online Coach</h1>
                             <br/>
                             <input name="id" type="hidden" value="{{$secondBoxTables[0]->id}}"/>
-
+                            <input name="page_nr" type="hidden" value="{{$page_nr}}"/>
                             <input name="user_id" type="hidden" value="{{$user->id}}"/>
                             <input type="text" value="{{$secondBoxTables[0]->title}}"  placeholder="Title"
                                    id="title1" name="title" class="form-control" /> <br />
@@ -75,7 +76,7 @@
                                 @csrf
                                 <h1 class="form-signin-heading">Online Coach</h1>
                                 <br/>
-
+                                <input name="page_nr" type="hidden" value="{{$page_nr}}"/>
                                 <input name="user_id" type="hidden" value="{{$user->id}}"/>
                                 <input type="text"   placeholder="Title"
                                        id="title1" name="title" class="form-control" /> <br />
@@ -97,7 +98,8 @@
                                     @if(!isset($thirdBoxTables[0]->description))
                                         <form  action="{{route('admin.thirdBox.store')}}" method="POST" class="form-signin" enctype="multipart/form-data">
                                         @csrf
-                                        <textarea   placeholder="Description"
+                                            <input name="page_nr" type="hidden" value="{{$page_nr}}"/>
+                                            <textarea   placeholder="Description"
                                         id="description1" name="description" class="form-control" ></textarea> <br />
                                         <input type="file" name="file" /><br/><br/>
                                         <input name="user_id" type="hidden" value="{{$user->id}}"/>
@@ -106,6 +108,7 @@
                                     @else
                                         <form  action="{!! url('admin/thirdBox/'.$thirdBoxTables[0]->id.'/thirdBoxEdit') !!}" method="POST" class="form-signin" enctype="multipart/form-data">
                                             @csrf
+                                            <input name="page_nr" type="hidden" value="{{$page_nr}}"/>
                                             <textarea   placeholder="Description"
                                                         id="description1" name="description" class="form-control" >{{$thirdBoxTables[0]->description}}</textarea> <br />
                                             <input type="file" name="file" /><br/><br/>

@@ -18,6 +18,7 @@ class CreateThirdBoxTablesTable extends Migration
             $table->text('description');
             $table->string('image')->nullable();
             $table->integer('user_id')->unsigned();
+            $table->string('page_nr')->nullable();
             $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onDelete('cascade');

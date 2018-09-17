@@ -39,7 +39,7 @@ class SecondBoxController extends Controller
     public function store(Request $request)
     {
         SecondBox::create($request->all());
-        return redirect('admin/user/'. User::find($request->get('user_id'))->id);
+        return redirect('admin/user/'. User::find($request->get('user_id'))->id.'/'.$request->page_nr);
 
     }
 
@@ -65,9 +65,10 @@ class SecondBoxController extends Controller
     {
         $secondBox = SecondBox::find($id);
         $secondBox->title = $request->get('title');
+        $secondBox->page_nr = $request->get('page_nr');
         $secondBox->description = $request->get('description');
         $secondBox->save();
-        return redirect('admin/user/'. User::find($request->get('user_id'))->id);
+        return redirect('admin/user/'. User::find($request->get('user_id'))->id.'/'.$request->page_nr);
     }
 
     /**

@@ -11,6 +11,6 @@ class SecondBox extends Model
     {
         return $this->belongsTo('App\\User');
     }
-    protected $fillable = ['id', 'title', 'description','user_id'];
+    protected $fillable = ['id', 'title', 'description','user_id','page_nr'];
 
 }

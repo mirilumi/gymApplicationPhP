@@ -65,7 +65,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = User::where('email',$data['email']);
+        $user = User::where('email',$data['email'])->first();
         if($user){
             $user->name = $data['name'];
             $user->email = $data['email'];

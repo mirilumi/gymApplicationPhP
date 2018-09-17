@@ -115,18 +115,34 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $userId
      * @param  int  $id
+     * @param  int  $pageId
      * @return Response
      */
-    public function replicate($userId,$id)
+    public function show3($id,$pageId)
+    {
+        $user = User::find($id);
+        $userTables = UserTable::where('user_id', $id)->where('page_nr',$pageId)->get();
+        $secondBoxTables = SecondBox::where('user_id', $id)->where('page_nr',$pageId)->get();
+        $thirdBoxTables = ThirdBoxTable::where('user_id', $id)->where('page_nr',$pageId)->get();
+        return view('users.page',array('user'=>$user,'page_nr'=>$pageId,'userTables'=>$userTables,'secondBoxTables'=>$secondBoxTables,'thirdBoxTables'=>$thirdBoxTables));
+    }
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $userId
+     * @param  int  $id
+     * @param  int  $page_nr
+     * @return Response
+     */
+    public function replicate($userId,$id,$page_nr)
     {
         $user = User::find($userId);
-        $userTables = UserTable::where('user_id', $userId)->get();
-        $secondBoxTables = SecondBox::where('user_id', $userId)->get();
-        $thirdBoxTables = ThirdBoxTable::where('user_id', $userId)->get();
+        $userTables = UserTable::where('user_id', $userId)->where('page_nr',$page_nr)->get();
+        $secondBoxTables = SecondBox::where('user_id', $userId)->where('page_nr',$page_nr)->get();
+        $thirdBoxTables = ThirdBoxTable::where('user_id', $userId)->where('page_nr',$page_nr)->get();
         $replicatable = UserTable::find($id);
-        return view('users.replicate',array('user'=>$user,'userTables'=>$userTables,'replicatable'=>$replicatable,'secondBoxTables'=>$secondBoxTables,'thirdBoxTables'=>$thirdBoxTables));
+        return view('users.replicate',array('user'=>$user,'page_nr'=>$page_nr,'userTables'=>$userTables,'replicatable'=>$replicatable,'secondBoxTables'=>$secondBoxTables,'thirdBoxTables'=>$thirdBoxTables));
     }
     /**
      * Display the specified resource.
@@ -207,9 +223,10 @@ class UserController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
+     * @param  int  $page_nr
      * @return Response
      */
-    public function preview($id){
+    public function preview($id,$page_nr){
         $defaultProgram = DefaultProgram::find($id);
         $userTables = [];
         $programmes = [];

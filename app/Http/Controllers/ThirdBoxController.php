@@ -47,7 +47,7 @@ class ThirdBoxController extends Controller
             $thirdBoxTable->save();
         }
 
-        return redirect('admin/user/'. User::find($request->get('user_id'))->id);
+        return redirect('admin/user/'. User::find($request->get('user_id'))->id.'/'.$request->page_nr);
 
     }
 
@@ -81,8 +81,9 @@ class ThirdBoxController extends Controller
             $file->move(public_path('img/'), $filename);
             $thirdBox->image = $filename;
         }
+        $thirdBox->page_nr = $request->get('page_nr');
         $thirdBox->save();
-        return redirect('admin/user/'. User::find($request->get('user_id'))->id);
+        return redirect('admin/user/'. User::find($request->get('user_id'))->id.'/'.$request->page_nr);
     }
     public function thirdBoxEdit($id,Request $request)
     {
@@ -97,7 +98,7 @@ class ThirdBoxController extends Controller
             $thirdBox->image = $filename;
         }
         $thirdBox->save();
-        return redirect('admin/user/'. User::find($request->get('user_id'))->id);
+        return redirect('admin/user/'. User::find($request->get('user_id'))->id.'/'.$request->page_nr);
     }
     /**
      * Update the specified resource in storage.

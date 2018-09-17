@@ -11,5 +11,5 @@ class ThirdBoxTable extends Model
     {
         return $this->belongsTo('App\\User');
     }
-    protected $fillable = ['description', 'image', 'id', 'user_id'];
+    protected $fillable = ['description', 'image', 'id', 'user_id','page_nr'];
 }

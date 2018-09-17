@@ -107,7 +107,7 @@
             <div class="col-md-6">
                 <img src="{{asset('/images/5099.png')}}" alt="" title="" style="width: 80%;">
                 <br/><br/><h6><b>PROGRAMMA PERSONALIZZATO DI ALLENAMENTO MAESTRO DEL FITNESS</b></h6>
-                <p>Il Percorso di allenamento Online per tornare in forma, potresti perdere fino a 10kili in modo rapido e costante tramite il nostro Programma.Basta affidarsi a prodotti che non funzionano o pasti sostitutivi per perdere peso.Affidati al nostro Piano di allenamenti!
+                <p>Il Percorso di allenamento Online per tornare in forma, potresti perdere fino a 10 Chili  in modo rapido e costante tramite il nostro Programma.Basta affidarsi a prodotti che non funzionano o pasti sostitutivi per perdere peso.Affidati al nostro Piano di allenamenti!
                 </p>
                 <p>NESSUN ABBONAMENTO MENSILE. PAGHI SOLO UNA VOLTA. Riceverai il programma dopo aver compilato il tuo Questionario e lo avrai sempre disponibile. </p>
                 <p>&#9660;Compila il Form fino in fondo per inserire i tuoi dati e ordinare il programma!&#9660;</p>

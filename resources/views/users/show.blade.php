@@ -31,7 +31,9 @@
 
                             {{--<td th:text="${user.getEmail()}"></td>--}}
                             <td>
-                                <a href=" {!! url('admin/user/'.$user->id) !!}" class="btn btn-dark">Crea Pagina</a>
+                                <a href=" {!! url('admin/user/'.$user->id.'/1') !!}" class="btn btn-dark">Crea Pagina 1</a>
+                                <a href=" {!! url('admin/user/'.$user->id.'/2') !!}" class="btn btn-dark">Crea Pagina 2</a>
+                                <a href=" {!! url('admin/user/'.$user->id.'/3') !!}" class="btn btn-dark">Crea Pagina 3</a>
                             </td>
                             <td>
                                 <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('admin/defaultProgram/replicate/'.$user->id) !!}'" value="Replica">

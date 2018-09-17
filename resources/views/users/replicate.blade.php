@@ -23,6 +23,7 @@
                             </tr>
                             @foreach($userTables as $userTable)
                                 <tr >
+                                    <input name="page_nr" type="hidden" value="{{$page_nr}}"/>
                                     <td>{{$userTable->muscolo}}</td>
                                     <td>{{$userTable->esercizio}}</td>
                                     <td>{{$userTable->serie}}</td>
@@ -37,6 +38,7 @@
                             <tr>
                                 <form action="{{route('admin.usersTable.store')}}" method="POST" >
                                     @csrf
+                                    <input name="page_nr" type="hidden" value="{{$page_nr}}"/>
                                     <td><input name="muscolo" type="text" value="{{$replicatable->muscolo}}"/></td>
                                     <td><input name="esercizio" type="text" value="{{$replicatable->esercizio}}"/></td>
                                     <td><input name="serie" type="text" value="{{$replicatable->serie}}"/></td>
@@ -56,7 +58,7 @@
                                 <h1 class="form-signin-heading">Online Coach</h1>
                                 <br/>
                                 <input name="id" type="hidden" value="{{$secondBoxTables[0]->id}}"/>
-
+                                <input name="page_nr" type="hidden" value="{{$page_nr}}"/>
                                 <input name="user_id" type="hidden" value="{{$user->id}}"/>
                                 <input type="text" value="{{$secondBoxTables[0]->title}}"  placeholder="Title"
                                        id="title1" name="title" class="form-control" /> <br />
@@ -70,7 +72,7 @@
                                 @csrf
                                 <h1 class="form-signin-heading">Online Coach</h1>
                                 <br/>
-
+                                <input name="page_nr" type="hidden" value="{{$page_nr}}"/>
                                 <input name="user_id" type="hidden" value="{{$user->id}}"/>
                                 <input type="text"   placeholder="Title"
                                        id="title1" name="title" class="form-control" /> <br />
@@ -92,6 +94,7 @@
                                 @if(!isset($thirdBoxTables[0]->description))
                                     <form  action="{{route('admin.thirdBox.store')}}" method="POST" class="form-signin" enctype="multipart/form-data">
                                         @csrf
+                                        <input name="page_nr" type="hidden" value="{{$page_nr}}"/>
                                         <textarea   placeholder="Description"
                                                     id="description1" name="description" class="form-control" ></textarea> <br />
                                         <input type="file" name="file" /><br/><br/>
@@ -101,6 +104,7 @@
                                 @else
                                     <form  action="{!! url('admin/thirdBox/'.$thirdBoxTables[0]->id.'/thirdBoxEdit') !!}" method="POST" class="form-signin" enctype="multipart/form-data">
                                         @csrf
+                                        <input name="page_nr" type="hidden" value="{{$page_nr}}"/>
                                         <textarea   placeholder="Description"
                                                     id="description1" name="description" class="form-control" >{{$thirdBoxTables[0]->description}}</textarea> <br />
                                         <input type="file" name="file" /><br/><br/>
@@ -110,7 +114,7 @@
                                 @endif
                             </div>
                         </div>
-
+                    </table>
 
                 </div>
             </div>

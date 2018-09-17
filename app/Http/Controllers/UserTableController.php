@@ -37,7 +37,7 @@ class UserTableController extends Controller
     public function store(Request $request)
     {
         UserTable::create($request->all());
-        return redirect('admin/user/'. User::find($request->get('user_id'))->id);
+        return redirect('admin/user/'. User::find($request->get('user_id'))->id.'/'.$request->page_nr);
     }
 
     /**
@@ -85,19 +85,20 @@ class UserTableController extends Controller
     {
 
     }
-    public function delete($id){
+    public function delete($id,$page_nr){
         $secondBox = UserTable::find($id);
         UserTable::destroy($id);
-        return redirect('admin/user/'. User::find($secondBox->user_id)->id);
+        return redirect('admin/user/'. User::find($secondBox->user_id)->id.'/'.$page_nr);
     }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
+     * @param  int  $page_nr
      * @return Response
      */
-    public function replicate($id){
+    public function replicate($id,$page_nr){
         $secondBox = UserTable::find($id);
-        return redirect('admin/usersTable/userId/'.$secondBox->user_id.'/replicate/'.$id);
+        return redirect('admin/usersTable/userId/'.$secondBox->user_id.'/replicate/'.$id.'/'.$page_nr);
     }
 }

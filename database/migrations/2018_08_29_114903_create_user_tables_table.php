@@ -21,6 +21,7 @@ class CreateUserTablesTable extends Migration
             $table->string('repetizioni');
             $table->string('recupero');
             $table->string('note');
+            $table->string('page_nr')->nullable();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')
                 ->references('id')->on('users')

@@ -11,5 +11,5 @@ class UserTable extends Model
     {
         return $this->belongsTo('App\\User');
     }
-    protected $fillable = ['muscolo', 'esercizio', 'serie', 'repetizioni', 'recupero', 'note', 'user_id'];
+    protected $fillable = ['muscolo', 'esercizio', 'serie', 'repetizioni', 'recupero', 'note', 'user_id','page_nr'];
 }

@@ -81,7 +81,7 @@
                             </li>
                             <li ><a><i class="fa fa-calendar"></i> Progressi <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{route('admin.progress.index')}}">Progressi</a></li>
+                                    <li><a href="{{route('progress.index')}}">Progressi</a></li>
                                 </ul>
 
                             </li>
@@ -137,7 +137,7 @@
                                 {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                <li><a href="javascript:;"> Profile</a></li>
+                                <li><a href="{{route('profile.index')}}"> Profile</a></li>
                                 <!--<li>-->
                                 <!--<a href="javascript:;">-->
                                 <!--<span class="badge bg-red pull-right">50%</span>-->

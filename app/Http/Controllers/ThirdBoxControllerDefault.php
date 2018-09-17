@@ -83,7 +83,7 @@ class ThirdBoxControllerDefault extends Controller
             $file->move(public_path('img/'), $filename);
             $thirdBox->image = $filename;
         }
-        $thirdBox = $thirdBox->save();
+        $thirdBox->save();
         return redirect('/admin/defaultProgramm/'.$defaultProgramId);
     }
 

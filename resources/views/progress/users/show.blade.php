@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.userLayout')
 
 @section('content')
     <div class="row">
@@ -80,8 +80,8 @@
             <div class="form-group row">
                 <div class="col-md-6">
                     <label for="note">Note</label>
-                     <textarea  placeholder="Note"
-                       id="note" name="note" class="form-control" disabled>{{$progress->note}}</textarea>
+                    <textarea  placeholder="Note"
+                               id="note" name="note" class="form-control" disabled>{{$progress->note}}</textarea>
                 </div>
             </div>
             {{--<div class="col-md-4"></div>--}}
@@ -90,14 +90,14 @@
                     {{--<a class="btn btn-sm btn btn-block" name="Submit" value="Invia" type="Submit" >Invia</a>--}}
                 {{--</div>--}}
             {{--</div>--}}
-            <a  href=" {!! url('edit/progress/'.$user->id) !!}" class="btn btn-lg btn" >Edit</a>
+            <a  href=" {!! url('edit/progress/0') !!}" class="btn btn-lg btn" >Edit</a>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-6">
             <div class="row">
-            <div class="col-sm-6">
-            </div>
+                <div class="col-sm-6">
+                </div>
                 <label>Before</label> <br>
             </div>
             <img  src="{{asset('img/').'/'.$progress->first_photo}}" class="img-responsive center-block" width="500" height="500" alt="Logo" /> <br>

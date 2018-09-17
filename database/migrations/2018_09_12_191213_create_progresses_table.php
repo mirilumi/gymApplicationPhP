@@ -22,6 +22,9 @@ class CreateProgressesTable extends Migration
             $table->string('girocoscia')->nullable();
             $table->string('fianchi')->nullable();
             $table->string('circonferenza_toracica')->nullable();
+            $table->string('first_photo')->nullable();
+            $table->string('second_photo')->nullable();
+            $table->text('note')->nullable();
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')
                 ->references('id')->on('users')

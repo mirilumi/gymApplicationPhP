@@ -227,7 +227,7 @@ class UserController extends Controller
      * @param  int  $page_nr
      * @return Response
      */
-    public function preview($id,$page_nr){
+    public function preview($id){
         $defaultProgram = DefaultProgram::find($id);
         $userTables = [];
         $programmes = [];

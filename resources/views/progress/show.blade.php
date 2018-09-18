@@ -37,14 +37,14 @@
             <div class="col-md-4"></div>
             <div class="form-group row">
                 <div class="col-md-6">
-                    <label for="kili_persi">KILI PERSI</label>
+                    <label for="kili_persi">CHILI PERSI</label>
                     <input id="kili_persi" type="text" class="form-control" value="{{$progress->kili_persi}}" name="kili_persi" disabled>
                 </div>
             </div>
             <div class="col-md-4"></div>
             <div class="form-group row">
                 <div class="col-md-6">
-                    <label for="kili_presi">KILI PRESI (UOMO)</label>
+                    <label for="kili_presi">CHILI PRESI (UOMO)</label>
                     <input id="kili_presi" type="text" class="form-control" value="{{$progress->kili_presi}}" name="kili_presi" disabled>
                 </div>
             </div>
@@ -84,13 +84,12 @@
                        id="note" name="note" class="form-control" disabled>{{$progress->note}}</textarea>
                 </div>
             </div>
-            {{--<div class="col-md-4"></div>--}}
-            {{--<div class="form-group row">--}}
-                {{--<div class="col-md-6">--}}
-                    {{--<a class="btn btn-sm btn btn-block" name="Submit" value="Invia" type="Submit" >Invia</a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            <a  href=" {!! url('edit/progress/'.$user->id) !!}" class="btn btn-lg btn" >Edit</a>
+            <div class="col-md-4"></div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <a  href=" {!! url('edit/progress/'.$user->id) !!}" class="btn btn-lg btn" >Edit</a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -98,7 +97,7 @@
             <div class="row">
             <div class="col-sm-6">
             </div>
-                <label>Before</label> <br>
+                <label>Prima</label> <br>
             </div>
             <img  src="{{asset('img/').'/'.$progress->first_photo}}" class="img-responsive center-block" width="500" height="500" alt="Logo" /> <br>
         </div>
@@ -106,7 +105,7 @@
             <div class="row">
                 <div class="col-sm-6">
                 </div>
-                <label>After</label> <br>
+                <label>Dopo</label> <br>
             </div>
             <img  src="{{asset('img/').'/'.$progress->second_photo}}" class="img-responsive center-block" width="500" height="500" alt="Logo" />
         </div>

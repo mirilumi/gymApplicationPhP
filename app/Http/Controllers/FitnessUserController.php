@@ -37,7 +37,31 @@ class FitnessUserController extends Controller
         foreach ($userProgrammes as $userProgramme){
             $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
         }
-        return view('users.fitnessUser',array('user'=>$user,'userTables'=>$userTables,'secondBoxTables'=>$secondBoxTables,'thirdBoxTables'=>$thirdBoxTables,'userProgrammes'=>$programmes));
+        if(count($userTables) > 0) {
+            return view('users.fitnessUser', array('user' => $user, 'userTables' => $userTables, 'secondBoxTables' => $secondBoxTables, 'thirdBoxTables' => $thirdBoxTables, 'userProgrammes' => $programmes));
+        }else{
+            return view('homeUser', array('user' => $user, 'userTables' => $userTables, 'secondBoxTables' => $secondBoxTables, 'thirdBoxTables' => $thirdBoxTables, 'userProgrammes' => $programmes));
+        }
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @param int $page_nr
+     * @return Response
+     */
+    public function userPages($page_nr)
+    {
+        $user = User::find(Auth::user()->id);
+        $id = $user->id;
+        $userTables = UserTable::where('user_id', $id)->where('page_nr',$page_nr)->get();
+        $secondBoxTables = SecondBox::where('user_id', $id)->where('page_nr',$page_nr)->get();
+        $thirdBoxTables = ThirdBoxTable::where('user_id', $id)->where('page_nr',$page_nr)->get();
+        $userProgrammes = UserProgramme::where('user_id',$id)->get();
+        $programmes = [];
+        foreach ($userProgrammes as $userProgramme){
+            $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
+        }
+        return view('users.fitnessUser',array('user'=>$user,'page_nr'=>$page_nr,'userTables'=>$userTables,'secondBoxTables'=>$secondBoxTables,'thirdBoxTables'=>$thirdBoxTables,'userProgrammes'=>$programmes));
     }
 
     /**
@@ -51,15 +75,16 @@ class FitnessUserController extends Controller
     }
     /**
      * Show the form for creating a new resource.
-     *
+     * @param int $page_nr
+     * @return Response
      */
-    public function pdfGenerate()
+    public function pdfGenerate($page_nr)
     {
         $user = User::find(Auth::user()->id);
         $id = $user->id;
-        $userTables = UserTable::where('user_id', $id)->get();
-        $secondBoxTables = SecondBox::where('user_id', $id)->get();
-        $thirdBoxTables = ThirdBoxTable::where('user_id', $id)->get();
+        $userTables = UserTable::where('user_id', $id)->where('page_nr',$page_nr)->get();
+        $secondBoxTables = SecondBox::where('user_id', $id)->where('page_nr',$page_nr)->get();
+        $thirdBoxTables = ThirdBoxTable::where('user_id', $id)->where('page_nr',$page_nr)->get();
         $userProgrammes = UserProgramme::where('user_id',$id)->get();
         $programmes = [];
         foreach ($userProgrammes as $userProgramme){
@@ -69,7 +94,7 @@ class FitnessUserController extends Controller
             'user'=>$user,'userTables'=>$userTables,'secondBoxTables'=>$secondBoxTables,'thirdBoxTables'=>$thirdBoxTables,'userProgrammes'=>$programmes
         ];
         $pdf = PDF::loadView('users.download',$data);
-        return $pdf->download('invoice.pdf');
+        return $pdf->download('program.pdf');
     }
     /**
      * Show the form for creating a new resource.

@@ -149,7 +149,7 @@ class ProgressController extends Controller
         }
         $questionare->name = $request->name;
         $questionare->cognome = $request->cognome;
-        $questionare->peso = $request->pesso;
+        $questionare->peso = $request->peso;
         $questionare->email = User::find($id)->email;
 //        $questionare->save();
         if($request->hasfile('first_photo'))

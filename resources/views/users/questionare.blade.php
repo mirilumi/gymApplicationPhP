@@ -46,7 +46,7 @@
                                                     <label for="name" class="col-md-4 col-form-label text-md-right">NOME<span class="star">*</span></label>
 
                                                     <div class="col-md-6">
-                                                        <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Your answer" name="name" value="{{$questionnare->name}}" required autofocus>
+                                                        <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Rispondi Qui" name="name" value="{{$questionnare->name}}" required autofocus>
 
                                                         @if ($errors->has('name'))
                                                             <span class="invalid-feedback" role="alert">
@@ -59,7 +59,7 @@
                                                     <label for="name" class="col-md-4 col-form-label text-md-right">COGNOME<span class="star">*</span></label>
 
                                                     <div class="col-md-6">
-                                                        <input id="cognome" type="text" class="form-control{{ $errors->has('cognome') ? ' is-invalid' : '' }}" placeholder="Your answer" name="cognome" value="{{$questionnare->cognome}}" required autofocus>
+                                                        <input id="cognome" type="text" class="form-control{{ $errors->has('cognome') ? ' is-invalid' : '' }}" placeholder="Rispondi Qui" name="cognome" value="{{$questionnare->cognome}}" required autofocus>
 
                                                         @if ($errors->has('cognome'))
                                                             <span class="invalid-feedback" role="alert">
@@ -80,7 +80,7 @@
                                                     <label for="peso" class="col-md-4 col-form-label text-md-right">PESO (KG)</label>
 
                                                     <div class="col-md-6">
-                                                        <input id="peso" type="text" class="form-control" placeholder="Your answer" name="peso" value="{{$questionnare->peso}}"  autofocus>
+                                                        <input id="peso" type="text" class="form-control" placeholder="Rispondi Qui" name="peso" value="{{$questionnare->peso}}"  autofocus>
 
                                                     </div>
                                                 </div>
@@ -88,7 +88,7 @@
                                                     <label for="altezza" class="col-md-4 col-form-label text-md-right">ALTEZZA (CM)</label>
 
                                                     <div class="col-md-6">
-                                                        <input id="altezza" type="text" class="form-control" placeholder="Your answer" name="altezza" value="{{$questionnare->altezza}}"  autofocus>
+                                                        <input id="altezza" type="text" class="form-control" placeholder="Rispondi Qui" name="altezza" value="{{$questionnare->altezza}}"  autofocus>
                                                     </div>
                                                 </div>
 
@@ -129,35 +129,35 @@
                                                     <label for="first_question" class="col-md-4 col-form-label text-md-right">HAI SUBITO INTERVENTI? SE SI QUALI?</label>
 
                                                     <div class="col-md-6">
-                                                        <input id="first_question" type="text" class="form-control" placeholder="Your answer" name="first_question" value="{{$questionnare->first_question}}"  autofocus>
+                                                        <input id="first_question" type="text" class="form-control" placeholder="Rispondi Qui" name="first_question" value="{{$questionnare->first_question}}"  autofocus>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="second_question" class="col-md-4 col-form-label text-md-right">HAI SUBITO DEI TRAUMI? SOFFRI DI QUALCHE DISTURBO? AVVERTI DOLORI IN PARTICOLARE?</label>
 
                                                     <div class="col-md-6">
-                                                        <input id="second_question" type="text" class="form-control" placeholder="Your answer" name="second_question" value="{{$questionnare->second_question}}"  autofocus>
+                                                        <input id="second_question" type="text" class="form-control" placeholder="Rispondi Qui" name="second_question" value="{{$questionnare->second_question}}"  autofocus>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="third_question" class="col-md-4 col-form-label text-md-right">UTILIZZI INTEGRATORI? SE SI QUALI E COME?</label>
 
                                                     <div class="col-md-6">
-                                                        <input id="third_question" type="text" class="form-control" placeholder="Your answer" name="third_question" value="{{$questionnare->second_question}}"  autofocus>
+                                                        <input id="third_question" type="text" class="form-control" placeholder="Rispondi Qui" name="third_question" value="{{$questionnare->second_question}}"  autofocus>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="forth_question" class="col-md-4 col-form-label text-md-right">ASSUMI DEI FARMACI SPECIFICI?SE SI QUALI?</label>
 
                                                     <div class="col-md-6">
-                                                        <input id="forth_question" type="text" class="form-control" placeholder="Your answer" name="forth_question" value="{{$questionnare->forth_question}}"  autofocus>
+                                                        <input id="forth_question" type="text" class="form-control" placeholder="Rispondi Qui" name="forth_question" value="{{$questionnare->forth_question}}"  autofocus>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="fifth_question" class="col-md-4 col-form-label text-md-right">SPECIFICA I TUOI OBIETTIVI</label>
 
                                                     <div class="col-md-6">
-                                                        <input id="fifth_question" type="text" class="form-control" placeholder="Your answer" name="fifth_question" value="{{$questionnare->fifth_question}}"  autofocus>
+                                                        <input id="fifth_question" type="text" class="form-control" placeholder="Rispondi Qui" name="fifth_question" value="{{$questionnare->fifth_question}}"  autofocus>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -190,28 +190,28 @@
                                                     <label for="eighth_question" class="col-md-4 col-form-label text-md-right">Specifica di quali Attrezzi disponi:</label>
 
                                                     <div class="col-md-6">
-                                                        <input id="eighth_question" type="text" class="form-control" placeholder="Your answer" name="eighth_question" value="{{$questionnare->eighth_question}}"  autofocus>
+                                                        <input id="eighth_question" type="text" class="form-control" placeholder="Rispondi Qui" name="eighth_question" value="{{$questionnare->eighth_question}}"  autofocus>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="ninth_question" class="col-md-4 col-form-label text-md-right">NOTE: VUOI AGGIUNGERE QUALCOSA CHE POTREBBE ESSERCI SFUGGITO?</label>
 
                                                     <div class="col-md-6">
-                                                        <input id="ninth_question" type="text" class="form-control" placeholder="Your answer" name="ninth_question" value="{{$questionnare->ninth_question}}"  autofocus>
+                                                        <input id="ninth_question" type="text" class="form-control" placeholder="Rispondi Qui" name="ninth_question" value="{{$questionnare->ninth_question}}"  autofocus>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="eta" class="col-md-4 col-form-label text-md-right">Età <span class="star">*</span></label>
 
                                                     <div class="col-md-6">
-                                                        <input id="eta" type="text" class="form-control" placeholder="Your answer" name="eta" value="{{$questionnare->eta}}"  autofocus required>
+                                                        <input id="eta" type="text" class="form-control" placeholder="Rispondi Qui" name="eta" value="{{$questionnare->eta}}"  autofocus required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="ten_question" class="col-md-4 col-form-label text-md-right">Codice Fiscale (Per Ricevere la Fattura) <span class="star">*</span></label>
 
                                                     <div class="col-md-6">
-                                                        <input id="ten_question" type="text" class="form-control" placeholder="Your answer" name="ten_question" value="{{$questionnare->ten_question}}"  autofocus required>
+                                                        <input id="ten_question" type="text" class="form-control" placeholder="Rispondi Qui" name="ten_question" value="{{$questionnare->ten_question}}"  autofocus required>
                                                     </div>
                                                 </div>
                                                 {{--<button class="btn btn-sm btn btn-block" name="Submit" value="Invia" type="Submit" >Invia</button>--}}

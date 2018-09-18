@@ -99,6 +99,7 @@ Route::resource('email', 'EmailController');
 Route::resource('profile', 'ProfileController');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('fitnessUser', 'FitnessUserController');
+Route::get('user/pages/{page_nr}', 'FitnessUserController@userPages')->name('user.pages');
 Route::get('/myQuestionnare','FitnessUserController@myQuestionare')->name('myQuestionare');
 Route::get('user/default/programme/{id}',  'UserController@preview')->name('user.programme.default');
 Route::get('user/pdf',  'FitnessUserController@pdfGenerate')->name('user.pdf.generate');

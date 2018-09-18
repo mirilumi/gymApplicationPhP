@@ -27,8 +27,8 @@
                 <div class="col-md-4"></div>
                 <div class="form-group row">
                     <div class="col-md-6">
-                        <label for="peso">Peso</label>
-                        <input id="peso" type="text" class="form-control" value="{{$questionnare->peso}}" name="pesso" >
+                        <label for="peso">PESO</label>
+                        <input id="peso" type="text" class="form-control" value="{{$questionnare->peso}}" name="peso" >
                     </div>
                 </div>
                 <div class="col-md-4"></div>
@@ -41,14 +41,14 @@
                 <div class="col-md-4"></div>
                 <div class="form-group row">
                     <div class="col-md-6">
-                        <label for="kili_persi">KILI PERSI</label>
+                        <label for="kili_persi">CHILE PERSI</label>
                         <input id="kili_persi" type="text" class="form-control" value="{{$progress->kili_persi}}" name="kili_persi" >
                     </div>
                 </div>
                 <div class="col-md-4"></div>
                 <div class="form-group row">
                     <div class="col-md-6">
-                        <label for="kili_presi">KILI PRESI (UOMO)</label>
+                        <label for="kili_presi">CHILI PRESI (UOMO)</label>
                         <input id="kili_presi" type="text" class="form-control" value="{{$progress->kili_presi}}" name="kili_presi" >
                     </div>
                 </div>
@@ -83,14 +83,14 @@
                 <div class="col-md-4"></div>
                 <div class="form-group row">
                     <div class="col-md-6">
-                        <label for="note">Before</label>
+                        <label for="note">Prima</label>
                         <input type="file" name="first_photo" /><br/><br/>
                     </div>
                 </div>
                 <div class="col-md-4"></div>
                 <div class="form-group row">
                     <div class="col-md-6">
-                        <label for="note">After</label>
+                        <label for="note">Dopo</label>
                         <input type="file" name="second_photo" /><br/><br/>
                     </div>
                 </div>

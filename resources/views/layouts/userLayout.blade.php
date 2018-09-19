@@ -207,7 +207,7 @@
                 </div>
 
                  <div class="clearfix">
-                    <a type="button" href="{!! url('user/pdf') !!} ">Generate Pdf</a>
+                    <a type="button" href="{!! url('user/pdf/1') !!} ">Generate Pdf</a>
                 </div>
 
                 <main class="py-4">

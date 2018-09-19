@@ -98,7 +98,8 @@ class FitnessUserController extends Controller
             'user'=>$user,'userTables'=>$userTables,'secondBoxTables'=>$secondBoxTables,'thirdBoxTables'=>$thirdBoxTables,'userProgrammes'=>$programmes
         ];
         $pdf = PDF::loadView('users.download',$data);
-        return $pdf->download('program.pdf');
+        $pdf->download('program.pdf');
+        die();
     }
     /**
      * Show the form for creating a new resource.

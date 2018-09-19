@@ -208,7 +208,7 @@
 
                 @if(isset($generatePdf))
                  <div class="clearfix">
-                    <a type="button" href="{!! url('user/pdf') !!} ">Generate Pdf</a>
+                    <a type="button" href="{!! url('user/pdf/1') !!} ">Generate Pdf</a>
                 </div>
                 @endif
                 <main class="py-4">

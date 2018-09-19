@@ -41,15 +41,20 @@
                     <input id="indirizzio" type="text" class="form-control" value="{{$user->indirizzio}}" name="indirizzio" disabled>
                 </div>
             </div>
-            <a  href=" {!! url('edit/progress/0') !!}" class="btn btn-lg btn" >Edit</a>
-        </div>
-        <div class="col-sm-6">
-            <div class="row">
-                <div class="col-sm-6">
+            <div class="col-md-4"></div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <a  href=" {!! url('profile/0') !!}" class="btn btn-lg btn" >Edit</a>
                 </div>
-                <label>Before</label> <br>
             </div>
-            {{--<img  src="{{asset('img/').'/'.$progress->first_photo}}" class="img-responsive center-block" width="500" height="500" alt="Logo" /> <br>--}}
         </div>
+        {{--<div class="col-sm-6">--}}
+            {{--<div class="row">--}}
+                {{--<div class="col-sm-6">--}}
+                {{--</div>--}}
+                {{--<label>Before</label> <br>--}}
+            {{--</div>--}}
+            {{--<img  src="{{asset('img/').'/'.$progress->first_photo}}" class="img-responsive center-block" width="500" height="500" alt="Logo" /> <br>--}}
+        {{--</div>--}}
     </div>
 @endsection

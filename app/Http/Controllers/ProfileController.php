@@ -18,7 +18,7 @@ class ProfileController extends Controller
     {
         $user = User::find(auth()->id());
         if($user->is_admin){
-            return view('profile.indexAdmin',['user'=>$user]);
+            return view('profile.indexAdmin',['user'=>$user,'userProgrammes'=>$programmes]);
         }else{
             $user = User::find(auth()->id());
             $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
@@ -26,7 +26,7 @@ class ProfileController extends Controller
             foreach ($userProgrammes as $userProgramme){
                 $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
             }
-            return view('profile.indexUser',['user'=>$user,'programmes'=>$programmes]);
+            return view('profile.indexUser',['user'=>$user,'userProgrammes'=>$programmes]);
         }
     }
 
@@ -64,7 +64,7 @@ class ProfileController extends Controller
             foreach ($userProgrammes as $userProgramme){
                 $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
             }
-            return view('profile.showUser',['user'=>$user,'programmes'=>$programmes]);
+            return view('profile.showUser',['user'=>$user,'userProgrammes'=>$programmes]);
         }
     }
 
@@ -86,7 +86,7 @@ class ProfileController extends Controller
             foreach ($userProgrammes as $userProgramme){
                 $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
             }
-            return view('profile.showUser',['user'=>$user,'programmes'=>$programmes]);
+            return view('profile.showUser',['user'=>$user,'userProgrammes'=>$programmes]);
         }
     }
 

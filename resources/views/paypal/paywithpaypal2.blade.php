@@ -10,18 +10,22 @@
             <div class="col-md-4"></div>
         </div>
         @if ($message = Session::get('success'))
-            <div class="w3-panel w3-green w3-display-container">
-        <span onclick="this.parentElement.style.display='none'"
-              class="w3-button w3-green w3-large w3-display-topright">&times;</span>
-                <p>{!! $message !!}</p>
+            <div class="card">
+                <div class="card-header text-center">
+                    <span onclick="this.parentElement.style.display='none'"
+                          class="w3-button w3-green w3-large w3-display-topright">&times;</span>
+                    <p style="color:green;">{!! $message !!}</p>
+                </div>
             </div>
             <?php Session::forget('success');?>
         @endif
         @if ($message = Session::get('error'))
-            <div class="w3-panel w3-red w3-display-container">
-        <span onclick="this.parentElement.style.display='none'"
-              class="w3-button w3-red w3-large w3-display-topright">&times;</span>
-                <p>{!! $message !!}</p>
+            <div class="card">
+                <div class="card-header text-center">
+                    <span onclick="this.parentElement.style.display='none'"
+                          class="w3-button w3-red w3-large w3-display-topright">&times;</span>
+                    <p> style="color:red;"{!! $message !!}</p>
+                </div>
             </div>
             <?php Session::forget('error');?>
         @endif
@@ -29,24 +33,11 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header text-center">
-                        <h1>Payment</h1><br>
+                        <h1>Acquista ora il tuo Programma</h1><br>
                     </div>
-                    <form action="{{route('pay')}}" method="POST" >
+                    <form action="{{route('paySecond')}}" method="POST" >
                         @csrf
                         <br>
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address<span class="star">*</span></label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="La tua Email" name="email"  required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('email') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">NOME<span class="star">*</span></label>
 
@@ -61,17 +52,31 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">TELEFONO <span class="star">*</span></label>
-
-                            <div class="col-md-6">
-                                <input id="telefono" type="number" class="form-control" placeholder="Telefono" name="telefono"  required autofocus>
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">COGNOME</label>
 
                             <div class="col-md-6">
                                 <input id="cognome" type="text" class="form-control{{ $errors->has('cognome') ? ' is-invalid' : '' }}" placeholder="Cognome" name="cognome"autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address<span class="star">*</span></label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="La tua Email" name="email"  required>
+
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">TELEFONO <span class="star">*</span></label>
+
+                            <div class="col-md-6">
+                                <input id="telefono" type="number" class="form-control" placeholder="Telefono" name="telefono"  required autofocus>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -87,9 +92,9 @@
                                 <label for="amount" class="col-md-12 col-form-label">Scegli il tuo programma</label>
 
                                 <select id="amount" name="amount" class="form-control">
-                                    <option value="20">MDF FIT (1 Programma) 20</option>
-                                    <option value="30">MDF FIT (2 Programmi) 30</option>
-                                    <option value="50">MDF FIT (3 Programmi) 50</option>
+                                    <option value="29.99">6 Mesi Membership</option>
+                                    <option value="24.29">9 Mesi Membership</option>
+                                    <option value="19.99">12 Mesi Membership</option>
                                 </select>
                             </div>
                             <div class="col-md-1"></div>
@@ -100,29 +105,76 @@
                                 Ho preso visione e accetto tutti i Termini e le Condizioni visualizzabili al seguente <a href="http://www.maestrodelfitness.com/5/5.html">LINK.</a>
                             </label>
                         </div>
-                        <button class="btn btn-sm btn btn-block" name="Submit" value="Pay" type="Submit" >Pay</button>
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+                                <input class="btn btn-sm btn btn-block" src="{{asset('/images/paypalbutton.jpeg')}}" name="Submit" value="Pay" type="image" />
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
+                        <img src="{{asset('/images/paypalimage.png')}}" alt="" title="" style="width: 80%;">
+
                     </form>
+                </div>
+                <div class="row">
+                    <div class="box box-default">
+                        <div class="box-body">
+                            <div class="alert alert-info alert-dismissible" style="background: #f6f6f6; color: black;">
+                                To be filled
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <img src="{{asset('/images/5099.png')}}" alt="" title="" style="width: 80%;">
-                <br/><br/><h6><b>PROGRAMMA PERSONALIZZATO DI ALLENAMENTO MAESTRO DEL FITNESS</b></h6>
-                <p>Il Percorso di allenamento Online per tornare in forma, potresti perdere fino a 10 Chili  in modo rapido e costante tramite il nostro Programma.Basta affidarsi a prodotti che non funzionano o pasti sostitutivi per perdere peso.Affidati al nostro Piano di allenamenti!
+                {{--<img src="{{asset('/images/5099.png')}}" alt="" title="" style="width: 80%;">--}}
+                {{--<div style="border-style: solid;border-color: #0f0f0f">--}}
+                <a type="button" class="btn-default" href="">Here Will placed the link</a>
+                {{--</div>--}}
+                <br/><br/><h6><b>PROGRAMMA ALLENAMENTO 5PLUS MAESTRO DEL FITNESS </b></h6>
+                <br/><br/><h4>Pacchetti di allenamento Completi. Diversi livelli di intensità</h4>
+                <br/><br/><h4><b>WorkoutIdeati, Studiati, Pensati da Maestro del Fitness per
+                        farti ottenere risultati migliori, Stimolarti con diversi tipi di allenamento</b>
+                </h4>
+                <br/><br/><h4><b>Basta allenamenti ripetitivi con Maestro del Fitness ti migliori giorno per giorno con differenti tipologiedi Workout, questo è MDF FIT.</b>
+                </h4>
+                <br/><br/><h4><b>Non esiste un programma di allenamento che possa andare bene per tutti.</b></h4>
+                <p>Per questo abbiamo creato MDF FIT!
+                    Programmi di allenamento ben strutturati finalizzati al miglioramento costante della vostra forma fisica.
+                    Caratterizzati da un mix efficace di elementi. Quali ’intensità, varietà e complessita dell’allenamento.
+                    Il qualevaria a seconda del livello di preparazione. MDF FIT si contraddistingue sempre per un’elevata complessità e il successo è merito dei Dottori competenti che lo hanno creato.
                 </p>
-                <p>NESSUN ABBONAMENTO MENSILE. PAGHI SOLO UNA VOLTA. Riceverai il programma dopo aver compilato il tuo Questionario e lo avrai sempre disponibile. </p>
-                <p>&#9660;Compila il Form fino in fondo per inserire i tuoi dati e ordinare il programma!&#9660;</p>
+                 <br/><br/><h4>Il Fitness è un modo sano e Naturale di riprendere il controllo del proprio benessere Psicofisico!
+                </h4>
+                <br/><br/><h4>NESSUN ABBONAMENTO MENSILE. PAGHI SOLO UNA VOLTA. Riceverai il programma subito dopo il tuo acquisto e lo avrai sempre disponibile.
+                </h4>
+                <p>&#9660;Compila il Form fino in fondo per procedere all’acquisto dei programmi!&#9660;</p>
                 <h6><b>ECCO COSA RICEVI: </b></h6>
                 <ul>
-                    <li>Un percorso di Online Coaching</li>
-                    <li>Consigli sull’allenamento, Consigli sull'esecuzione degli esercizi, eventuali rimedi naturali consigliati, Video Tutorial e spiegazioni.</li>
-                    <li>Accesso al nostro Gruppo Exclusive su cui troverai altri contenuti Bonus e una community di utenti come te appassionati di Fitness. <a href="https://www.facebook.com/groups/MaestroDelFitnessExclusive/">Accedi Ora.</a></li>
-                    <li>Un assistenza live per tutta la durata del tuo Percorso.</li>
+                    <li>Pacchetti di allenamento ideali per ogni momento o luogo. <br> Alcuni Esempi di Seguito: </li>
+                    <li>-ALLENAMENTO IN CASA A CORPO LIBERO</li>
+                    <li>-ALLENAMENTO OUTDOOR A CORPO LIBERO</li>
+                    <li>-ALLENAMENTO OUTDOOR CON ATTREZZI</li>
+                    <li>-ALLENAMENTO FUNCTIONAL IN PALESTRA</li>
+                    <li>-ALLENAMENTO CON PESI IN PALESTRA (Unisex)</li>
+                    <p>E tantissimi Altri disponibili, ne hai uno su richiesta in Particola? Maestro del Fitness potrebbe crearlo per te, scrivici a info@maestrodelfitness.com</p>
+                    <li>Un elenco di Programmi a tua disposizione da cui scegliere i tuoi preferiti. </li>
+                    <li>Consigli sull’allenamento</li>
+                    <li>Consigli sull'esecuzione degli esercizi</li>
+                    <li>Video Tutorial dedicati.</li>
+                    <li>Accesso ai nostri Gruppi su Facebookdove troverai altri contenuti Bonus e una community di utenti come te appassionati di Fitness</li>
+                    <li>Uno sconto su un eventuale acquisto futuro del Programma Personalizzato, richiedicelo.</li>
                 </ul>
                 <div class="box box-default">
                     <div class="box-body">
                         <div class="alert alert-info alert-dismissible" style="background: #f6f6f6; color: black;">
                             <h6><b><i class="icon fa fa-info"></i>Inizi Subito!</b></h6>
-                            <p style="color:#928780;">Dopo l'acquisto potrai accedere al nostro veloce questionario con il quale creeremo il tuo Personalizzato in 48 ore!</p>
+                            <p style="color:#928780;">
+                                <ul>
+                                    <li>Dopo l'acquisto potrai registrarti e accedere al nostro portale e selezionare dall’elenco gli allenamenti che preferisci. Disponibili per te svariati Programmi MDF Fit. </li>
+                                    <li>Potrai inoltre compilare il nostro questionario grazie al quale se in futuro vorrai potrai acquistare il tuo Personalizzato che verrà ideato in sole 48 ore.</li>
+                                </ul>
+                            </p>
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -131,7 +183,11 @@
                     <div class="box-body">
                         <div class="alert alert-info alert-dismissible" style="background: #f6f6f6; color: black;">
                             <h6><b><i class="icon fa fa-info"></i>Nessun abbonamento o costo extra.</b></h6>
-                            <p style="color:#928780;">Per questo programma pagherai una volta sola senza avere abbonamenti o costi fissi mensili "nascosti"! Qualora non fossi sicuro del tuo acquisto, il programma richiede qualche giorno per essere creato quindi hai tutto il tempo per richiedere il Rimborso completo.</p>
+                            <p style="color:#928780;">
+                            <ul>
+                                <li>Per questo programma pagherai una volta sola senza avere abbonamenti o costi fissi mensili "nascosti"! Qualora non fossi sicuro del tuo acquisto,i programmi verranno rilasciati 24h dopo il tuo acquisto, quindi hai tutto il tempo per richiedere il Rimborso completo</li>
+                            </ul>
+                            </p>
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -140,34 +196,43 @@
                     <div class="box-body">
                         <div class="alert alert-info alert-dismissible" style="background: #f6f6f6; color: black;">
                             <h6><b><i class="icon fa fa-info"></i>Accesso per Sempre. Aggiornamenti inclusi.</b></h6>
-                            <p style="color:#928780;">Potrai iniziare quando vuoi perchè avrai ACCESSO PER SEMPRE al programma. Senza ulteriori costi.Paga in modo 100% sicuro tramite Paypal, con il tuo account paypal o utilizzando la tua carta di credito.</p>
-                        </div>
-                    </div>
-                    <!-- /.box-body -->
-                    <div class="box box-default">
-                        <div class="box-body">
-                            <div class="alert alert-info alert-dismissible" style="background: #f6f6f6; color: black;">
-                                <h6><b><i class="icon fa fa-info"></i>Hai Bisogno di aiuto?</b></h6>
-                                <p style="color:#928780;">Mandaci una Mail<a href="mailto:info@maestrodelfitness.com"></a><br/>Il nostro Staff ti risponderà il prima possibile per qualsiasi dubbio o chiarimento.Siamo sempre attivi anche sul nostro messenger di Facebook.</p>
-                            </div>
-                        </div>
-                        <!-- /.box-body -->
-                        <div class="box box-default">
-                            <div class="box-body">
-                                <div class="alert alert-info alert-dismissible" style="background: #f6f6f6; color: black;">
-                                    <h6><b><i class="icon fa fa-info"></i>Vuoi pagare con bonifico?</b></h6>
-                                    <p style="color:#928780;">Scrivici <a href="mailto:info@maestrodelfitness.com">info@maestrodelfitness.com</a></p>
-                                </div>
-
-
-
-                            </div>
-                            <!-- /.box-body -->
+                            <p style="color:#928780;">
+                            <ul>
+                                <li>Avrai ACCESSO PER SEMPRE ai Programmi MDF Fit acquistati.</li>
+                                <li>Paga in modo 100% sicuro tramite Paypal, con il tuo account paypal o utilizzando la tua carta di credito.</li>
+                            </ul>
+                            </p>
                         </div>
                     </div>
                 </div>
+                <div class="box box-default">
+                    <div class="box-body">
+                        <div class="alert alert-info alert-dismissible" style="background: #f6f6f6; color: black;">
+                            <h6><b><i class="icon fa fa-info"></i>Hai Bisogno di aiuto?</b></h6>
+                            <p style="color:#928780;">
+                            <ul>
+                                <li>Mandaci una Mail.<br>Il nostro Staff ti risponderà il prima possibile per qualsiasi dubbio o chiarimento.</li>
+                                <li>Siamo sempre attivi anche sui nostri canali Social.</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="box box-default">
+                    <div class="box-body">
+                        <div class="alert alert-info alert-dismissible" style="background: #f6f6f6; color: black;">
+                            <h6><b><i class="icon fa fa-info"></i>Vuoi pagare con bonifico?</b></h6>
+                            <p style="color:#928780;">Scrivici <a href="mailto:info@maestrodelfitness.com">info@maestrodelfitness.com</a></p>
+                        </div>
+
+
+
+                    </div>
+                    <!-- /.box-body -->
+                </div>
             </div>
         </div>
+
     </div>
     <div class="row">
 

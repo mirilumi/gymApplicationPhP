@@ -45,6 +45,53 @@ class PaymentController extends Controller
     {
         return view('paypal.paywithpaypal');
     }
+    public function index2()
+    {
+        return view('paypal.paywithpaypal2');
+    }
+    public function paySecond(Request $request){
+        $user = User::where('email',$request->email)->first();
+        $redirectUrl = '';
+        if($user){
+            $user->name= $request->name;
+            $user->telefono= $request->telefono;
+            if($request->cognome != null)
+                $user->cognome = $request->cognome;
+            if($request->indirizzio != null)
+                $user->indirizzio = $request->indirizzio;
+            $user->purchase = $this->getPurchase($request->get('amount'));
+        }else{
+            $user = new User();
+            $user->email = $request->email;
+            $user->name = $request->name;
+            $user->telefono= $request->telefono;
+            if($request->cognome != null)
+                $user->cognome = $request->cognome;
+            if($request->indirizzio != null)
+                $user->indirizzio = $request->indirizzio;
+            $user->password = Hash::make($request->email);
+            $user->purchase = $this->getPurchase($request->get('amount'));
+            $user->save();
+        }
+        $redirectUrl = $this->getRedirectUrl($request->get('amount'));
+        return redirect($redirectUrl);
+    }
+    public function getRedirectUrl($amount){
+        switch ($amount) {
+            case 29.99:
+                return "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4Q4PXRATBCBF2";
+                break;
+            case 24.99:
+                return "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=77P83BFRLLMU6";
+                break;
+            case 19.99:
+                return "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4Q4PXRATBCBF2";
+                break;
+            default:
+                return "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4Q4PXRATBCBF2";
+        }
+    }
+
     public function payWithpaypal(Request $request)
     {
 //        dd($request->all());
@@ -54,7 +101,7 @@ class PaymentController extends Controller
         $item_1 = new Item();
 
         $item_1->setName($this->getPurchase($request->get('amount'))) /** item name **/
-        ->setCurrency('USD')
+        ->setCurrency('EUR')
             ->setQuantity(1)
             ->setPrice($request->get('amount')); /** unit price **/
 
@@ -62,7 +109,7 @@ class PaymentController extends Controller
         $item_list->setItems(array($item_1));
 
         $amount = new Amount();
-        $amount->setCurrency('USD')
+        $amount->setCurrency('EUR')
             ->setTotal($request->get('amount'));
 
         $transaction = new Transaction();
@@ -99,7 +146,7 @@ class PaymentController extends Controller
                     $user->cognome = $request->cognome;
                 if($request->indirizzio != null)
                     $user->indirizzio = $request->indirizzio;
-                $user->password = Hash::make('$request->email');
+                $user->password = Hash::make($request->email);
                 $user->purchase = $this->getPurchase($request->get('amount'));
                 $user->save();
             }
@@ -148,8 +195,14 @@ class PaymentController extends Controller
     }
     public function getPurchase($amount){
         switch ($amount) {
-            case 20:
-                return "MDF FIT (1 Programma) 20";
+            case 29.99:
+                return "6 Mesi Membership";
+                break;
+            case 24.99:
+                return "9 Mesi Membership";
+                break;
+            case 19.99:
+                return "12 Mesi Membership";
                 break;
             case 30:
                 return "MDF FIT (2 Programmi) 30";
@@ -194,7 +247,7 @@ class PaymentController extends Controller
 
             \Session::put('success', 'Payment success');
             $user = User::orderBy('id', 'desc')->first();
-            return view('auth.registration',$user);
+            return view('auth.registerr',$user);
 
         }
 

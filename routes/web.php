@@ -12,12 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+//    return view('auth.login');
+    return view('welcomeFitness');
 });
-Route::get('/paypalIndex', 'PaymentController@index');
+Route::get('/paypalIndex', 'PaymentController@index')->name('payment1');
+Route::get('/paypalIndex2', 'PaymentController@index2')->name('payment2');
 
 // route for processing payment
 Route::post('paypal', 'PaymentController@payWithpaypal')->name('pay');
+Route::post('paySecond', 'PaymentController@paySecond')->name('paySecond');
 
 // route for check status of the payment
 Route::get('status', 'PaymentController@getPaymentStatus');

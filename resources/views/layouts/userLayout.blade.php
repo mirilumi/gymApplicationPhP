@@ -98,7 +98,7 @@
                                 {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                <li><a href="javascript:;"> Profile</a></li>
+                                <li><a href="{{route('profile.index')}}"> Profile</a></li>
                                 <!--<li>-->
                                 <!--<a href="javascript:;">-->
                                 <!--<span class="badge bg-red pull-right">50%</span>-->
@@ -206,10 +206,11 @@
                     <!--</div>-->
                 </div>
 
+                @if(isset($generatePdf))
                  <div class="clearfix">
                     <a type="button" href="{!! url('user/pdf') !!} ">Generate Pdf</a>
                 </div>
-
+                @endif
                 <main class="py-4">
                     @yield('content')
                 </main>

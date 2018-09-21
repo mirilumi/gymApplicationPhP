@@ -247,7 +247,7 @@ class PaymentController extends Controller
 
             \Session::put('success', 'Payment success');
             $user = User::orderBy('id', 'desc')->first();
-            return view('auth.registerr',$user);
+            return redirect('/');
 
         }
 

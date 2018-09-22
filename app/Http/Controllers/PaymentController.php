@@ -195,29 +195,23 @@ class PaymentController extends Controller
     }
     public function getPurchase($amount){
         switch ($amount) {
-            case 29.99:
-                return "6 Mesi Membership";
-                break;
-            case 24.99:
-                return "9 Mesi Membership";
+            case 14.99:
+                return "12 Mesi Membership 14.99/Mese";
                 break;
             case 19.99:
-                return "12 Mesi Membership";
+                return "6 Mesi Membership 19.99/Mese";
                 break;
-            case 30:
-                return "MDF FIT (2 Programmi) 30";
+            case 24.99:
+                return "3 Mesi Membership 24.99/Mese";
                 break;
-            case 40:
-                return "MDF Programma Personalizzato Basic 40";
+            case 39.99:
+                return "MDF Programma Personalizzato Basic 39.99";
                 break;
-            case 50:
-                return "MDF FIT (3 Programmi) 50";
+            case 69.99:
+                return "MDF Programma Personalizzato Pro 69.99";
                 break;
-            case 70:
-                return "MDF Programma Personalizzato Pro70";
-                break;
-            case 100:
-                return "MDF Programma Personalizzato Plus100";
+            case 99.99:
+                return "MDF Programma Personalizzato Plus 99.99";
                 break;
             default:
                 return "Did Not Pay";

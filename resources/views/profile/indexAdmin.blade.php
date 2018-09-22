@@ -37,14 +37,20 @@
             <div class="col-md-4"></div>
             <div class="form-group row">
                 <div class="col-md-6">
-                    <label for="indirizzio">Indirizzion</label>
+                    <label for="indirizzio">Indirizzio</label>
                     <input id="indirizzio" type="text" class="form-control" value="{{$user->indirizzio}}" name="indirizzio" disabled>
                 </div>
             </div>
             <div class="col-md-4"></div>
             <div class="form-group row">
                 <div class="col-md-6">
-                    <a  href=" {!! url('profile/0') !!}" class="btn btn-lg btn" >Edit</a>
+                    <img src="{{asset('img/').'/'.$user->image}}"  class="img-responsive center-block" alt="Logo" />
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <input type="button" class="btn btn-lg btn-danger" onclick="location.href='{!! url('profile/0') !!}';" value="Edit" />
                 </div>
             </div>
 

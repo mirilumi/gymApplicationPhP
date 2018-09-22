@@ -4,7 +4,7 @@
     <div class="row">
         <div class="card">
             <br>
-            <form method="POST" action="{!! url('profile') !!}">
+            <form method="POST" action="{!! url('profile') !!}" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-4"></div>
                 <div class="form-group row">
@@ -38,8 +38,15 @@
                 <div class="col-md-4"></div>
                 <div class="form-group row">
                     <div class="col-md-6">
-                        <label for="indirizzio">Indirizzion</label>
+                        <label for="indirizzio">Indirizzio</label>
                         <input id="indirizzio" type="text" class="form-control" value="{{$user->indirizzio}}" name="indirizzio" >
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label for="note">Photo</label>
+                        <input type="file" name="userPhoto" /><br/><br/>
                     </div>
                 </div>
                 <div class="col-md-4"></div>

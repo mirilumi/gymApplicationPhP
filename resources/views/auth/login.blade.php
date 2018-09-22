@@ -59,9 +59,9 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group row col-md-4 offset-5">
                             {{--<div class="col-md-8 offset-md-4">--}}
-                                <button type="submit" class="btn btn-md btn btn-block">
+                                <button type="submit" class="btn btn-sm btn btn-block">
                                     {{ __('Login') }}
                                 </button>
 
@@ -78,11 +78,11 @@
     </div>
     <br>
     <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
+        <div class="col-sm-4"></div>
+        <div class="col-md-5">
             <div class="form-group">
                 <form action="{{route('register')}}" method="get">
-                    <button class="btn btn-md btn-dark btn-block" type="Submit">Vai alla Pagina di Registrazione</button>
+                    <button class="btn btn-sm btn-dark btn-block" type="Submit">Vai alla Pagina di Registrazione</button>
                 </form>
             </div>
         </div>

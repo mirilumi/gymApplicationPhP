@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('purchase')->nullable();
             $table->string('telefono')->nullable();
             $table->string('indirizzio')->nullable();
+            $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->boolean('active')->default(0);

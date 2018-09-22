@@ -56,6 +56,7 @@ class EmailController extends Controller
         $data = array('name'=>$user->name, "body" => $request->message);
         Mail::send('emails.email', $data, function($message) {
             $message->to('carlo@maestrodelfitness.com', 'Help Desk')
+                ->cc(['carlo@maestrodelfitness.com','stefano@maestrodelfitness.com'])
                 ->subject('Problem In system ');
             $message->from('support@maestrodelfitnessapp.maestrodelfitness.com','Admin');
         });

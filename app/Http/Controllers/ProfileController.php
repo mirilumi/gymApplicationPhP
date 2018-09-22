@@ -18,6 +18,12 @@ class ProfileController extends Controller
     {
         $user = User::find(auth()->id());
         if($user->is_admin){
+            $user = User::find(auth()->id());
+            $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
+            $programmes = [];
+            foreach ($userProgrammes as $userProgramme){
+                $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
+            }
             return view('profile.indexAdmin',['user'=>$user,'userProgrammes'=>$programmes]);
         }else{
             $user = User::find(auth()->id());
@@ -54,9 +60,23 @@ class ProfileController extends Controller
         $user->email = $request->email;
         $user->telefono = $request->telefono;
         $user->indirizzio = $request->indirizzio;
+        if($request->hasfile('userPhoto'))
+        {
+            $file = $request->file('userPhoto');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename =time().$request->get('user_id').'.'.$extension;
+            $file->move(public_path('img/'), $filename);
+            $user->image = $filename;
+        }
         $user->save();
         if($user->is_admin){
-            return view('profile.showAdmin',['user'=>$user]);
+            $user = User::find(auth()->id());
+            $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
+            $programmes = [];
+            foreach ($userProgrammes as $userProgramme){
+                $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
+            }
+            return view('profile.showAdmin',['user'=>$user,'userProgrammes'=>$programmes]);
         }else{
             $user = User::find(auth()->id());
             $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
@@ -78,7 +98,13 @@ class ProfileController extends Controller
     {
         $user = User::find(auth()->id());
         if($user->is_admin){
-            return view('profile.showAdmin',['user'=>$user]);
+            $user = User::find(auth()->id());
+            $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
+            $programmes = [];
+            foreach ($userProgrammes as $userProgramme){
+                $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
+            }
+            return view('profile.showAdmin',['user'=>$user,'userProgrammes'=>$programmes]);
         }else{
             $user = User::find(auth()->id());
             $userProgrammes = UserProgramme::where('user_id',$user->id)->get();

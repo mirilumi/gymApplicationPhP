@@ -59,7 +59,7 @@
                                 <!--</ul>-->
                             </li>
                             <li><a href="{{route('myQuestionare')}}"><i class="fa fa-user"></i> My Info</a>
-                            <li ><a><i class="fa fa-star-o"></i> Programmi <span class="fa fa-chevron-down"></span></a>
+                            <li ><a><i class="fa fa-star-o"></i> Programmi Maestro Del Fitness <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     @foreach($userProgrammes as $programme)
                                     <li><a href=" {!! url('user/default/programme/'.$programme->id) !!}">{{$programme->name}}</a></li>
@@ -67,11 +67,11 @@
                                 </ul>
 
                             </li>
-                            <li ><a><i class="fa fa-star-o"></i>Personalizato Programmi<span class="fa fa-chevron-down"></span></a>
+                            <li ><a><i class="fa fa-star-o"></i>Programma Personalizzato<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                        <li><a href=" {!! url('user/pages/1') !!}">Page 1</a></li>
-                                        <li><a href=" {!! url('user/pages/2') !!}">Page 2</a></li>
-                                        <li><a href=" {!! url('user/pages/3') !!}">Page 3</a></li>
+                                        <li><a href=" {!! url('user/pages/1') !!}">Scheda 1</a></li>
+                                        <li><a href=" {!! url('user/pages/2') !!}">Scheda 2</a></li>
+                                        <li><a href=" {!! url('user/pages/3') !!}">Scheda 3</a></li>
                                 </ul>
                             </li>
                             <li ><a href="{!! url('progress/0') !!}"><i class="fa fa-calendar"></i>I miei Progressi</a></li>

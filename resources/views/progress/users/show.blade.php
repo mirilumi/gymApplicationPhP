@@ -87,7 +87,7 @@
             <div class="col-md-4"></div>
             <div class="form-group row">
                 <div class="col-md-6">
-                    <a  href=" {!! url('edit/progress/0') !!}" class="btn btn-lg btn" >Edit</a>
+                    <input type="button" class="btn btn-lg btn-danger" onclick="location.href='{!! url('edit/progress/0') !!}';" value="Edit" />
                 </div>
             </div>
         </div>

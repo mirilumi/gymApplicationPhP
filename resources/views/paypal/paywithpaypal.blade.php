@@ -92,9 +92,9 @@
                                 <label for="amount" class="col-md-12 col-form-label">Scegli il tuo programma</label>
 
                                 <select id="amount" name="amount" class="form-control">
-                                    <option value="40">MDF Programma Personalizzato Basic 40</option>
-                                    <option value="70">MDF Programma Personalizzato Pro70</option>
-                                    <option value="100">MDF Programma Personalizzato Plus100</option>
+                                    <option value="39.99">MDF Programma Personalizzato Basic 39.99 </option>
+                                    <option value="69.99">MDF Programma Personalizzato Pro 69.99</option>
+                                    <option value="99.99">MDF Programma Personalizzato Plus 99.99</option>
                                 </select>
                             </div>
                             <div class="col-md-1"></div>
@@ -102,7 +102,7 @@
                         <div class="form-check">
                             <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input" required="required">
-                                Ho preso visione e accetto tutti i Termini e le Condizioni visualizzabili al seguente <a href="http://www.maestrodelfitness.com/5/5.html">LINK.</a>
+                                Ho preso visione e accetto tutti i Termini e le condizioni visuliazzabili alla seguente <a href="http://www.maestrodelfitness.com/5/5.html">Pagina</a>
                             </label>
                         </div>
                         <div class="row">

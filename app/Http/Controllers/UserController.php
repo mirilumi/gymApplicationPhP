@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BlankPage;
 use App\DefaultProgram;
 use App\Questionnare;
 use App\SecondBox;
@@ -250,7 +251,18 @@ class UserController extends Controller
         foreach ($userProgrammes as $userProgramme){
             $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
         }
-        return view('defaultProgram.preview',array('userTables'=>$userTables,'defaultProgram'=>$defaultProgram,'thirdBoxTable'=>$thirdBoxTable,'secondBoxTable'=>$secondBoxTable,'userProgrammes'=>$programmes));
+        if($defaultProgram->is_blank){
+            $blankPage = BlankPage::where('default_program_id',$defaultProgram->id)->first();
+            return view('defaultProgram.blank.preview',array('blankPage'=>$blankPage,'defaultProgram'=>$defaultProgram,'thirdBoxTable'=>$thirdBoxTable,'secondBoxTable'=>$secondBoxTable,'userProgrammes'=>$programmes));
+        }else{
+            $userTables = [];
+            $userTableMappings = UserTableMapping::where('default_program_id', $defaultProgram->id)->get();
+            foreach ($userTableMappings as $userTableMapping){
+                $userTables[] = UserTableDefault::find($userTableMapping->user_table_id);
+            }
+            return view('defaultProgram.preview',array('userTables'=>$userTables,'defaultProgram'=>$defaultProgram,'thirdBoxTable'=>$thirdBoxTable,'secondBoxTable'=>$secondBoxTable,'userProgrammes'=>$programmes));
+        }
+
 
     }
     /**
@@ -347,12 +359,7 @@ class UserController extends Controller
      */
     public function adminPreview($id){
         $defaultProgram = DefaultProgram::find($id);
-        $userTables = [];
         $programmes = [];
-        $userTableMappings = UserTableMapping::where('default_program_id', $defaultProgram->id)->get();
-        foreach ($userTableMappings as $userTableMapping){
-            $userTables[] = UserTableDefault::find($userTableMapping->user_table_id);
-        }
         if($defaultProgram->third_box_id != null){
             $thirdBoxTable = ThirdBoxTableDefault::where('id', $defaultProgram->third_box_id)->first();
         }else{
@@ -368,7 +375,17 @@ class UserController extends Controller
         foreach ($userProgrammes as $userProgramme){
             $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
         }
-        return view('defaultProgram.adminPreview',array('userTables'=>$userTables,'defaultProgram'=>$defaultProgram,'thirdBoxTable'=>$thirdBoxTable,'secondBoxTable'=>$secondBoxTable,'userProgrammes'=>$programmes));
+        if($defaultProgram->is_blank){
+            $blankPage = BlankPage::where('default_program_id',$defaultProgram->id)->first();
+            return view('defaultProgram.blank.adminPreview',array('blankPage'=>$blankPage,'defaultProgram'=>$defaultProgram,'thirdBoxTable'=>$thirdBoxTable,'secondBoxTable'=>$secondBoxTable,'userProgrammes'=>$programmes));
+        }else{
+            $userTables = [];
+            $userTableMappings = UserTableMapping::where('default_program_id', $defaultProgram->id)->get();
+            foreach ($userTableMappings as $userTableMapping){
+                $userTables[] = UserTableDefault::find($userTableMapping->user_table_id);
+            }
+            return view('defaultProgram.adminPreview',array('userTables'=>$userTables,'defaultProgram'=>$defaultProgram,'thirdBoxTable'=>$thirdBoxTable,'secondBoxTable'=>$secondBoxTable,'userProgrammes'=>$programmes));
+        }
 
     }
     /**

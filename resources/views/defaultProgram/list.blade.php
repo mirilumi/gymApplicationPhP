@@ -20,7 +20,7 @@
                             <tr>
                                 <td>{{$defaultProgram->name}}</td>
                                 <td>
-                                    <a href=" {!! url('admin/defaultProgramm/'.$defaultProgram->id) !!}" class="btn btn-dark">Display</a>
+                                    <a href=" {!! url('admin/user/default/programme/'.$defaultProgram->id) !!}" class="btn btn-dark">Display</a>
                                 </td>
                                 <td>
                                     <a href=" {!! url('admin/defaultProgramm/'.$defaultProgram->id) !!}" class="btn btn-dark">Modifica</a>

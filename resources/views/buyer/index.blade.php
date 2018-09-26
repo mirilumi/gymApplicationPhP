@@ -12,6 +12,8 @@
                             <th>Nome</th>
                             {{--<th>Cognome</th>--}}
                             <th>Acquisti</th>
+                            <th>IP</th>
+                            <th>Date</th>
                         </tr>
 
                         @foreach ($users as $user)
@@ -20,6 +22,8 @@
                                     <td>
                                         <a href=" {!! url('admin/buyer/'.$user->id) !!}" class="btn btn-dark">{{$user->purchase}}</a>
                                     </td>
+                                    <td>{{$user->ip}}</td>
+                                    <td>{{$user->date_purchase->format('d/m/Y H:m:s')}}</td>
                             </tr>
                         @endforeach
 

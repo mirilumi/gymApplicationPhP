@@ -70,6 +70,16 @@
                                 {{--</a>--}}
                             {{--</div>--}}
                         </div>
+                        <div class="form-group row col-md-5 offset-6">
+                            {{--<div class="col-md-8 offset-md-4">--}}
+                            <a href="{{route('password.request')}}" class="btn btn-sm btn btn-danger">Forgot Password
+                            </a>
+
+                            {{--<a class="btn btn-link" href="{{ route('password.request') }}">--}}
+                            {{--{{ __('Forgot Your Password?') }}--}}
+                            {{--</a>--}}
+                            {{--</div>--}}
+                        </div>
                     </form>
 
                 </div>

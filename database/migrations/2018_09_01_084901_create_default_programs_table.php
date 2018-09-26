@@ -24,6 +24,7 @@ class CreateDefaultProgramsTable extends Migration
             $table->foreign('third_box_id')
                 ->references('id')->on('third_box_table_defaults')
                 ->onDelete('cascade');
+            $table->boolean('is_blank')->default(0);
             $table->timestamps();
         });
     }

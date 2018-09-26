@@ -60,6 +60,8 @@ class PaymentController extends Controller
             if($request->indirizzio != null)
                 $user->indirizzio = $request->indirizzio;
             $user->purchase = $this->getPurchase($request->get('amount'));
+            $user->ip = $request->ip();
+            $user->date_purchase =  date('Y-m-d H:i:s');;
         }else{
             $user = new User();
             $user->email = $request->email;
@@ -71,6 +73,8 @@ class PaymentController extends Controller
                 $user->indirizzio = $request->indirizzio;
             $user->password = Hash::make($request->email);
             $user->purchase = $this->getPurchase($request->get('amount'));
+            $user->ip = $request->ip();
+            $user->date_purchase =  date('Y-m-d H:i:s');;
             $user->save();
         }
         $redirectUrl = $this->getRedirectUrl($request->get('amount'));
@@ -137,6 +141,8 @@ class PaymentController extends Controller
                 if($request->indirizzio != null)
                     $user->indirizzio = $request->indirizzio;
                 $user->purchase = $this->getPurchase($request->get('amount'));
+                $user->ip = $request->ip();
+                $user->date_purchase =  date('Y-m-d H:i:s');
             }else{
                 $user = new User();
                 $user->email = $request->email;
@@ -148,6 +154,8 @@ class PaymentController extends Controller
                     $user->indirizzio = $request->indirizzio;
                 $user->password = Hash::make($request->email);
                 $user->purchase = $this->getPurchase($request->get('amount'));
+                $user->ip = $request->ip();
+                $user->date_purchase =  date('Y-m-d H:i:s');
                 $user->save();
             }
             $payment->create($this->_api_context);
@@ -249,5 +257,16 @@ class PaymentController extends Controller
         return redirect()->back();;
 
     }
-
+    public function getIp(){
+        foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key){
+            if (array_key_exists($key, $_SERVER) === true){
+                foreach (explode(',', $_SERVER[$key]) as $ip){
+                    $ip = trim($ip); // just to be safe
+                    if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) !== false){
+                        return $ip;
+                    }
+                }
+            }
+        }
+    }
 }

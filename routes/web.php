@@ -53,6 +53,8 @@ Route::group(['middleware' => 'admin','prefix' => 'admin', 'as' => 'admin.'], fu
 //    Route::get('user/delete/programme/delete/{id}', 'DefaultProgramController@preview')->name('admin.default.program.delete');
     Route::resource('usersTable', 'UserTableController');
     Route::resource('usersTableDefault', 'UserTableControllerDefault');
+    Route::post('blankPage/{blankPageId}/blankPageEdit/{defaultProgramId}', 'BlankPageControllerDefault@editBlankPage')->name('blankPageEdit');
+    Route::post('blankPageStore/{blankPageId}', 'BlankPageControllerDefault@save')->name('blankPageStore');
     Route::post('thirdBoxDefault/{thirdBoxId}/thirdBoxDefaultEdit/{defaultProgramId}', 'ThirdBoxControllerDefault@editThirdBox')->name('thirdBoxDefaultEdit');
     Route::post('secondBoxDefault/{secondBoxId}/secondBoxDefaultEdit/{defaultProgramId}', 'SecondBoxControllerDefault@editsecondBox')->name('secondBoxDefaultEdit');
     Route::post('secondBoxDefaultStore/{defaultProgramId}', 'SecondBoxControllerDefault@save')->name('secondBoxDefault.save');

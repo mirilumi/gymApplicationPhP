@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BlankPage;
 use App\DefaultProgram;
 use App\SecondBox;
 use App\SecondBoxDefault;
@@ -113,11 +114,6 @@ class DefaultProgramController extends Controller
     public function show($id)
     {
         $defaultProgram = DefaultProgram::find($id);
-        $userTables = [];
-        $userTableMappings = UserTableMapping::where('default_program_id', $defaultProgram->id)->get();
-        foreach ($userTableMappings as $userTableMapping){
-            $userTables[] = UserTableDefault::find($userTableMapping->user_table_id);
-        }
         if($defaultProgram->third_box_id != null){
             $thirdBoxTable = ThirdBoxTableDefault::where('id', $defaultProgram->third_box_id)->first();
         }else{
@@ -125,11 +121,20 @@ class DefaultProgramController extends Controller
         }
         if($defaultProgram->second_box_id != null){
             $secondBoxTable = SecondBoxDefault::where('id', $defaultProgram->second_box_id)->first();
-
         }else{
             $secondBoxTable = new SecondBoxDefault();
         }
-        return view('defaultProgram.defaultProgramEdit',array('userTables'=>$userTables,'defaultProgram'=>$defaultProgram,'thirdBoxTable'=>$thirdBoxTable,'secondBoxTable'=>$secondBoxTable));
+        if($defaultProgram->is_blank){
+            $blankPage = BlankPage::where('default_program_id',$defaultProgram->id)->first();
+            return view('defaultProgram.blank.defaultProgramEdit',array('blankPage'=>$blankPage,'defaultProgram'=>$defaultProgram,'thirdBoxTable'=>$thirdBoxTable,'secondBoxTable'=>$secondBoxTable));
+        }else{
+            $userTables = [];
+            $userTableMappings = UserTableMapping::where('default_program_id', $defaultProgram->id)->get();
+            foreach ($userTableMappings as $userTableMapping){
+                $userTables[] = UserTableDefault::find($userTableMapping->user_table_id);
+            }
+            return view('defaultProgram.defaultProgramEdit',array('userTables'=>$userTables,'defaultProgram'=>$defaultProgram,'thirdBoxTable'=>$thirdBoxTable,'secondBoxTable'=>$secondBoxTable));
+        }
 
     }
 

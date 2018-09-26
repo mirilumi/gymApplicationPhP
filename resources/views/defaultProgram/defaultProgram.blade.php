@@ -14,6 +14,11 @@
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" placeholder="Name" name="name"  required autofocus>
                             </div>
+                            <div class="col-md-2">
+
+                                <input id="default" type="radio" name="is_blank" value="0" required>Default Page<br>
+                                <input id="blank" type="radio" name="is_blank" value="1">Blank Page<br>
+                            </div>
                         </div>
                         @if (session('error'))
                             <div class="alert alert-danger">

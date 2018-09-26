@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'maestrodelfitnessapp.maestrodelfitness.com'),
+    'url' => env('APP_URL', 'http://maestrodelfitnessapp.maestrodelfitness.com'),
 
     /*
     |--------------------------------------------------------------------------

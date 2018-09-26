@@ -15,7 +15,7 @@ class CreateBlankPagesTable extends Migration
     {
         Schema::create('blank_pages', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description');
+            $table->text('description');
             $table->integer('default_program_id')->unsigned()->nullable();
             $table->foreign('default_program_id')
                 ->references('id')->on('default_programs')

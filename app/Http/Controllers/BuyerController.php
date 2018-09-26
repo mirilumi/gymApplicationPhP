@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Response;
 class BuyerController extends Controller
 {
     /**
@@ -17,7 +17,33 @@ class BuyerController extends Controller
         $users = User::whereNotNull('purchase')->get();
         return view('buyer.index',['users'=>$users]);
     }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function csv()
+    {
 
+        $users = User::whereNotNull('purchase')->get();
+        $filename = "users.csv";
+        $handle = fopen($filename, 'w+');
+        fputcsv($handle, array('Nome', 'Acquisti', 'IP', 'Date'));
+        foreach($users as $user) {
+            fputcsv($handle, array($user->name, $user->name, $user->ip, $user->date_purchase->format('d/m/Y H:m:s')));
+        }
+
+        fclose($handle);
+
+
+
+
+        $headers = array(
+            'Content-Type' => 'text/csv',
+        );
+
+        return Response::download($filename, 'users.csv', $headers);
+    }
     /**
      * Show the form for creating a new resource.
      *

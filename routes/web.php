@@ -75,6 +75,7 @@ Route::group(['middleware' => 'admin','prefix' => 'admin', 'as' => 'admin.'], fu
     Route::delete('thirdBox/{secondBox}', 'ThirdBoxController@destroy')->name('thirdBox.destroy');
     Route::get('thirdBox/{secondBox}/edit', 'ThirdBoxController@edit')->name('thirdBox.edit');
     Route::resource('buyer', 'BuyerController');
+    Route::get('buyer/csv/download', 'BuyerController@csv')->name('csv');
     Route::resource('thirdBoxDefault', 'ThirdBoxControllerDefault');
     Route::resource('defaultProgramm', 'DefaultProgramController');
     Route::get('defaultProgram/see', 'DefaultProgramController@see')->name('defaultProgramm.see');

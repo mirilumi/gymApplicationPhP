@@ -116,15 +116,17 @@
 
                     </form>
                 </div>
+                @for($i = 0;$i<count($ads)-1; $i++)
+                    <br>
                 <div class="row">
-                        <div class="box box-default">
-                            <div class="box-body">
-                                <div class="alert alert-info alert-dismissible" style="background: #f6f6f6; color: black;">
-                                    To be filled
+                            <div class="col-md-3"></div>
+                                <div style="background: #f6f6f6; color: black;">
+                                    <a href="{{$ads[$i+1]->url}}">
+                                       <img src="{{asset('img/').'/'.$ads[$i+1]->photo}}"  class="img-responsive center-block" alt="Logo" width="300" height="250" />
+                                    </a>
                                 </div>
-                            </div>
-                        </div>
                 </div>
+                @endfor
             </div>
             <div class="col-md-6">
                     {{--<img src="{{asset('/images/5099.png')}}" alt="" title="" style="width: 80%;">--}}

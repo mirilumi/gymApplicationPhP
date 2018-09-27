@@ -17,7 +17,7 @@ use niklasravnsborg\LaravelPdf\Facades\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
-
+use Session;
 class FitnessUserController extends Controller
 {
     /**

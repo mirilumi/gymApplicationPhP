@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\ADS;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -43,7 +44,8 @@ class PaymentController extends Controller
     }
     public function index()
     {
-        return view('paypal.paywithpaypal');
+        $ads = ADS::all();
+        return view('paypal.paywithpaypal',['ads'=>$ads]);
     }
     public function index2()
     {
@@ -61,7 +63,7 @@ class PaymentController extends Controller
                 $user->indirizzio = $request->indirizzio;
             $user->purchase = $this->getPurchase($request->get('amount'));
             $user->ip = $request->ip();
-            $user->date_purchase =  date('Y-m-d H:i:s');;
+            $user->date_purchase =  date('Y-m-d H:i:s');
         }else{
             $user = new User();
             $user->email = $request->email;
@@ -249,7 +251,7 @@ class PaymentController extends Controller
 
             \Session::put('success', 'Payment success');
             $user = User::orderBy('id', 'desc')->first();
-            return Redirect::away('www.maestrodelfitness.com/Ufficiale/Grazie/');
+            return Redirect::away('http://www.maestrodelfitness.com/Ufficiale/Grazie/');
 
         }
 

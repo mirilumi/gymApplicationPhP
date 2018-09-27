@@ -83,8 +83,9 @@
                                 <ul class="nav child_menu">
                                     <li><a href="{{route('progress.index')}}">Progressi</a></li>
                                 </ul>
-
                             </li>
+                            <li ><a href="{{route('admin.ads.index')}}">ADS</a></li>
+
                             <!--<li><a><i class="fa fa-tasks"></i> Jobs <span class="fa fa-chevron-down"></span></a>-->
                             <!--<ul class="nav child_menu">-->
                             <!--<li><a href="/admin/tasks/my-tasks">My Tasks</a></li>-->

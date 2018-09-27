@@ -14,6 +14,7 @@
                             <th>Acquisti</th>
                             <th>IP</th>
                             <th>Date</th>
+                            <th>Last Login</th>
                         </tr>
 
                         @foreach ($users as $user)
@@ -24,6 +25,7 @@
                                     </td>
                                     <td>{{$user->ip}}</td>
                                     <td>{{$user->date_purchase->format('d/m/Y H:m:s')}}</td>
+                                    <td>{{$user->last_login->format('d/m/Y H:m:s')}}</td>
                             </tr>
                         @endforeach
 

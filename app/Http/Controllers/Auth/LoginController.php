@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\ADS;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-
+use Session;
 class LoginController extends Controller
 {
     /*
@@ -67,7 +68,13 @@ class LoginController extends Controller
         }
 
         if ($this->attemptLogin($request)) {
-                return $this->sendLoginResponse($request);
+                $user->last_login = date('Y-m-d H:i:s');
+                $user->save();
+                $ads = ADS::all();
+//                dd($ads);
+                if($ads[0]!= null)
+                session()->put('ads', $ads[0]);
+            return $this->sendLoginResponse($request);
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts

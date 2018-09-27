@@ -221,10 +221,17 @@
 
         <!-- footer content -->
         <footer>
-            <div class="pull-right">
-                <!--Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>-->
+            <div class="pull-left">
+
             </div>
-            <div class="clearfix"></div>
+            <div class="clearfix">
+                <a class="btn-sm btn btn-danger" href="http://www.maestrodelfitness.com/Ufficiale/TC/"><h4>T&C</h4></a>
+                <a class="btn-sm btn btn-danger" href="http://www.maestrodelfitness.com/Ufficiale/TC/"><h4>Descrivi</h4></a>
+
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=WMGGLAP9C3RVJ">Descrivi
+                    <img src="https://www.paypalobjects.com/en_US/i/btn/btn_unsubscribe_LG.gif" BORDER="0">
+                </a>
+            </div>
         </footer>
         <!-- /footer content -->
     </div>

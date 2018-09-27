@@ -61,11 +61,11 @@ class FitnessUserController extends Controller
         foreach ($userProgrammes as $userProgramme){
             $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
         }
-        if(count($userTables) > 0 && count($thirdBoxTables) > 0 && count($secondBoxTables)) {
+        if(count($userTables) > 0 && count($thirdBoxTables) > 0 && count($secondBoxTables) > 0) {
             return view('users.fitnessUser',array('user'=>$user,'page_nr'=>$page_nr,'generatePdf'=>1,'userTables'=>$userTables,'secondBoxTables'=>$secondBoxTables,'thirdBoxTables'=>$thirdBoxTables,'userProgrammes'=>$programmes));
         }
 
-            return view('users.fitnessUser',array('user'=>$user,'page_nr'=>$page_nr,'userTables'=>$userTables,'secondBoxTables'=>$secondBoxTables,'thirdBoxTables'=>$thirdBoxTables,'userProgrammes'=>$programmes));
+            return view('nonProgram',array('user'=>$user,'page_nr'=>$page_nr,'userTables'=>$userTables,'secondBoxTables'=>$secondBoxTables,'thirdBoxTables'=>$thirdBoxTables,'userProgrammes'=>$programmes));
     }
 
     /**

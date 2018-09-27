@@ -249,7 +249,7 @@ class PaymentController extends Controller
 
             \Session::put('success', 'Payment success');
             $user = User::orderBy('id', 'desc')->first();
-            return redirect('/');
+            return Redirect::away('www.maestrodelfitness.com/Ufficiale/Grazie/');
 
         }
 

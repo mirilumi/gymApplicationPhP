@@ -3,12 +3,12 @@
 @section('content')
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
-                <div class="x_content">
-                    {{$defaultProgram->name}}
-                    @if($blankPage != null)
+            <div class="x_panel" style="background-color: white;color: black">
+                <div class="x_content" style="background-color: white">
+                    <h1 style="text-align: center">{{$defaultProgram->name}}</h1>
+                @if($blankPage != null)
                         <div class="col-md-12">
-                            <h3 class="form-signin-heading">Descrizione</h3>
+                            <h3 class="form-signin-heading">PROGRAMMA</h3>
                             <br/>
                             <p>{{$blankPage->description}}</p> <br />
                         </div>
@@ -45,7 +45,7 @@
                     <div  class="row">
                         <!--<div class="col-md-2"></div>-->
                         <!--<h3 class="form-signin-heading">Second Box</h3>-->
-                        <div style="background: #f6f6f6; color: black;" >
+                        <div style="background-color: white; color: black;" >
                             <!--<h3>DISCLAIMER TEXT:</h3>-->
                             <p>
                                 <img src="{{asset('/images/white_image.png')}}" class="img-responsive center-block" width="250" height="250" alt="Logo" />
@@ -56,10 +56,10 @@
                                 Tutti i marchi, registrati e non, e altri segni distintivi presenti nel Programma personalizzato appartengono ai legittimi proprietari e non sono concessi in licenza né in alcun modo fatti oggetto di disposizione, salvo espressamente indicato. È fatto in particolare divieto di utilizzare il logo, le immagini e la grafica di maestrodelfitness, senza il preventivo consenso scritto di Maestrodelfitness.
                                 In ogni caso chi intende utilizzare i nostri contenuti, avviare una collaborazione, partecipare al lavoro della pagina può farne richiesta per email scrivendo a: <a> info@maestrodelfitness.com </a>
                                 Ulteriori dettagli riguardanti i termini del servizio sono consultabili <a href="http://www.maestrodelfitness.com/5/5.html">cliccando qui</a>
-
+                            </p>
                                 AVVERTENZE:
-                                <img src="{{asset('/images/white_image.png')}}" class="img-responsive center-block" width="250" height="250" alt="Logo" />
-                                Tutte le informazioni contenute nel seguente programma non intendono sostituirsi in alcun modo al parere di medici professionisti. E/o specialisti del settore. L'allenamento con sovraccarichi può causare infortuni, si consiglia pertanto di eseguire esercizi prestando la massima attenzione utilizzando soltanto metodologie e carichi adatti al proprio livello di preparazione. L'autore (Maestrodelfitness.com) è sollevato da ogni tipo di responsabilità in merito all'utilizzo improprio delle informazioni trasmesse dal seguente sito web www.maestrodelfitness.com. In caso di bisogno o dubbio consultare il parere di un medico prima di intraprendere qualsiasi tipo di attività fisica o programma alimentare. </p>
+{{--                                <img src="{{asset('/images/white_image.png')}}" class="img-responsive center-block" width="250" height="250" alt="Logo" />--}}
+                                <p>Tutte le informazioni contenute nel seguente programma non intendono sostituirsi in alcun modo al parere di medici professionisti. E/o specialisti del settore. L'allenamento con sovraccarichi può causare infortuni, si consiglia pertanto di eseguire esercizi prestando la massima attenzione utilizzando soltanto metodologie e carichi adatti al proprio livello di preparazione. L'autore (Maestrodelfitness.com) è sollevato da ogni tipo di responsabilità in merito all'utilizzo improprio delle informazioni trasmesse dal seguente sito web www.maestrodelfitness.com. In caso di bisogno o dubbio consultare il parere di un medico prima di intraprendere qualsiasi tipo di attività fisica o programma alimentare. </p>
                         </div>
                         <!--<div class="col-md-2"></div>-->
                     </div>

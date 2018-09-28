@@ -207,7 +207,12 @@
                     <!--</div>-->
                     <!--</div>-->
                 </div>
-
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <img src="{{asset('/images/white_image.png')}}" class="img-responsive center-block" width="250" height="250" alt="Logo" />
+                    </div>
+                </div>
                 @if(isset($generatePdf))
                  <div class="clearfix">
                     <a type="button" href="{!! url('user/pdf/1') !!} ">Generate Pdf</a>

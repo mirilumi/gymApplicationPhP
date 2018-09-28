@@ -68,7 +68,7 @@
                             </li>
                             <li ><a><i class="fa fa-calendar"></i> Programmi <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{route('admin.defaultProgramm.index')}}"> Crea nuovo programma MDF-FIT</a></li>
+                                    <li><a href="{{route('admin.defaultProgramm.index')}}">Crea Nuovo Programma Membership</a></li>
                                     <li><a href="{{route('admin.defaultProgramm.see')}}">Lista Programmi</a></li>
                                 </ul>
 

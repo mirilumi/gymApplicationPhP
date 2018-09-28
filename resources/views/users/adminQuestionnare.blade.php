@@ -21,7 +21,6 @@
                                         <div class="card-header text-center">
                                             <h1>Questionario Maestro del Fitness</h1><br>
                                             <h3>Compila in modo accurato</h3>
-                                            <h6 style="color: red">* Required</h6>
                                         </div>
 
 
@@ -216,6 +215,9 @@
                                             </div>
                                             <button class="btn btn-sm btn btn-block" name="Submit" value="Invia" type="Submit" >Invia</button>
                                         </form>
+                                        <div class="card-header text-center">
+                                            <h6 style="color: red">* Required</h6>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -249,14 +251,14 @@
                 Tutti i marchi, registrati e non, e altri segni distintivi presenti nel Programma personalizzato appartengono ai legittimi proprietari e non sono concessi in licenza né in alcun modo fatti oggetto di disposizione, salvo espressamente indicato. È fatto in particolare divieto di utilizzare il logo, le immagini e la grafica di maestrodelfitness, senza il preventivo consenso scritto di Maestrodelfitness.
                 In ogni caso chi intende utilizzare i nostri contenuti, avviare una collaborazione, partecipare al lavoro della pagina può farne richiesta per email scrivendo a: <a> info@maestrodelfitness.com </a>
                 Ulteriori dettagli riguardanti i termini del servizio sono consultabili <a href="http://www.maestrodelfitness.com/5/5.html">cliccando qui</a>
-                <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4">
-                        <img src="{{asset('/images/white_image.png')}}" class="img-responsive center-block" width="250" height="250" alt="Logo" />
-                    </div>
-                    <div class="col-md-4"></div>
-                </div>
-                AVVERTENZE:
+                {{--<div class="row">--}}
+                    {{--<div class="col-md-4"></div>--}}
+                    {{--<div class="col-md-4">--}}
+                        {{--<img src="{{asset('/images/white_image.png')}}" class="img-responsive center-block" width="250" height="250" alt="Logo" />--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-4"></div>--}}
+                {{--</div>--}}
+                <br>AVVERTENZE:<br>
                 Tutte le informazioni contenute nel seguente programma non intendono sostituirsi in alcun modo al parere di medici professionisti. E/o specialisti del settore. L'allenamento con sovraccarichi può causare infortuni, si consiglia pertanto di eseguire esercizi prestando la massima attenzione utilizzando soltanto metodologie e carichi adatti al proprio livello di preparazione. L'autore (Maestrodelfitness.com) è sollevato da ogni tipo di responsabilità in merito all'utilizzo improprio delle informazioni trasmesse dal seguente sito web www.maestrodelfitness.com. In caso di bisogno o dubbio consultare il parere di un medico prima di intraprendere qualsiasi tipo di attività fisica o programma alimentare. </p>
             </div>
             <!--<div class="col-md-2"></div>-->

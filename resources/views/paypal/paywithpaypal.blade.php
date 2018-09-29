@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4"></div>
-            M<div class="col-md-4">
+            <div class="col-md-4">
                 <img src="{{asset('/images/white_image.png')}}" class="img-responsive center-block" width="250" height="250" alt="Logo" />
             </div>
             <div class="col-md-4"></div>
@@ -131,8 +131,13 @@
             <div class="col-md-6">
                     {{--<img src="{{asset('/images/5099.png')}}" alt="" title="" style="width: 80%;">--}}
                     {{--<div style="border-style: solid;border-color: #0f0f0f">--}}
-                        <a type="button" class="btn-default" href="">Here Will placed the link</a>
-                    {{--</div>--}}
+
+                <div class="row">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/1Iq6WJzrRdk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                {{--<iframe width="420" height="315"--}}
+                        {{--src="https://youtu.be/1Iq6WJzrRdk">--}}
+                {{--</iframe>--}}
                     <br/><br/><h6><b>PROGRAMMA PERSONALIZZATO DI ALLENAMENTO MAESTRO DEL FITNESS</b></h6>
                     <br/><br/><h4><b>MAESTRO DEL FITNESS® <br> Il Percorso di allenamento Online per raggiungere i tuoi obiettivi!</b></h4> <div class="box box-default">
                     <div class="box-body">

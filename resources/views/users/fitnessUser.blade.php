@@ -49,7 +49,7 @@
                             <br>
                             @if(isset($thirdBoxTables[0]->description))
                                 <div class="col-md-6">
-                                    <h3 class="form-signin-heading">Descrizione</h3>
+                                    <h3 class="form-signin-heading">Personal Trainer</h3>
                                     <br/>
                                     <p>{{$thirdBoxTables[0]->description}}</p> <br />
                                 </div>

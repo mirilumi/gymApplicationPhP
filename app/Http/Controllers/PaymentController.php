@@ -66,8 +66,8 @@ class PaymentController extends Controller
             $user->ip = $request->ip();
             $user->date_purchase =  date('Y-m-d H:i:s');
             $user->save();
-            $data = array('name'=>$user->name, "payment" => $this->getPurchase($request->get('amount')));
-            Mail::send('emails.email', $data, function($message) use ($user) {
+            $data = array("name"=> $user->name,"cognome"=> $user->cognome,"indirrizio"=> $user->indirrizio,"purchase"=> $user->purchase,"date_purchase"=> $user->date_purchase, "payment" => $request->get('amount'));
+            Mail::send('emails.email1', $data, function($message) use ($user) {
                 $message->to($user->email, $user->name)
                     ->cc(['carlo@maestrodelfitness.com', 'stefano@maestrodelfitness.com'])
                     ->subject('Payment Succed');
@@ -88,8 +88,8 @@ class PaymentController extends Controller
             $user->date_purchase =  date('Y-m-d H:i:s');
             $email = $user->email;
             $user->save();
-            $data = array('name'=>$user->name, "payment" => $this->getPurchase($request->get('amount')));
-            Mail::send('emails.email', $data, function($message) use ($user) {
+            $data = array("name"=> $user->name,"cognome"=> $user->cognome,"indirrizio"=> $user->indirrizio,"purchase"=> $user->purchase,"date_purchase"=> $user->date_purchase, "payment" => $request->get('amount'));
+            Mail::send('emails.email1', $data, function($message) use ($user) {
                 $message->to($user->email, $user->name)
                     ->cc(['carlo@maestrodelfitness.com', 'stefano@maestrodelfitness.com'])
                     ->subject('Payment Succed');
@@ -163,8 +163,8 @@ class PaymentController extends Controller
                 $user->ip = $request->ip();
                 $user->date_purchase =  date('Y-m-d H:i:s');
                 $user->save();
-                $data = array('name'=>$user->name, "payment" => $this->getPurchase($request->get('amount')));
-                Mail::send('emails.email', $data, function($message) use ($user) {
+                $data = array("name"=> $user->name,"cognome"=> $user->cognome,"indirrizio"=> $user->indirizzio,"purchase"=> $user->purchase,"date_purchase"=> $user->date_purchase, "payment" => $request->get('amount'));
+                Mail::send('emails.email1', $data, function($message) use ($user) {
                     $message->to($user->email, $user->name)
                         ->cc(['carlo@maestrodelfitness.com', 'stefano@maestrodelfitness.com'])
                         ->subject('Payment Succed');
@@ -184,8 +184,8 @@ class PaymentController extends Controller
                 $user->ip = $request->ip();
                 $user->date_purchase =  date('Y-m-d H:i:s');
                 $user->save();
-                $data = array('name'=>$user->name, "payment" => $this->getPurchase($request->get('amount')));
-                Mail::send('emails.email', $data, function($message) use ($user) {
+                $data = array("name"=> $user->name,"cognome"=> $user->cognome,"indirrizio"=> $user->indirrizio,"purchase"=> $user->purchase,"date_purchase"=> $user->date_purchase, "payment" => $request->get('amount'));
+                Mail::send('emails.email1', $data, function($message) use ($user) {
                     $message->to($user->email, $user->name)
                         ->cc(['carlo@maestrodelfitness.com', 'stefano@maestrodelfitness.com'])
                         ->subject('Payment Succed');

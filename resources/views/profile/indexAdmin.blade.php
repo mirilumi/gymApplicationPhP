@@ -37,7 +37,7 @@
             <div class="col-md-4"></div>
             <div class="form-group row">
                 <div class="col-md-6">
-                    <label for="indirizzio">Indirizzio</label>
+                    <label for="indirizzio">Indirizzo</label>
                     <input id="indirizzio" type="text" class="form-control" value="{{$user->indirizzio}}" name="indirizzio" disabled>
                 </div>
             </div>

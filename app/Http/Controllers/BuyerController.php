@@ -28,9 +28,9 @@ class BuyerController extends Controller
         $users = User::whereNotNull('purchase')->get();
         $filename = "users.csv";
         $handle = fopen($filename, 'w+');
-        fputcsv($handle, array('Nome', 'Acquisti', 'IP', 'Date'));
+        fputcsv($handle, array('Nome', 'Acquisti', 'IP', 'Date','Last Login'));
         foreach($users as $user) {
-            fputcsv($handle, array($user->name, $user->name, $user->ip, $user->date_purchase->format('d/m/Y H:m:s')));
+            fputcsv($handle, array($user->name, $user->purchase, $user->ip, $user->date_purchase->format('d/m/Y H:m:s'),$user->last_login));
         }
 
         fclose($handle);

@@ -42,7 +42,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">NOME<span class="star">*</span></label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder=" La tua Email" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Nome" name="name" value="{{ old('name') }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
@@ -83,7 +83,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">INDIRIZZO</label>
 
                             <div class="col-md-6">
-                                <input id="indirizzio" type="text" class="form-control" placeholder="Indirizzio" name="indirizzio" autofocus>
+                                <input id="indirizzio" type="text" class="form-control" placeholder="Indirizzo" name="indirizzio" autofocus>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -131,25 +131,30 @@
                 {{--<div style="border-style: solid;border-color: #0f0f0f">--}}
                 <a type="button" class="btn-default" href="">Here Will placed the link</a>
                 {{--</div>--}}
-                <br/><br/><h6><b>PROGRAMMA ALLENAMENTO 5PLUS MAESTRO DEL FITNESS </b></h6>
-                <br/><br/><h4>Pacchetti di allenamento Completi. Diversi livelli di intensità</h4>
-                <br/><br/><h4><b>WorkoutIdeati, Studiati, Pensati da Maestro del Fitness per
-                        farti ottenere risultati migliori, Stimolarti con diversi tipi di allenamento</b>
+                <br/><h6><b>MEMBERSHIP MAESTRO DEL FITNESS </b></h6>
+                <br/><h4>Accesso a un pannello personalizzato.</h4>
+                <br/><h4>Pacchetti di allenamento Completi.</h4>
+                <br/><h4>Diversi livelli di intensità per ogni Workout.</h4>
+                <br/><h4>WorkoutIdeati, Studiati, Pensati da Maestro del Fitness per<b>
+                    farti ottenere risultati migliori, Stimolarti con diversi tipi di allenamento.
+                    </b>
                 </h4>
-                <br/><br/><h4><b>Basta allenamenti ripetitivi con Maestro del Fitness ti migliori giorno per giorno con differenti tipologiedi Workout, questo è MDF FIT.</b>
+                <br/><h4><b>Basta allenamenti ripetitivi con Maestro del Fitness ti migliori giorno per giorno con differenti tipologie di Workout</b>, questo è molto altro all’interno del nostro servizio di abboanmento.
                 </h4>
                 <br/><br/><h4><b>Non esiste un programma di allenamento che possa andare bene per tutti.</b></h4>
-                <p>Per questo abbiamo creato MDF FIT!
+                <p>Per questo abbiamo creato Maestro del Fitness!
                     Programmi di allenamento ben strutturati finalizzati al miglioramento costante della vostra forma fisica.
-                    Caratterizzati da un mix efficace di elementi. Quali ’intensità, varietà e complessita dell’allenamento.
-                    Il qualevaria a seconda del livello di preparazione. MDF FIT si contraddistingue sempre per un’elevata complessità e il successo è merito dei Dottori competenti che lo hanno creato.
+                    Video Tutorial, Articoli mirati al benessere, Una community incentrata sul Fitness.
+                    Maestro del Fitness è mix efficace di elementi. Passione, Varietà, Complessitae Completezza.
+                    Il servizio in Abbonamento si contraddistingue per la sua completezza.
+                    Avrai accesso al 100% dei nostri contenuti, tutorial, Programmi di allenamento e molto altro.
                 </p>
                  <br/><br/><h4>Il Fitness è un modo sano e Naturale di riprendere il controllo del proprio benessere Psicofisico!
                 </h4>
-                <br/><br/><h4>NESSUN ABBONAMENTO MENSILE. PAGHI SOLO UNA VOLTA. Riceverai il programma subito dopo il tuo acquisto e lo avrai sempre disponibile.
+                <br/><br/><h4>Dopo la sottoscrizione alla nostra Community avrai accesso a tutti i nostri contenuti fino a che lo vorrai!
                 </h4>
                 <p>&#9660;Compila il Form fino in fondo per procedere all’acquisto dei programmi!&#9660;</p>
-                <h6><b>ECCO COSA RICEVI: </b></h6>
+                <h6><b>ECCO COSA RICEVI: </b></h6>
                 <ul>
                     <li>Pacchetti di allenamento ideali per ogni momento o luogo. <br> Alcuni Esempi di Seguito: </li>
                     <li>-ALLENAMENTO IN CASA A CORPO LIBERO</li>
@@ -157,12 +162,16 @@
                     <li>-ALLENAMENTO OUTDOOR CON ATTREZZI</li>
                     <li>-ALLENAMENTO FUNCTIONAL IN PALESTRA</li>
                     <li>-ALLENAMENTO CON PESI IN PALESTRA (Unisex)</li>
-                    <p>E tantissimi Altri disponibili, ne hai uno su richiesta in Particola? Maestro del Fitness potrebbe crearlo per te, scrivici a info@maestrodelfitness.com</p>
-                    <li>Un elenco di Programmi a tua disposizione da cui scegliere i tuoi preferiti. </li>
+                    <p>E tantissimi Altri disponibili, ne hai uno su richiesta in Particolare? Maestro del Fitness potrebbe crearlo per te, scrivici a  <a>info@maestrodelfitness.com</a> </p>
+                    <li>Un elenco di Programmi a tua disposizione da cui scegliere i tuoi preferiti</li>
+                    <li>Programmi nuovi ogni mese!</li>
+                    <li>Possibilità di richiedere un nuovo programma per la Community</li>
                     <li>Consigli sull’allenamento</li>
+                    <li>Curiosità sul mondo del Fitness</li>
+                    <li>Persone appassionate come te per confrontarti</li>
                     <li>Consigli sull'esecuzione degli esercizi</li>
                     <li>Video Tutorial dedicati.</li>
-                    <li>Accesso ai nostri Gruppi su Facebookdove troverai altri contenuti Bonus e una community di utenti come te appassionati di Fitness</li>
+                    <li>Accesso ai nostri Gruppi su Facebookdove troverai altri contenuti Bonus e una community di utenti come te appassionati di Fitness. </li>
                     <li>Uno sconto su un eventuale acquisto futuro del Programma Personalizzato, richiedicelo.</li>
                 </ul>
                 <div class="box box-default">
@@ -171,7 +180,8 @@
                             <h6><b><i class="icon fa fa-info"></i>Inizi Subito!</b></h6>
                             <p style="color:#928780;">
                                 <ul>
-                                    <li>Dopo l'acquisto potrai registrarti e accedere al nostro portale e selezionare dall’elenco gli allenamenti che preferisci. Disponibili per te svariati Programmi MDF Fit. </li>
+                                    <li>Dopo l'acquisto dovrai completare la registrazioneper accedere al nostro portale e selezionare dall’elenco gli allenamenti che preferisci. Disponibili per te svariati Programmi e tantissimi contenuti.</li>
+                                    <li>Entra a far parte della nostra community!</li>
                                     <li>Potrai inoltre compilare il nostro questionario grazie al quale se in futuro vorrai potrai acquistare il tuo Personalizzato che verrà ideato in sole 48 ore.</li>
                                 </ul>
                             </p>
@@ -182,28 +192,16 @@
                 <div class="box box-default">
                     <div class="box-body">
                         <div class="alert alert-info alert-dismissible" style="background: #f6f6f6; color: black;">
-                            <h6><b><i class="icon fa fa-info"></i>Nessun abbonamento o costo extra.</b></h6>
+                            <h6><b><i class="icon fa fa-info"></i>Accesso per tutta la durata della tua Membership. Aggiornamenti inclusi.</b></h6>
                             <p style="color:#928780;">
                             <ul>
-                                <li>Per questo programma pagherai una volta sola senza avere abbonamenti o costi fissi mensili "nascosti"! Qualora non fossi sicuro del tuo acquisto,i programmi verranno rilasciati 24h dopo il tuo acquisto, quindi hai tutto il tempo per richiedere il Rimborso completo</li>
-                            </ul>
-                            </p>
-                        </div>
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <div class="box box-default">
-                    <div class="box-body">
-                        <div class="alert alert-info alert-dismissible" style="background: #f6f6f6; color: black;">
-                            <h6><b><i class="icon fa fa-info"></i>Accesso per Sempre. Aggiornamenti inclusi.</b></h6>
-                            <p style="color:#928780;">
-                            <ul>
-                                <li>Avrai ACCESSO PER SEMPRE ai Programmi MDF Fit acquistati.</li>
+                                <li>Avrai sempre Accesso ai Programmi Creati da Maestro del Fitness.</li>
                                 <li>Paga in modo 100% sicuro tramite Paypal, con il tuo account paypal o utilizzando la tua carta di credito.</li>
                             </ul>
                             </p>
                         </div>
                     </div>
+                    <!-- /.box-body -->
                 </div>
                 <div class="box box-default">
                     <div class="box-body">

@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
 //    return view('auth.login');
-    return view('welcomeFitness');
+    return view('auth.login');
 });
 Route::get('/paypalIndex', 'PaymentController@index')->name('payment1');
 Route::get('/paypalIndex2', 'PaymentController@index2')->name('payment2');

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head><meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
-    {{----}}
-    {{--<meta http-equiv="X-UA-Compatible" content="IE=edge">--}}
-    {{--<meta name="viewport" content="width=device-width, initial-scale=1">--}}
+{{----}}
+{{--<meta http-equiv="X-UA-Compatible" content="IE=edge">--}}
+{{--<meta name="viewport" content="width=device-width, initial-scale=1">--}}
 
-    <!-- CSRF Token -->
-        
+<!-- CSRF Token -->
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>MaestroDelFitnessAPP</title>
@@ -19,6 +19,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('/css/custom.min.css') }}" rel="stylesheet">
+    <!-- include summernote css/js-->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 
 </head>
 <body class="nav-md">
@@ -36,7 +38,7 @@
                 <!--&lt;!&ndash; menu profile quick info &ndash;&gt;-->
                 <!--<div class="profile clearfix">-->
                 <!--<div class="profile_pic">-->
-                <!--<img th:src="@{/images/user.png}" alt="..." class="img-circle profile_img">-->
+            <!--<img th:src="@{/images/user.png}" alt="..." class="img-circle profile_img">-->
                 <!--</div>-->
                 <!--<div class="profile_info">-->
                 <!--<span>Welcome</span>-->
@@ -166,7 +168,7 @@
                         <!--<ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">-->
                         <!--<li>-->
                         <!--<a>-->
-                        <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
+                    <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
                         <!--<span>-->
                         <!--<span>John Smith</span>-->
                         <!--<span class="time">3 mins ago</span>-->
@@ -178,7 +180,7 @@
                         <!--</li>-->
                         <!--<li>-->
                         <!--<a>-->
-                        <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
+                    <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
                         <!--<span>-->
                         <!--<span>John Smith</span>-->
                         <!--<span class="time">3 mins ago</span>-->
@@ -190,7 +192,7 @@
                         <!--</li>-->
                         <!--<li>-->
                         <!--<a>-->
-                        <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
+                    <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
                         <!--<span>-->
                         <!--<span>John Smith</span>-->
                         <!--<span class="time">3 mins ago</span>-->
@@ -202,7 +204,7 @@
                         <!--</li>-->
                         <!--<li>-->
                         <!--<a>-->
-                        <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
+                    <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
                         <!--<span>-->
                         <!--<span>John Smith</span>-->
                         <!--<span class="time">3 mins ago</span>-->
@@ -273,5 +275,12 @@
 <script  type="text/javascript"  src="{{ asset('/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- Custom Theme Scripts -->
 <script src="{{ asset('js/appp.js') }}"></script>
+<!-- include summernote css/js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.summernote').summernote();
+    });
+</script>
 </body>
 </html>

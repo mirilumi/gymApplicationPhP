@@ -75,7 +75,7 @@
                                 </ul>
                             </li>
                             <li ><a href="{!! url('progress/0') !!}"><i class="fa fa-calendar"></i>I miei Progressi</a></li>
-                            <li ><a href="https://www.youtube.com/watch?v=bmos_HgzQf0">Tutorials</a></li>
+                            <li ><a href="https://www.youtube.com/channel/UCHedh6QpRpzmhtIk6a20Zsw?view_as=subscriber">Tutorials</a></li>
                             <li ><a href="https://www.facebook.com/maestrodelfitness/">Social</a></li>
                             <li ><a href="https://mailchi.mp/da7deb30def6/newslettermaestrodelfitness">Contenuti Bonus</a></li>
                         </ul>
@@ -192,7 +192,7 @@
         <!-- /top navigation -->
 
         <!-- page content -->
-        <div class="right_col" role="main">
+        <div class="right_col" role="main" style="background-color: white">
             <div class="">
                 <div class="page-title">
 
@@ -218,7 +218,7 @@
                     <a type="button" href="{!! url('user/pdf/1') !!} ">Generate Pdf</a>
                 </div>
                 @endif
-                <main class="py-4">
+                <main class="py-4" style="background-color: white">
                     @yield('content')
                 </main>
 
@@ -243,7 +243,7 @@
                     <div class="col-sm-6">
                         <a class="btn-sm btn btn-danger" href="http://www.maestrodelfitness.com/Ufficiale/TC/"><h4>T&C</h4></a>
                         {{--<a class="btn-sm btn btn-danger" href="http://www.maestrodelfitness.com/Ufficiale/TC/"><h4>Descrivi</h4></a>--}}
-                        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=WMGGLAP9C3RVJ">Descrivi
+                        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=WMGGLAP9C3RVJ">
                             <img src="https://www.paypalobjects.com/en_US/i/btn/btn_unsubscribe_LG.gif" BORDER="0">
                         </a>
                     </div>

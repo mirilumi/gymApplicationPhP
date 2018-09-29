@@ -72,7 +72,7 @@ class LoginController extends Controller
                 $user->save();
                 $ads = ADS::all();
 //                dd($ads);
-                if($ads[0]!= null)
+                if(count($ads)>0)
                 session()->put('ads', $ads[0]);
             return $this->sendLoginResponse($request);
         }

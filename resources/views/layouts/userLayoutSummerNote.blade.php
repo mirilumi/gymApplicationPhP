@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head><meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
-    {{----}}
-    {{--<meta http-equiv="X-UA-Compatible" content="IE=edge">--}}
-    {{--<meta name="viewport" content="width=device-width, initial-scale=1">--}}
+{{----}}
+{{--<meta http-equiv="X-UA-Compatible" content="IE=edge">--}}
+{{--<meta name="viewport" content="width=device-width, initial-scale=1">--}}
 
-    <!-- CSRF Token -->
-        
+<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>MaestroDelFitnessAPP</title>
@@ -20,6 +19,8 @@
     <!-- Styles -->
     <link href="{{ asset('/css/custom.min.css') }}" rel="stylesheet">
 
+    <!-- include summernote css/js-->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 </head>
 <body class="nav-md">
 <div class="container body">
@@ -36,7 +37,7 @@
                 <!--&lt;!&ndash; menu profile quick info &ndash;&gt;-->
                 <!--<div class="profile clearfix">-->
                 <!--<div class="profile_pic">-->
-                <!--<img th:src="@{/images/user.png}" alt="..." class="img-circle profile_img">-->
+            <!--<img th:src="@{/images/user.png}" alt="..." class="img-circle profile_img">-->
                 <!--</div>-->
                 <!--<div class="profile_info">-->
                 <!--<span>Welcome</span>-->
@@ -52,75 +53,38 @@
                     <div class="menu_section">
                         <h3>Menù</h3>
                         <ul class="nav side-menu">
-                            <li><a href="{{route('admin.home')}}"><i class="fa fa-home"></i> Home</a>
+                            <li><a href="{{route('home')}}"><i class="fa fa-home"></i> Home</a>
                                 <!--<ul class="nav child_menu">-->
                                 <!--<li><a href="index.html">Dashboard</a></li>-->
                                 <!--<li><a href="index2.html">Dashboard2</a></li>-->
                                 <!--<li><a href="index3.html">Dashboard3</a></li>-->
                                 <!--</ul>-->
                             </li>
-                            <!--th:if="isAdmin == true"-->
-                            <li ><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
+                            <li><a href="{{route('myQuestionare')}}"><i class="fa fa-user"></i> My Info</a>
+                            <li ><a><i class="fa fa-star-o"></i> Programmi Maestro Del Fitness <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{route('admin.user.index')}}">Utenti Iscritti</a></li>
-                                    <!--<li><a href="/admin/users/teams">Teams</a></li>-->
-                                </ul>
-                            </li>
-                            <li ><a><i class="fa fa-calendar"></i> Programmi <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="{{route('admin.defaultProgramm.index')}}">Crea Nuovo Programma Membership</a></li>
-                                    <li><a href="{{route('admin.defaultProgramm.see')}}">Lista Programmi</a></li>
+                                    @foreach($userProgrammes as $programme)
+                                        <li><a href=" {!! url('user/default/programme/'.$programme->id) !!}">{{$programme->name}}</a></li>
+                                    @endforeach
                                 </ul>
 
                             </li>
-                            <li ><a><i class="fa fa-calendar"></i> Acquirenti <span class="fa fa-chevron-down"></span></a>
+                            <li ><a><i class="fa fa-star-o"></i>Programma Personalizzato<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{route('admin.buyer.index')}}">Elenco degli acquirenti</a></li>
-                                </ul>
-
-                            </li>
-                            <li ><a><i class="fa fa-calendar"></i> Progressi <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="{{route('progress.index')}}">Progressi</a></li>
+                                    <li><a href=" {!! url('user/pages/1') !!}">Scheda 1</a></li>
+                                    <li><a href=" {!! url('user/pages/2') !!}">Scheda 2</a></li>
+                                    <li><a href=" {!! url('user/pages/3') !!}">Scheda 3</a></li>
                                 </ul>
                             </li>
-                            <li ><a href="{{route('admin.ads.index')}}">ADS</a></li>
-
-                            <!--<li><a><i class="fa fa-tasks"></i> Jobs <span class="fa fa-chevron-down"></span></a>-->
-                            <!--<ul class="nav child_menu">-->
-                            <!--<li><a href="/admin/tasks/my-tasks">My Tasks</a></li>-->
-                            <!--<li><a href="/admin/tasks/create">Create</a></li>-->
-                            <!--</ul>-->
-                            <!--</li>-->
-
-                            <!--<li><a><i class="fa fa-calendar"></i> Reports <span class="fa fa-chevron-down"></span></a>-->
-                            <!--<ul class="nav child_menu">-->
-                            <!--<li><a href="/admin/reports/calendar">Calendar</a></li>-->
-                            <!--<li><a href="/admin/reports/timesheets">Timesheets</a></li>-->
-                            <!--</ul>-->
-                            <!--</li>-->
+                            <li ><a href="{!! url('progress/0') !!}"><i class="fa fa-calendar"></i>I miei Progressi</a></li>
+                            <li ><a href="https://www.youtube.com/channel/UCHedh6QpRpzmhtIk6a20Zsw?view_as=subscriber">Tutorials</a></li>
+                            <li ><a href="https://www.facebook.com/maestrodelfitness/">Social</a></li>
+                            <li ><a href="https://mailchi.mp/da7deb30def6/newslettermaestrodelfitness">Contenuti Bonus</a></li>
                         </ul>
                     </div>
 
                 </div>
-                <!-- /sidebar menu -->
 
-                <!-- /menu footer buttons -->
-                <!--<div class="sidebar-footer hidden-small">-->
-                <!--<a data-toggle="tooltip" data-placement="top" title="Settings">-->
-                <!--<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>-->
-                <!--</a>-->
-                <!--<a data-toggle="tooltip" data-placement="top" title="FullScreen">-->
-                <!--<span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>-->
-                <!--</a>-->
-                <!--<a data-toggle="tooltip" data-placement="top" title="Lock">-->
-                <!--<span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>-->
-                <!--</a>-->
-                <!--<a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">-->
-                <!--<span class="glyphicon glyphicon-off" aria-hidden="true"></span>-->
-                <!--</a>-->
-                <!--</div>-->
-                <!--&lt;!&ndash; /menu footer buttons &ndash;&gt;-->
             </div>
         </div>
 
@@ -146,6 +110,7 @@
                                 <!--</a>-->
                                 <!--</li>-->
                                 <li><a href="{!! route('changePasswordIndex') !!}">Change Password</a></li>
+                                <li><a href="{!! route('email.index') !!}">Help</a></li>
                                 <li><a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -166,7 +131,7 @@
                         <!--<ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">-->
                         <!--<li>-->
                         <!--<a>-->
-                        <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
+                    <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
                         <!--<span>-->
                         <!--<span>John Smith</span>-->
                         <!--<span class="time">3 mins ago</span>-->
@@ -178,7 +143,7 @@
                         <!--</li>-->
                         <!--<li>-->
                         <!--<a>-->
-                        <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
+                    <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
                         <!--<span>-->
                         <!--<span>John Smith</span>-->
                         <!--<span class="time">3 mins ago</span>-->
@@ -190,7 +155,7 @@
                         <!--</li>-->
                         <!--<li>-->
                         <!--<a>-->
-                        <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
+                    <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
                         <!--<span>-->
                         <!--<span>John Smith</span>-->
                         <!--<span class="time">3 mins ago</span>-->
@@ -202,7 +167,7 @@
                         <!--</li>-->
                         <!--<li>-->
                         <!--<a>-->
-                        <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
+                    <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
                         <!--<span>-->
                         <!--<span>John Smith</span>-->
                         <!--<span class="time">3 mins ago</span>-->
@@ -244,10 +209,17 @@
                     <!--</div>-->
                     <!--</div>-->
                 </div>
-
-                <div class="clearfix"></div>
-                <button onclick="window.history.back();">Indietro</button>
-
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <img src="{{asset('/images/white_image.png')}}" class="img-responsive center-block" width="250" height="250" alt="Logo" />
+                    </div>
+                </div>
+                @if(isset($generatePdf))
+                    <div class="clearfix">
+                        <a type="button" href="{!! url('user/pdf/1') !!} ">Generate Pdf</a>
+                    </div>
+                @endif
                 <main class="py-4" style="background-color: white">
                     @yield('content')
                 </main>
@@ -258,10 +230,27 @@
 
         <!-- footer content -->
         <footer>
-            <div class="pull-right">
+            <div class="pull-left">
 
             </div>
-            <div class="clearfix"></div>
+            <div class="clearfix">
+                <div class="row">
+                    @if(Session::has('ads'))
+                        <div class="col-md-3">
+                            <a href="{{session()->get('ads')->url}}">
+                                <img src="{{asset('img/').'/'.session()->get('ads')->photo}}"  class="img-responsive center-block" alt="Logo" width="300" height="250" />
+                            </a>
+                        </div>
+                    @endif
+                    <div class="col-sm-6">
+                        <a class="btn-sm btn btn-danger" href="http://www.maestrodelfitness.com/Ufficiale/TC/"><h4>T&C</h4></a>
+                        {{--<a class="btn-sm btn btn-danger" href="http://www.maestrodelfitness.com/Ufficiale/TC/"><h4>Descrivi</h4></a>--}}
+                        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=WMGGLAP9C3RVJ">
+                            <img src="https://www.paypalobjects.com/en_US/i/btn/btn_unsubscribe_LG.gif" BORDER="0">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </footer>
         <!-- /footer content -->
     </div>
@@ -273,5 +262,11 @@
 <script  type="text/javascript"  src="{{ asset('/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- Custom Theme Scripts -->
 <script src="{{ asset('js/appp.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.summernote').summernote();
+    });
+</script>
 </body>
 </html>

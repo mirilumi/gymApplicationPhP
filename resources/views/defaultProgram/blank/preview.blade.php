@@ -1,39 +1,46 @@
-@extends('layouts.userLayout')
+@extends('layouts.userLayoutSummerNote')
 
 @section('content')
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
-                <div class="x_content">
+            <div class="x_panel" style="background-color: white">
+                <div class="x_content" style="background-color: white">
                     {{$defaultProgram->name}}
-                    <h3 class="form-signin-heading">PROGRAMMA</h3>
-                    <p>
-                    <p>TRX METABOLIC CIRCUIT<br>#1</p>
-                    <p>CIRCUIT:</p>
-                    <ul>
-                        <li>squat</li>
-                        <li>pull up</li>
-                        <li>lunge back gamba dx</li>
-                        <li>lunge back gamba sx</li>
-                        <li>ice skaters</li>
-                        <li>bridge</li>
-                        <li>atomic Crunch</li>
-                    </ul>
-                    <p>
-                        SETTIMANA 1-2: Recupero tra gli esercizi: 10 secondi<br>
-                        Primo giro: eseguire 20 ripetizioni di ogni esercizio<br>
-                        Secondo giro : eseguire 15 ripetizioni<br>
-                        Terzo giro: 10 ripetizioni<br>
-                        Recupero alla fine di ogni giro: 1 minuto<br>
-                    </p>
-                    <p>
-                        SETTIMANA 3-4: recupero tra gli es 10 secondi<br>
-                        Primo giro: 20 ripetizioni<br>
-                        Secondo giro: 15<br>
-                        Terzo giro: 10<br>
-                        Quarto giro: 20<br>
-                        Recupero alla fine di ogni giro : 1 minuto
-                    </p>
+                    {{--<h3 class="form-signin-heading">PROGRAMMA</h3>--}}
+                    {{--<p>--}}
+                    {{--<p>TRX METABOLIC CIRCUIT<br>#1</p>--}}
+                    {{--<p>CIRCUIT:</p>--}}
+                    {{--<ul>--}}
+                        {{--<li>squat</li>--}}
+                        {{--<li>pull up</li>--}}
+                        {{--<li>lunge back gamba dx</li>--}}
+                        {{--<li>lunge back gamba sx</li>--}}
+                        {{--<li>ice skaters</li>--}}
+                        {{--<li>bridge</li>--}}
+                        {{--<li>atomic Crunch</li>--}}
+                    {{--</ul>--}}
+                    {{--<p>--}}
+                        {{--SETTIMANA 1-2: Recupero tra gli esercizi: 10 secondi<br>--}}
+                        {{--Primo giro: eseguire 20 ripetizioni di ogni esercizio<br>--}}
+                        {{--Secondo giro : eseguire 15 ripetizioni<br>--}}
+                        {{--Terzo giro: 10 ripetizioni<br>--}}
+                        {{--Recupero alla fine di ogni giro: 1 minuto<br>--}}
+                    {{--</p>--}}
+                    {{--<p>--}}
+                        {{--SETTIMANA 3-4: recupero tra gli es 10 secondi<br>--}}
+                        {{--Primo giro: 20 ripetizioni<br>--}}
+                        {{--Secondo giro: 15<br>--}}
+                        {{--Terzo giro: 10<br>--}}
+                        {{--Quarto giro: 20<br>--}}
+                        {{--Recupero alla fine di ogni giro : 1 minuto--}}
+                    {{--</p>--}}
+                    @if($blankPage != null)
+                        <div class="col-md-12">
+                            <h3 class="form-signin-heading">PROGRAMMA</h3>
+                            <br/>
+                            <p>{!!  $blankPage->description !!}</p> <br />
+                        </div>
+                    @endif
                     @if($secondBoxTable)
                         <div>
                             <h3>{{$secondBoxTable->title}}</h3>

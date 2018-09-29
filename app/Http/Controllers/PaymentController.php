@@ -21,6 +21,7 @@ use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Rest\ApiContext;
 use Session;
 use URL;
+use Illuminate\Support\Facades\Mail;
 
 class PaymentController extends Controller
 {
@@ -64,6 +65,14 @@ class PaymentController extends Controller
             $user->purchase = $this->getPurchase($request->get('amount'));
             $user->ip = $request->ip();
             $user->date_purchase =  date('Y-m-d H:i:s');
+            $user->save();
+            $data = array('name'=>$user->name, "payment" => $this->getPurchase($request->get('amount')));
+            Mail::send('emails.email', $data, function($message) use ($user) {
+                $message->to($user->email, $user->name)
+                    ->cc(['carlo@maestrodelfitness.com', 'stefano@maestrodelfitness.com'])
+                    ->subject('Payment Succed');
+                $message->from('support@maestrodelfitnessapp.maestrodelfitness.com', 'Admin');
+            });
         }else{
             $user = new User();
             $user->email = $request->email;
@@ -76,8 +85,16 @@ class PaymentController extends Controller
             $user->password = Hash::make($request->email);
             $user->purchase = $this->getPurchase($request->get('amount'));
             $user->ip = $request->ip();
-            $user->date_purchase =  date('Y-m-d H:i:s');;
+            $user->date_purchase =  date('Y-m-d H:i:s');
+            $email = $user->email;
             $user->save();
+            $data = array('name'=>$user->name, "payment" => $this->getPurchase($request->get('amount')));
+            Mail::send('emails.email', $data, function($message) use ($user) {
+                $message->to($user->email, $user->name)
+                    ->cc(['carlo@maestrodelfitness.com', 'stefano@maestrodelfitness.com'])
+                    ->subject('Payment Succed');
+                $message->from('support@maestrodelfitnessapp.maestrodelfitness.com', 'Admin');
+            });
         }
         $redirectUrl = $this->getRedirectUrl($request->get('amount'));
         return redirect($redirectUrl);
@@ -145,6 +162,14 @@ class PaymentController extends Controller
                 $user->purchase = $this->getPurchase($request->get('amount'));
                 $user->ip = $request->ip();
                 $user->date_purchase =  date('Y-m-d H:i:s');
+                $user->save();
+                $data = array('name'=>$user->name, "payment" => $this->getPurchase($request->get('amount')));
+                Mail::send('emails.email', $data, function($message) use ($user) {
+                    $message->to($user->email, $user->name)
+                        ->cc(['carlo@maestrodelfitness.com', 'stefano@maestrodelfitness.com'])
+                        ->subject('Payment Succed');
+                    $message->from('support@maestrodelfitnessapp.maestrodelfitness.com', 'Admin');
+                });
             }else{
                 $user = new User();
                 $user->email = $request->email;
@@ -159,6 +184,13 @@ class PaymentController extends Controller
                 $user->ip = $request->ip();
                 $user->date_purchase =  date('Y-m-d H:i:s');
                 $user->save();
+                $data = array('name'=>$user->name, "payment" => $this->getPurchase($request->get('amount')));
+                Mail::send('emails.email', $data, function($message) use ($user) {
+                    $message->to($user->email, $user->name)
+                        ->cc(['carlo@maestrodelfitness.com', 'stefano@maestrodelfitness.com'])
+                        ->subject('Payment Succed');
+                    $message->from('support@maestrodelfitnessapp.maestrodelfitness.com', 'Admin');
+                });
             }
             $payment->create($this->_api_context);
 

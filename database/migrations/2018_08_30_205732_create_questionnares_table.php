@@ -18,7 +18,6 @@ class CreateQuestionnaresTable extends Migration
             $table->string('email')->unique();
             $table->string('name');
             $table->string('cognome');
-            $table->string('peso')->nullable();
             $table->string('sesso')->nullable();
             $table->string('altezza')->nullable();
             $table->string('allenato')->nullable();
@@ -29,12 +28,12 @@ class CreateQuestionnaresTable extends Migration
             $table->string('third_question')->nullable();
             $table->string('forth_question')->nullable();
             $table->string('fifth_question')->nullable();
-            $table->string('sixth_question');
-            $table->string('seventh_question');
+            $table->string('sixth_question')->nullable();
+            $table->string('seventh_question')->nullable();
             $table->string('eighth_question')->nullable();
             $table->string('ninth_question')->nullable();
-            $table->string('ten_question');
-            $table->string('eta');
+            $table->string('ten_question')->nullable();
+            $table->string('eta')->nullable();
             $table->timestamps();
         });
     }

@@ -72,7 +72,7 @@
                         <label for="peso" class="col-md-4 col-form-label text-md-right">PESO (KG)</label>
 
                         <div class="col-md-6">
-                            <input id="peso" type="text" class="form-control" placeholder="Rispondi Qui" name="peso" value="{{ old('peso') }}"  autofocus>
+                            <input id="peso" type="number" class="form-control" placeholder="Rispondi Qui" name="peso" value="{{ old('peso') }}"  autofocus>
 
                         </div>
                     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Peso;
 use App\Questionnare;
 use Illuminate\Http\Request;
 use App\User;
@@ -41,11 +42,33 @@ class QuestionnareController extends Controller
      */
     public function store(Request $request)
     {
+
         $questionnare = User::where('email', $request->email)->get();
         if($questionnare == null){
             return redirect()->back();
         }
-        Questionnare::create($request->all());
+        $questionnare = Questionnare::create($request->all());
+        if($request->peso != null){
+            $peso = new Peso();
+            $peso->peso = $request->peso;
+            $peso->questionare_id = $questionnare->id;
+            $peso->date = date('Y-m-d');
+            $peso->save();
+        }
+        if($request->peso != null){
+            $peso = new Peso();
+            $peso->peso = $request->peso;
+            $peso->questionare_id = $questionnare->id;
+            $peso->date = date('Y-m-d');
+            $peso->save();
+        }
+        if($request->peso != null){
+            $peso = new Peso();
+            $peso->peso = $request->peso;
+            $peso->questionare_id = $questionnare->id;
+            $peso->date = date('Y-m-d');
+            $peso->save();
+        }
         return redirect('/login');
     }
 

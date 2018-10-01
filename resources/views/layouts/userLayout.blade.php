@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head><meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
-    {{----}}
-    {{--<meta http-equiv="X-UA-Compatible" content="IE=edge">--}}
-    {{--<meta name="viewport" content="width=device-width, initial-scale=1">--}}
+{{----}}
+{{--<meta http-equiv="X-UA-Compatible" content="IE=edge">--}}
+{{--<meta name="viewport" content="width=device-width, initial-scale=1">--}}
 
-    <!-- CSRF Token -->
+<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>MaestroDelFitnessAPP</title>
@@ -35,7 +35,7 @@
                 <!--&lt;!&ndash; menu profile quick info &ndash;&gt;-->
                 <!--<div class="profile clearfix">-->
                 <!--<div class="profile_pic">-->
-                <!--<img th:src="@{/images/user.png}" alt="..." class="img-circle profile_img">-->
+            <!--<img th:src="@{/images/user.png}" alt="..." class="img-circle profile_img">-->
                 <!--</div>-->
                 <!--<div class="profile_info">-->
                 <!--<span>Welcome</span>-->
@@ -49,7 +49,7 @@
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
-                        <h3>Menù</h3>
+                        <h3>Men첫</h3>
                         <ul class="nav side-menu">
                             <li><a href="{{route('home')}}"><i class="fa fa-home"></i> Home</a>
                                 <!--<ul class="nav child_menu">-->
@@ -62,16 +62,16 @@
                             <li ><a><i class="fa fa-star-o"></i> Programmi Maestro Del Fitness <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     @foreach($userProgrammes as $programme)
-                                    <li><a href=" {!! url('user/default/programme/'.$programme->id) !!}">{{$programme->name}}</a></li>
+                                        <li><a href=" {!! url('user/default/programme/'.$programme->id) !!}">{{$programme->name}}</a></li>
                                     @endforeach
                                 </ul>
 
                             </li>
                             <li ><a><i class="fa fa-star-o"></i>Programma Personalizzato<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                        <li><a href=" {!! url('user/pages/1') !!}">Scheda 1</a></li>
-                                        <li><a href=" {!! url('user/pages/2') !!}">Scheda 2</a></li>
-                                        <li><a href=" {!! url('user/pages/3') !!}">Scheda 3</a></li>
+                                    <li><a href=" {!! url('user/pages/1') !!}">Scheda 1</a></li>
+                                    <li><a href=" {!! url('user/pages/2') !!}">Scheda 2</a></li>
+                                    <li><a href=" {!! url('user/pages/3') !!}">Scheda 3</a></li>
                                 </ul>
                             </li>
                             <li ><a href="{!! url('progress/0') !!}"><i class="fa fa-calendar"></i>I miei Progressi</a></li>
@@ -131,7 +131,7 @@
                         <!--<ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">-->
                         <!--<li>-->
                         <!--<a>-->
-                        <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
+                    <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
                         <!--<span>-->
                         <!--<span>John Smith</span>-->
                         <!--<span class="time">3 mins ago</span>-->
@@ -143,7 +143,7 @@
                         <!--</li>-->
                         <!--<li>-->
                         <!--<a>-->
-                        <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
+                    <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
                         <!--<span>-->
                         <!--<span>John Smith</span>-->
                         <!--<span class="time">3 mins ago</span>-->
@@ -155,7 +155,7 @@
                         <!--</li>-->
                         <!--<li>-->
                         <!--<a>-->
-                        <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
+                    <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
                         <!--<span>-->
                         <!--<span>John Smith</span>-->
                         <!--<span class="time">3 mins ago</span>-->
@@ -167,7 +167,7 @@
                         <!--</li>-->
                         <!--<li>-->
                         <!--<a>-->
-                        <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
+                    <!--<span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>-->
                         <!--<span>-->
                         <!--<span>John Smith</span>-->
                         <!--<span class="time">3 mins ago</span>-->
@@ -216,9 +216,9 @@
                     </div>
                 </div>
                 @if(isset($generatePdf))
-                 <div class="clearfix">
-                    <a type="button" href="{!! url('user/pdf/1') !!} ">Generate Pdf</a>
-                </div>
+                    <div class="clearfix">
+                        <a type="button" href="{!! url('user/pdf/1') !!} ">Scarica Versione PDF</a>
+                    </div>
                 @endif
                 <main class="py-4" style="background-color: white">
                     @yield('content')
@@ -235,27 +235,46 @@
             </div>
             <div class="clearfix">
                 {{--<div class="row">--}}
-                    {{--@if(Session::has('ads'))--}}
-                        {{--<div class="col-md-3">--}}
-                            {{--<a href="{{session()->get('ads')->url}}">--}}
-                                {{--<img src="{{asset('img/').'/'.session()->get('ads')->photo}}"  class="img-responsive center-block" alt="Logo" width="300" height="250" />--}}
-                            {{--</a>--}}
-                        {{--</div>--}}
-                    {{--@endif--}}
-                    {{--<div class="col-sm-6">--}}
-                        {{--<a  href="http://www.maestrodelfitness.com/Ufficiale/TC/"><img src="{{asset('images/TC.png')}}"> </a>--}}
-                        {{--<a class="btn-sm btn btn-danger" href="http://www.maestrodelfitness.com/Ufficiale/TC/"><h4>Descrivi</h4></a>--}}
-                        {{--<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=WMGGLAP9C3RVJ">--}}
-                            {{--<img src="{{asset('images/DESCRIVI.png')}}" BORDER="0">--}}
-                        {{--</a>--}}
-                    {{--</div>--}}
+                {{--@if(Session::has('ads'))--}}
+                {{--<div class="col-md-3">--}}
+                {{--<a href="{{session()->get('ads')->url}}">--}}
+                {{--<img src="{{asset('img/').'/'.session()->get('ads')->photo}}"  class="img-responsive center-block" alt="Logo" width="300" height="250" />--}}
+                {{--</a>--}}
                 {{--</div>--}}
+                {{--@endif--}}
+                {{--<div class="col-sm-6">--}}
+                {{--<a  href="http://www.maestrodelfitness.com/Ufficiale/TC/"><img src="{{asset('images/TC.png')}}"> </a>--}}
+                {{--<a class="btn-sm btn btn-danger" href="http://www.maestrodelfitness.com/Ufficiale/TC/"><h4>Descrivi</h4></a>--}}
+                {{--<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=WMGGLAP9C3RVJ">--}}
+                {{--<img src="{{asset('images/DESCRIVI.png')}}" BORDER="0">--}}
+                {{--</a>--}}
+                {{--</div>--}}
+                {{--</div>--}}
+            </div>
+            <div class="fb-customerchat"
+                 page_id="159384858047557">
             </div>
         </footer>
         <!-- /footer content -->
     </div>
 </div>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : "1608494545889508",
+            xfbml      : true,
+            version    : 'v2.10'
+        });
+    };
 
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/it_IT/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 <!-- jQuery -->
 <script type="text/javascript" src="{{ asset('/vendors/jquery/dist/jquery.min.js') }}"></script>
 <!-- Bootstrap -->

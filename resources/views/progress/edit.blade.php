@@ -24,13 +24,26 @@
                     <input id="cognome" type="text" class="form-control" value="{{$questionnare->cognome}}" name="cognome" >
                 </div>
             </div>
-            <div class="col-md-4"></div>
-            <div class="form-group row">
-                <div class="col-md-6">
-                    <label for="peso">PESO</label>
-                    <input id="peso" type="text" class="form-control" value="{{$questionnare->peso}}" name="peso" >
+                @foreach($peso as $pes)
+                    <div class="col-md-4"></div>
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <input id="peso" type="number" class="form-control" value="{{$pes->peso}}" name="peso" >
+                        </div>
+                    </div>
+                @endforeach
+                <div class="col-md-4"></div>
+                <div class="form-group row">
+                    <form method="POST" action="{!! url('progress/'.$user->id) !!}">
+                        <div class="col-md-4">
+                            <input id="peso" type="number" class="form-control"  name="peso">
+                            <input id="questionare_id" type="hidden" class="form-control" value="{{$questionnare->id}}" name="questionare_id">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="button" class="btn btn-sm btn btn-danger" value="Add Peso" >
+                        </div>
+                    </form>
                 </div>
-            </div>
                 <div class="col-md-4"></div>
                 <div class="form-group row">
                     <div class="col-md-6">

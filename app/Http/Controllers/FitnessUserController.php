@@ -37,11 +37,9 @@ class FitnessUserController extends Controller
         foreach ($userProgrammes as $userProgramme){
             $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
         }
-        if(count($userTables) > 0 && count($thirdBoxTables) > 0 && count($secondBoxTables)) {
-            return view('users.fitnessUser', array('user' => $user,'generatePdf'=>1, 'userTables' => $userTables, 'secondBoxTables' => $secondBoxTables, 'thirdBoxTables' => $thirdBoxTables, 'userProgrammes' => $programmes));
-        }else{
+
             return view('homeUser', array('user' => $user, 'userTables' => $userTables, 'secondBoxTables' => $secondBoxTables, 'thirdBoxTables' => $thirdBoxTables, 'userProgrammes' => $programmes));
-        }
+
     }
     /**
      * Display a listing of the resource.

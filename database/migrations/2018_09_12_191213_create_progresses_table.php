@@ -15,9 +15,9 @@ class CreateProgressesTable extends Migration
     {
         Schema::create('progresses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('sesso')->nullable();
-            $table->string('kili_persi')->nullable();
-            $table->string('kili_presi')->nullable();
+//            $table->string('sesso')->nullable();
+//            $table->string('kili_persi')->nullable();
+//            $table->string('kili_presi')->nullable();
             $table->string('girovita')->nullable();
             $table->string('girocoscia')->nullable();
             $table->string('fianchi')->nullable();

@@ -98,6 +98,7 @@ Route::group(['middleware' => 'admin','prefix' => 'admin', 'as' => 'admin.'], fu
     Route::get('user/programme/delete/{id}',  'DefaultProgramController@delete')->name('default.program.delete');
     Route::get('user/delete/{id}',  'UserController@delete')->name('user.delete');
 });
+Route::resource('chart',  'ChartController');
 Route::resource('progress', 'ProgressController');
 Route::get('edit/progress/{id}', 'ProgressController@editProgress')->name('edit.progress');
 Route::get('changePassword',  'UserController@changePassowrdIndex')->name('changePasswordIndex');
@@ -105,6 +106,9 @@ Route::get('admin/user/{id}/{pageId}',  'UserController@show3')->name('show3');
 Route::post('changePassword',  'UserController@changePassowrd')->name('changePassword');
 Route::resource('email', 'EmailController');
 Route::resource('profile', 'ProfileController');
+Route::resource('peso', 'PesoController');
+Route::resource('persi', 'ChilePersiController');
+Route::resource('presi', 'ChilePresiController');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('fitnessUser', 'FitnessUserController');
 Route::get('user/pages/{page_nr}', 'FitnessUserController@userPages')->name('user.pages');

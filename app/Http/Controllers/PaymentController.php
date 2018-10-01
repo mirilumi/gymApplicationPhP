@@ -70,8 +70,8 @@ class PaymentController extends Controller
             Mail::send('emails.email1', $data, function($message) use ($user) {
                 $message->to($user->email, $user->name)
                     ->cc(['carlo@maestrodelfitness.com', 'stefano@maestrodelfitness.com'])
-                    ->subject('Payment Succed');
-                $message->from('support@maestrodelfitnessapp.maestrodelfitness.com', 'Admin');
+                    ->subject('Pagamento avvenuto con successo');
+                $message->from('support@maestrodelfitnessapp.maestrodelfitness.com', 'Maestro del Fitness');
             });
         }else{
             $user = new User();
@@ -92,8 +92,8 @@ class PaymentController extends Controller
             Mail::send('emails.email1', $data, function($message) use ($user) {
                 $message->to($user->email, $user->name)
                     ->cc(['carlo@maestrodelfitness.com', 'stefano@maestrodelfitness.com'])
-                    ->subject('Payment Succed');
-                $message->from('support@maestrodelfitnessapp.maestrodelfitness.com', 'Admin');
+                    ->subject('Pagamento avvenuto con successo');
+                $message->from('support@maestrodelfitnessapp.maestrodelfitness.com', 'Maestro del Fitness');
             });
         }
         $redirectUrl = $this->getRedirectUrl($request->get('amount'));
@@ -167,8 +167,8 @@ class PaymentController extends Controller
                 Mail::send('emails.email1', $data, function($message) use ($user) {
                     $message->to($user->email, $user->name)
                         ->cc(['carlo@maestrodelfitness.com', 'stefano@maestrodelfitness.com'])
-                        ->subject('Payment Succed');
-                    $message->from('support@maestrodelfitnessapp.maestrodelfitness.com', 'Admin');
+                        ->subject('Pagamento avvenuto con successo');
+                    $message->from('support@maestrodelfitnessapp.maestrodelfitness.com', 'Maestro del Fitness');
                 });
             }else{
                 $user = new User();
@@ -188,8 +188,8 @@ class PaymentController extends Controller
                 Mail::send('emails.email1', $data, function($message) use ($user) {
                     $message->to($user->email, $user->name)
                         ->cc(['carlo@maestrodelfitness.com', 'stefano@maestrodelfitness.com'])
-                        ->subject('Payment Succed');
-                    $message->from('support@maestrodelfitnessapp.maestrodelfitness.com', 'Admin');
+                        ->subject('Pagamento avvenuto con successo');
+                    $message->from('support@maestrodelfitnessapp.maestrodelfitness.com', 'Maestro del Fitness');
                 });
             }
             $payment->create($this->_api_context);

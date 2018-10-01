@@ -20,13 +20,15 @@
                     <input id="cognome" type="text" class="form-control" value="{{$questionnare->cognome}}" name="cognome" disabled>
                 </div>
             </div>
-            <div class="col-md-4"></div>
-            <div class="form-group row">
-                <div class="col-md-6">
-                    <label for="peso">PESO</label>
-                    <input id="peso" type="text" class="form-control" value="{{$questionnare->peso}}" name="peso" disabled>
+            @foreach($peso as $pes)
+                <div class="col-md-4"></div>
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label for="peso">Peso</label>
+                        <input id="peso" type="number" class="form-control" value="{{$pes->peso}}" name="peso" disabled>
+                    </div>
                 </div>
-            </div>
+            @endforeach
             <div class="col-md-4"></div>
             <div class="form-group row">
                 <div class="col-md-6">

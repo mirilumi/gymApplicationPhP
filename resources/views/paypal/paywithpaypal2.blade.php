@@ -116,15 +116,15 @@
 
                     </form>
                 </div>
-                <div class="row">
-                    <div class="box box-default">
-                        <div class="box-body">
-                            <div class="alert alert-info alert-dismissible" style="background: #f6f6f6; color: black;">
-                                To be filled
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{--<div class="row">--}}
+                    {{--<div class="box box-default">--}}
+                        {{--<div class="box-body">--}}
+                            {{--<div class="alert alert-info alert-dismissible" style="background: #f6f6f6; color: black;">--}}
+                                {{--To be filled--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
             </div>
             <div class="col-md-6">
                 {{--<img src="{{asset('/images/5099.png')}}" alt="" title="" style="width: 80%;">--}}

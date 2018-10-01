@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DefaultProgram;
+use App\Peso;
 use App\Progress;
 use App\Questionnare;
 use App\User;
@@ -66,6 +67,7 @@ class ProgressController extends Controller
         if(!$progress){
             $progress = new Progress();
         }
+        $peso = Peso::where('questionare_id',$questionnare->id)->get();
         if($id_to_redirect == 0){
             $user = User::find($id);
             $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
@@ -73,9 +75,9 @@ class ProgressController extends Controller
             foreach ($userProgrammes as $userProgramme){
                 $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
             }
-            return view('progress.users.show',['user'=>$user,'questionnare'=>$questionnare,'progress'=>$progress,'userProgrammes'=>$programmes]);
+            return view('progress.users.show',['user'=>$user,'peso'=>$peso,'questionnare'=>$questionnare,'progress'=>$progress,'userProgrammes'=>$programmes]);
         }else{
-            return view('progress.show',['user'=>$user,'questionnare'=>$questionnare,'progress'=>$progress]);
+            return view('progress.show',['user'=>$user,'peso'=>$peso,'questionnare'=>$questionnare,'progress'=>$progress]);
         }
     }
     /**
@@ -100,6 +102,7 @@ class ProgressController extends Controller
         if(!$progress){
             $progress = new Progress();
         }
+        $peso = Peso::where('questionare_id',$questionnare->id)->get();
         if($id_to_redirect == 0){
             $user = User::find($id);
             $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
@@ -107,9 +110,9 @@ class ProgressController extends Controller
             foreach ($userProgrammes as $userProgramme){
                 $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
             }
-            return view('progress.users.edit',['user'=>$user,'questionnare'=>$questionnare,'progress'=>$progress,'userProgrammes'=>$programmes]);
+            return view('progress.users.edit',['user'=>$user,'peso'=>$peso,'questionnare'=>$questionnare,'progress'=>$progress,'userProgrammes'=>$programmes]);
         }else{
-            return view('progress.edit',['user'=>$user,'questionnare'=>$questionnare,'progress'=>$progress]);
+            return view('progress.edit',['user'=>$user,'peso'=>$peso,'questionnare'=>$questionnare,'progress'=>$progress]);
         }
     }
 
@@ -151,7 +154,7 @@ class ProgressController extends Controller
         $questionare->cognome = $request->cognome;
         $questionare->peso = $request->peso;
         $questionare->email = User::find($id)->email;
-//        $questionare->save();
+        $questionare->save();
         if($request->hasfile('first_photo'))
         {
             $file = $request->file('first_photo');

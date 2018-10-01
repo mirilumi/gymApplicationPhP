@@ -27,8 +27,17 @@
                 <div class="col-md-4"></div>
                 <div class="form-group row">
                     <div class="col-md-6">
-                        <label for="sesso">SESSO</label>
-                        <input id="sesso" type="text" class="form-control" value="{{$progress->sesso}}" name="sesso" >
+                        <label for="sesso">SESSO</label> <br>
+                        @if($questionnare->sesso == 'MASCHIO')
+                            <input id="mascio" type="radio" name="sesso" value="MASCHIO" checked>MASCHIO<br>
+                            <input id="femmina" type="radio" name="sesso" value="FEMMINA">FEMMINA<br>
+                        @elseif($questionnare->sesso == 'FEMMINA')
+                            <input id="mascio" type="radio" name="sesso" value="MASCHIO">MASCHIO<br>
+                            <input id="femmina" type="radio" name="sesso" value="FEMMINA" checked>FEMMINA<br>
+                        @else
+                            <input id="mascio" type="radio" name="sesso" value="MASCHIO">MASCHIO<br>
+                            <input id="femmina" type="radio" name="sesso" value="FEMMINA">FEMMINA<br>
+                        @endif
                     </div>
                 </div>
                 <div class="col-md-4"></div>
@@ -80,6 +89,7 @@
                     </div>
                 </div>
             </form>
+            <hr>
             <br>
             @foreach($peso as $key => $value)
                 <div class="col-md-4"></div>
@@ -121,6 +131,7 @@
                     </div>
                 </form>
             </div>
+            <hr>
             @foreach($persi as $key => $value)
                 <div class="col-md-4"></div>
                 <div class="form-group row">
@@ -162,19 +173,7 @@
                 </form>
             </div>
             <br>
-            <div class="col-md-4"></div>
-            <div class="form-group row">
-                <form method="POST" action="{!! route('peso.store') !!}">
-                    @csrf
-                    <div class="col-md-4">
-                        <input id="peso" type="number" class="form-control"  name="peso">
-                        <input id="questionare_id" type="hidden" class="form-control" value="{{$questionnare->id}}" name="questionare_id">
-                    </div>
-                    <div class="col-md-2">
-                        <button type="Submit" class="btn btn-sm btn btn-danger">Add Peso</button>
-                    </div>
-                </form>
-            </div>
+            <hr>
             @foreach($presi as $key => $value)
                 <div class="col-md-4"></div>
                 <div class="form-group row">
@@ -215,6 +214,9 @@
                     </div>
                 </form>
             </div>
+            <hr>
+            <a href="{!! url('chart/0') !!}" class="btn btn-sm btn btn-danger">See Chart</a>
+
             {{--<div class="col-md-4"></div>--}}
             {{--<div class="form-group row">--}}
                 {{--<div class="col-md-6">--}}

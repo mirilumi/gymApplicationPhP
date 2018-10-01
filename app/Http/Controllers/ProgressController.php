@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\ChilePersi;
+use App\ChilePresi;
 use App\DefaultProgram;
 use App\Peso;
 use App\Progress;
@@ -9,6 +11,7 @@ use App\Questionnare;
 use App\User;
 use App\UserProgramme;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class ProgressController extends Controller
@@ -68,6 +71,8 @@ class ProgressController extends Controller
             $progress = new Progress();
         }
         $peso = Peso::where('questionare_id',$questionnare->id)->get();
+        $chilePersi = ChilePersi::where('questionare_id',$questionnare->id)->get();
+        $chilePresi = ChilePresi::where('questionare_id',$questionnare->id)->get();
         if($id_to_redirect == 0){
             $user = User::find($id);
             $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
@@ -75,9 +80,9 @@ class ProgressController extends Controller
             foreach ($userProgrammes as $userProgramme){
                 $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
             }
-            return view('progress.users.show',['user'=>$user,'peso'=>$peso,'questionnare'=>$questionnare,'progress'=>$progress,'userProgrammes'=>$programmes]);
+            return view('progress.users.show',['user'=>$user,'peso'=>$peso,'persi'=>$chilePersi,'presi'=>$chilePresi,'questionnare'=>$questionnare,'progress'=>$progress,'userProgrammes'=>$programmes]);
         }else{
-            return view('progress.show',['user'=>$user,'peso'=>$peso,'questionnare'=>$questionnare,'progress'=>$progress]);
+            return view('progress.show',['user'=>$user,'peso'=>$peso,'persi'=>$chilePersi,'presi'=>$chilePresi,'questionnare'=>$questionnare,'progress'=>$progress]);
         }
     }
     /**
@@ -103,6 +108,8 @@ class ProgressController extends Controller
             $progress = new Progress();
         }
         $peso = Peso::where('questionare_id',$questionnare->id)->get();
+        $chilePersi = ChilePersi::where('questionare_id',$questionnare->id)->get();
+        $chilePresi = ChilePresi::where('questionare_id',$questionnare->id)->get();
         if($id_to_redirect == 0){
             $user = User::find($id);
             $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
@@ -110,9 +117,9 @@ class ProgressController extends Controller
             foreach ($userProgrammes as $userProgramme){
                 $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
             }
-            return view('progress.users.edit',['user'=>$user,'peso'=>$peso,'questionnare'=>$questionnare,'progress'=>$progress,'userProgrammes'=>$programmes]);
+            return view('progress.users.edit',['user'=>$user,'peso'=>$peso,'persi'=>$chilePersi,'presi'=>$chilePresi,'questionnare'=>$questionnare,'progress'=>$progress,'userProgrammes'=>$programmes]);
         }else{
-            return view('progress.edit',['user'=>$user,'peso'=>$peso,'questionnare'=>$questionnare,'progress'=>$progress]);
+            return view('progress.edit',['user'=>$user,'peso'=>$peso,'persi'=>$chilePersi,'presi'=>$chilePresi,'questionnare'=>$questionnare,'progress'=>$progress]);
         }
     }
 
@@ -152,7 +159,7 @@ class ProgressController extends Controller
         }
         $questionare->name = $request->name;
         $questionare->cognome = $request->cognome;
-        $questionare->peso = $request->peso;
+        $questionare->sesso = $request->sesso;
         $questionare->email = User::find($id)->email;
         $questionare->save();
         if($request->hasfile('first_photo'))
@@ -172,9 +179,6 @@ class ProgressController extends Controller
             $file->move(public_path('img/'), $filename);
             $progress->second_photo = $filename;
         }
-        $progress->sesso = $request->sesso;
-        $progress->kili_persi = $request->kili_persi;
-        $progress->kili_presi = $request->kili_presi;
         $progress->girovita = $request->girovita;
         $progress->girocoscia = $request->girocoscia;
         $progress->fianchi = $request->fianchi;
@@ -195,4 +199,5 @@ class ProgressController extends Controller
     {
         //
     }
+
 }

@@ -12,6 +12,7 @@
                             <th>Nome</th>
                             {{--<th>Cognome</th>--}}
                             <th>Progressi</th>
+                            <th>Charts</th>
                         </tr>
 
                         @foreach ($users as $user)
@@ -19,6 +20,9 @@
                                 <td>{{$user->name}}</td>
                                 <td>
                                     <a href=" {!! url('progress/'.$user->id) !!}" class="btn btn-dark">Progressi</a>
+                                </td>
+                                <td>
+                                    <a href=" {!! url('chart/'.$user->id) !!}" class="btn btn-dark">Charts</a>
                                 </td>
                             </tr>
                         @endforeach

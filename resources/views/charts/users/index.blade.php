@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.userLayout')
 
 @section('content')
     <div id="linechart" style="width: 900px; height: 500px"></div>

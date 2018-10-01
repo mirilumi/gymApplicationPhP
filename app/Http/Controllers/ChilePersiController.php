@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ChilePersi;
 use Illuminate\Http\Request;
 
 class ChilePersiController extends Controller
@@ -34,7 +35,10 @@ class ChilePersiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $chilePersi=ChilePersi::create($request->all());
+        $chilePersi->date = date('Y-m-d');
+        $chilePersi->save();
+        return redirect('/edit/progress/0');
     }
 
     /**
@@ -68,7 +72,11 @@ class ChilePersiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $chilePersi = ChilePersi::find($id);
+        $chilePersi->chile_persi = $request->chile_persi;
+        $chilePersi->date = $request->date;
+        $chilePersi->save();
+        return redirect('edit/progress/0');
     }
 
     /**

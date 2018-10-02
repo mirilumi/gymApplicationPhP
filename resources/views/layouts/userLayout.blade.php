@@ -215,11 +215,11 @@
                         <img src="{{asset('/images/white_image.png')}}" class="img-responsive center-block" width="250" height="250" alt="Logo" />
                     </div>
                 </div>
-                @if(isset($generatePdf))
-                    <div class="clearfix">
-                        <a type="button" href="{!! url('user/pdf/1') !!} ">Scarica Versione PDF</a>
-                    </div>
-                @endif
+                {{--@if(isset($generatePdf))--}}
+                    {{--<div class="clearfix">--}}
+                        {{--<a type="button" href="{!! url('user/pdf/1') !!} ">Scarica Versione PDF</a>--}}
+                    {{--</div>--}}
+                {{--@endif--}}
                 <main class="py-4" style="background-color: white">
                     @yield('content')
                 </main>

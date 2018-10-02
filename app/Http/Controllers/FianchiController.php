@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Peso;
+use App\Fianchi;
 use App\Questionnare;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PesoController extends Controller
+class FianchiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,11 +38,11 @@ class PesoController extends Controller
      */
     public function store(Request $request)
     {
-        $peso=Peso::create($request->all());
-        $peso->date = date('Y-m-d');
-        $peso->save();
+        $fianchi=Fianchi::create($request->all());
+        $fianchi->date = date('Y-m-d');
+        $fianchi->save();
         if(Auth::user()->is_admin == 1){
-            $questionare = Questionnare::find($peso->questionare_id);
+            $questionare = Questionnare::find($fianchi->questionare_id);
             $user = User::where('email',$questionare->email)->first();
             return redirect('/edit/progress/'.$user->id);
         }
@@ -80,12 +80,12 @@ class PesoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $peso = Peso::find($id);
-        $peso->peso = $request->peso;
-        $peso->date = $request->date;
-        $peso->save();
+        $fianchi = Fianchi::find($id);
+        $fianchi->fianchi = $request->fianchi;
+        $fianchi->date = $request->date;
+        $fianchi->save();
         if(Auth::user()->is_admin == 1){
-            $questionare = Questionnare::find($peso->questionare_id);
+            $questionare = Questionnare::find($fianchi->questionare_id);
             $user = User::where('email',$questionare->email)->first();
             return redirect('/edit/progress/'.$user->id);
         }

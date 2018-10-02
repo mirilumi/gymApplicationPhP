@@ -20,28 +20,7 @@ class ChartController extends Controller
      */
     public function index($id)
     {
-        if ($id != 0) {
-            $user = User::find($id);
-            $questionare = Questionnare::where('email', $user->email)->first();
-        }else{
-
-            $user = User::find(Auth::user()->id);
-            $questionare = Questionnare::where('email', $user->email)->first();
-        }
-        $visitor = DB::select('SELECT * from (select pesos.peso as peso,0 as chile_persi,0 as chile_presi, created_at from pesos where questionare_id = ?
-UNION ALL
-select 0 as peso, chile_persis.chile_persi as chile_persi,0 as chile_presi,created_at from chile_persis where questionare_id = ?
-UNION ALL
-select 0 as peso,0 as chile_persi,chile_presis.chile_presi as chile_presi,created_at from chile_presis where questionare_id = ? ) t  ', [$questionare->id, $questionare->id, $questionare->id]);
-
-
-        $result[] = ['created_at', 'peso', 'chile_persi', 'chile_presi'];
-        foreach ($visitor as $key => $value) {
-            $result[++$key] = [$value->created_at, (int)$value->peso, (int)$value->chile_persi, (int)$value->chile_presi];
-        }
-
-        return view('charts.index')
-            ->with('visitor', json_encode($result));
+        return view('charts.index');
     }
 
     /**
@@ -81,16 +60,39 @@ select 0 as peso,0 as chile_persi,chile_presis.chile_presi as chile_presi,create
             $user = User::find(Auth::user()->id);
             $questionare = Questionnare::where('email', $user->email)->first();
         }
-        $visitor = DB::select('SELECT * from (select pesos.peso as peso,0 as chile_persi,0 as chile_presi, created_at from pesos where questionare_id = ?
-UNION ALL
-select 0 as peso, chile_persis.chile_persi as chile_persi,0 as chile_presi,created_at from chile_persis where questionare_id = ?
-UNION ALL
-select 0 as peso,0 as chile_persi,chile_presis.chile_presi as chile_presi,created_at from chile_presis where questionare_id = ? ) t  ', [$questionare->id, $questionare->id, $questionare->id]);
+            $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
+            $programmes = [];
+            foreach ($userProgrammes as $userProgramme){
+                $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
+            }
+            return view('charts.show',['userProgrammes'=>$programmes,'questionare'=>$questionare,'user'=>$user]);
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexPeso($id)
+    {
+        if ($id != 0) {
+            $user = User::find($id);
+            $questionare = Questionnare::where('email', $user->email)->first();
+        }else{
 
+            $user = User::find(Auth::user()->id);
+            $questionare = Questionnare::where('email', $user->email)->first();
+        }
+        $visitor = DB::table('pesos')
+            ->select(
+                DB::raw("date as date"),
+                DB::raw("AVG(peso) as peso"))->where("questionare_id",$questionare->id)
+            ->orderBy("date")
+            ->groupBy(DB::raw("date"))
+            ->get();
 
-        $result[] = ['created_at', 'peso', 'chile_persi', 'chile_presi'];
+        $result[] = ['date', 'peso'];
         foreach ($visitor as $key => $value) {
-            $result[++$key] = [$value->created_at, (int)$value->peso, (int)$value->chile_persi, (int)$value->chile_presi];
+            $result[++$key] = [$value->date, (int)$value->peso];
         }
         if($id == 0){
             $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
@@ -104,7 +106,240 @@ select 0 as peso,0 as chile_persi,chile_presis.chile_presi as chile_presi,create
                 ->with('visitor', json_encode($result));
         }
     }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexPersi($id)
+    {
+        if ($id != 0) {
+            $user = User::find($id);
+            $questionare = Questionnare::where('email', $user->email)->first();
+        }else{
 
+            $user = User::find(Auth::user()->id);
+            $questionare = Questionnare::where('email', $user->email)->first();
+        }
+        $visitor = DB::table('chile_persis')
+            ->select(
+                DB::raw("date as date"),
+                DB::raw("AVG(chile_persi) as chile_persi"))->where("questionare_id",$questionare->id)
+            ->orderBy("date")
+            ->groupBy(DB::raw("date"))
+            ->get();
+
+        $result[] = ['date', 'chile_persi'];
+        foreach ($visitor as $key => $value) {
+            $result[++$key] = [$value->date, (int)$value->chile_persi];
+        }
+        if($id == 0){
+            $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
+            $programmes = [];
+            foreach ($userProgrammes as $userProgramme){
+                $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
+            }
+            return view('charts.users.index',['visitor'=>json_encode($result),'userProgrammes'=>$programmes]);
+        }else{
+            return view('charts.index')
+                ->with('visitor', json_encode($result));
+        }
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexPresi($id)
+    {
+        if ($id != 0) {
+            $user = User::find($id);
+            $questionare = Questionnare::where('email', $user->email)->first();
+        }else{
+
+            $user = User::find(Auth::user()->id);
+            $questionare = Questionnare::where('email', $user->email)->first();
+        }
+        $visitor = DB::table('chile_presis')
+            ->select(
+                DB::raw("date as date"),
+                DB::raw("AVG(chile_presi) as chile_presi"))->where("questionare_id",$questionare->id)
+            ->orderBy("date")
+            ->groupBy(DB::raw("date"))
+            ->get();
+
+        $result[] = ['date', 'chile_presi'];
+        foreach ($visitor as $key => $value) {
+            $result[++$key] = [$value->date, (int)$value->chile_presi];
+        }
+        if($id == 0){
+            $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
+            $programmes = [];
+            foreach ($userProgrammes as $userProgramme){
+                $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
+            }
+            return view('charts.users.index',['visitor'=>json_encode($result),'userProgrammes'=>$programmes]);
+        }else{
+            return view('charts.index')
+                ->with('visitor', json_encode($result));
+        }
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexFianchi($id)
+    {
+        if ($id != 0) {
+            $user = User::find($id);
+            $questionare = Questionnare::where('email', $user->email)->first();
+        }else{
+
+            $user = User::find(Auth::user()->id);
+            $questionare = Questionnare::where('email', $user->email)->first();
+        }
+        $visitor = DB::table('fianchis')
+            ->select(
+                DB::raw("date as date"),
+                DB::raw("AVG(fianchi) as fianchi"))->where("questionare_id",$questionare->id)
+            ->orderBy("date")
+            ->groupBy(DB::raw("date"))
+            ->get();
+
+        $result[] = ['date', 'fianchi'];
+        foreach ($visitor as $key => $value) {
+            $result[++$key] = [$value->date, (int)$value->fianchi];
+        }
+        if($id == 0){
+            $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
+            $programmes = [];
+            foreach ($userProgrammes as $userProgramme){
+                $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
+            }
+            return view('charts.users.index',['visitor'=>json_encode($result),'userProgrammes'=>$programmes]);
+        }else{
+            return view('charts.index')
+                ->with('visitor', json_encode($result));
+        }
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexGirocoscia($id)
+    {
+        if ($id != 0) {
+            $user = User::find($id);
+            $questionare = Questionnare::where('email', $user->email)->first();
+        }else{
+
+            $user = User::find(Auth::user()->id);
+            $questionare = Questionnare::where('email', $user->email)->first();
+        }
+        $visitor = DB::table('girocoscias')
+            ->select(
+                DB::raw("date as date"),
+                DB::raw("AVG(girocoscia) as girocoscias"))->where("questionare_id",$questionare->id)
+            ->orderBy("date")
+            ->groupBy(DB::raw("date"))
+            ->get();
+
+        $result[] = ['date', 'girocoscias'];
+        foreach ($visitor as $key => $value) {
+            $result[++$key] = [$value->date, (int)$value->girocoscias];
+        }
+        if($id == 0){
+            $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
+            $programmes = [];
+            foreach ($userProgrammes as $userProgramme){
+                $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
+            }
+            return view('charts.users.index',['visitor'=>json_encode($result),'userProgrammes'=>$programmes]);
+        }else{
+            return view('charts.index')
+                ->with('visitor', json_encode($result));
+        }
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexGirovita($id)
+    {
+        if ($id != 0) {
+            $user = User::find($id);
+            $questionare = Questionnare::where('email', $user->email)->first();
+        }else{
+
+            $user = User::find(Auth::user()->id);
+            $questionare = Questionnare::where('email', $user->email)->first();
+        }
+        $visitor = DB::table('girovitas')
+            ->select(
+                DB::raw("date as date"),
+                DB::raw("AVG(girovita) as girovita"))->where("questionare_id",$questionare->id)
+            ->orderBy("date")
+            ->groupBy(DB::raw("date"))
+            ->get();
+
+        $result[] = ['date', 'girovita'];
+        foreach ($visitor as $key => $value) {
+            $result[++$key] = [$value->date, (int)$value->girovita];
+        }
+        if($id == 0){
+            $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
+            $programmes = [];
+            foreach ($userProgrammes as $userProgramme){
+                $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
+            }
+            return view('charts.users.index',['visitor'=>json_encode($result),'userProgrammes'=>$programmes]);
+        }else{
+            return view('charts.index')
+                ->with('visitor', json_encode($result));
+        }
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexCft($id)
+    {
+        if ($id != 0) {
+            $user = User::find($id);
+            $questionare = Questionnare::where('email', $user->email)->first();
+        }else{
+
+            $user = User::find(Auth::user()->id);
+            $questionare = Questionnare::where('email', $user->email)->first();
+        }
+        $visitor = DB::table('circonferenza_toracias')
+            ->select(
+                DB::raw("date as date"),
+                DB::raw("AVG(circonferenza_toracia) as circonferenza_toracia"))->where("questionare_id",$questionare->id)
+            ->orderBy("date")
+            ->groupBy(DB::raw("date"))
+            ->get();
+
+        $result[] = ['date', 'circonferenza_toracia'];
+        foreach ($visitor as $key => $value) {
+            $result[++$key] = [$value->date, (int)$value->circonferenza_toracia];
+        }
+        if($id == 0){
+            $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
+            $programmes = [];
+            foreach ($userProgrammes as $userProgramme){
+                $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
+            }
+            return view('charts.users.index',['visitor'=>json_encode($result),'userProgrammes'=>$programmes]);
+        }else{
+            return view('charts.index')
+                ->with('visitor', json_encode($result));
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      *

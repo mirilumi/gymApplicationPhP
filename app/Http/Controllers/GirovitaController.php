@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Peso;
+use App\Girovita;
 use App\Questionnare;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PesoController extends Controller
+class GirovitaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,11 +38,12 @@ class PesoController extends Controller
      */
     public function store(Request $request)
     {
-        $peso=Peso::create($request->all());
-        $peso->date = date('Y-m-d');
-        $peso->save();
+        $girovita = Girovita::create($request->all());
+        $girovita->date = date('Y-m-d');
+        $girovita->save();
+
         if(Auth::user()->is_admin == 1){
-            $questionare = Questionnare::find($peso->questionare_id);
+            $questionare = Questionnare::find($girovita->questionare_id);
             $user = User::where('email',$questionare->email)->first();
             return redirect('/edit/progress/'.$user->id);
         }
@@ -80,12 +81,13 @@ class PesoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $peso = Peso::find($id);
-        $peso->peso = $request->peso;
-        $peso->date = $request->date;
-        $peso->save();
+
+        $girovita = Girovita::find($id);
+        $girovita->girovita = $request->girovita;
+        $girovita->date = $request->date;
+        $girovita->save();
         if(Auth::user()->is_admin == 1){
-            $questionare = Questionnare::find($peso->questionare_id);
+            $questionare = Questionnare::find($girovita->questionare_id);
             $user = User::where('email',$questionare->email)->first();
             return redirect('/edit/progress/'.$user->id);
         }

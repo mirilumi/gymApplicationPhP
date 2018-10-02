@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\ChilePresi;
+use App\Questionnare;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ChilePresiController extends Controller
 {
@@ -38,6 +41,11 @@ class ChilePresiController extends Controller
         $chilePresi=ChilePresi::create($request->all());
         $chilePresi->date = date('Y-m-d');
         $chilePresi->save();
+        if(Auth::user()->is_admin == 1){
+            $questionare = Questionnare::find($chilePresi->questionare_id);
+            $user = User::where('email',$questionare->email)->first();
+            return redirect('/edit/progress/'.$user->id);
+        }
         return redirect('/edit/progress/0');
     }
 
@@ -76,6 +84,11 @@ class ChilePresiController extends Controller
         $chilePresi->chile_presi = $request->chile_presi;
         $chilePresi->date = $request->date;
         $chilePresi->save();
+        if(Auth::user()->is_admin == 1){
+            $questionare = Questionnare::find($chilePresi->questionare_id);
+            $user = User::where('email',$questionare->email)->first();
+            return redirect('/edit/progress/'.$user->id);
+        }
         return redirect('edit/progress/0');
     }
 

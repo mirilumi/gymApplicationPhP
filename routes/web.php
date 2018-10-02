@@ -99,6 +99,14 @@ Route::group(['middleware' => 'admin','prefix' => 'admin', 'as' => 'admin.'], fu
     Route::get('user/delete/{id}',  'UserController@delete')->name('user.delete');
 });
 Route::resource('chart',  'ChartController');
+Route::get('chart/peso/{id}',  'ChartController@indexPeso')->name('chart.peso');
+Route::get('chart/persi/{id}',  'ChartController@indexPersi')->name('chart.peso');
+Route::get('chart/presi/{id}',  'ChartController@indexPresi')->name('chart.presi');
+
+Route::get('chart/fianchi/{id}',  'ChartController@indexFianchi')->name('chart.peso');
+Route::get('chart/girocoscia/{id}',  'ChartController@indexGirocoscia')->name('chart.peso');
+Route::get('chart/girovita/{id}',  'ChartController@indexGirovita')->name('chart.presi');
+Route::get('chart/cft/{id}',  'ChartController@indexCft')->name('chart.presi');
 Route::resource('progress', 'ProgressController');
 Route::get('edit/progress/{id}', 'ProgressController@editProgress')->name('edit.progress');
 Route::get('changePassword',  'UserController@changePassowrdIndex')->name('changePasswordIndex');
@@ -109,6 +117,10 @@ Route::resource('profile', 'ProfileController');
 Route::resource('peso', 'PesoController');
 Route::resource('persi', 'ChilePersiController');
 Route::resource('presi', 'ChilePresiController');
+Route::resource('fianchi', 'FianchiController');
+Route::resource('girocoscia', 'GirocosciaController');
+Route::resource('girovita', 'GirovitaController');
+Route::resource('cft', 'CirconferenzaToraciaController');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('fitnessUser', 'FitnessUserController');
 Route::get('user/pages/{page_nr}', 'FitnessUserController@userPages')->name('user.pages');

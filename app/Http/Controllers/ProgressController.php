@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use App\ChilePersi;
 use App\ChilePresi;
+use App\CirconferenzaToracia;
 use App\DefaultProgram;
+use App\Fianchi;
+use App\Girocoscia;
+use App\Girovita;
 use App\Peso;
 use App\Progress;
 use App\Questionnare;
 use App\User;
 use App\UserProgramme;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class ProgressController extends Controller
@@ -73,6 +76,10 @@ class ProgressController extends Controller
         $peso = Peso::where('questionare_id',$questionnare->id)->get();
         $chilePersi = ChilePersi::where('questionare_id',$questionnare->id)->get();
         $chilePresi = ChilePresi::where('questionare_id',$questionnare->id)->get();
+        $girocoscia = Girocoscia::where('questionare_id',$questionnare->id)->get();
+        $girovita = Girovita::where('questionare_id',$questionnare->id)->get();
+        $fianchi = Fianchi::where('questionare_id',$questionnare->id)->get();
+        $cft = CirconferenzaToracia::where('questionare_id',$questionnare->id)->get();
         if($id_to_redirect == 0){
             $user = User::find($id);
             $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
@@ -80,9 +87,9 @@ class ProgressController extends Controller
             foreach ($userProgrammes as $userProgramme){
                 $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
             }
-            return view('progress.users.show',['user'=>$user,'peso'=>$peso,'persi'=>$chilePersi,'presi'=>$chilePresi,'questionnare'=>$questionnare,'progress'=>$progress,'userProgrammes'=>$programmes]);
+            return view('progress.users.show',['user'=>$user,'peso'=>$peso,'girocoscia'=>$girocoscia,'girovita'=>$girovita,'fianchi'=>$fianchi,'cft'=>$cft,'persi'=>$chilePersi,'presi'=>$chilePresi,'questionnare'=>$questionnare,'progress'=>$progress,'userProgrammes'=>$programmes]);
         }else{
-            return view('progress.show',['user'=>$user,'peso'=>$peso,'persi'=>$chilePersi,'presi'=>$chilePresi,'questionnare'=>$questionnare,'progress'=>$progress]);
+            return view('progress.show',['user'=>$user,'peso'=>$peso,'persi'=>$chilePersi,'girocoscia'=>$girocoscia,'girovita'=>$girovita,'fianchi'=>$fianchi,'cft'=>$cft,'presi'=>$chilePresi,'questionnare'=>$questionnare,'progress'=>$progress]);
         }
     }
     /**
@@ -110,6 +117,10 @@ class ProgressController extends Controller
         $peso = Peso::where('questionare_id',$questionnare->id)->get();
         $chilePersi = ChilePersi::where('questionare_id',$questionnare->id)->get();
         $chilePresi = ChilePresi::where('questionare_id',$questionnare->id)->get();
+        $girocoscia = Girocoscia::where('questionare_id',$questionnare->id)->get();
+        $girovita = Girovita::where('questionare_id',$questionnare->id)->get();
+        $fianchi = Fianchi::where('questionare_id',$questionnare->id)->get();
+        $cft = CirconferenzaToracia::where('questionare_id',$questionnare->id)->get();
         if($id_to_redirect == 0){
             $user = User::find($id);
             $userProgrammes = UserProgramme::where('user_id',$user->id)->get();
@@ -117,9 +128,9 @@ class ProgressController extends Controller
             foreach ($userProgrammes as $userProgramme){
                 $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
             }
-            return view('progress.users.edit',['user'=>$user,'peso'=>$peso,'persi'=>$chilePersi,'presi'=>$chilePresi,'questionnare'=>$questionnare,'progress'=>$progress,'userProgrammes'=>$programmes]);
+            return view('progress.users.edit',['user'=>$user,'peso'=>$peso,'persi'=>$chilePersi,'girocoscia'=>$girocoscia,'girovita'=>$girovita,'fianchi'=>$fianchi,'cft'=>$cft,'presi'=>$chilePresi,'questionnare'=>$questionnare,'progress'=>$progress,'userProgrammes'=>$programmes]);
         }else{
-            return view('progress.edit',['user'=>$user,'peso'=>$peso,'persi'=>$chilePersi,'presi'=>$chilePresi,'questionnare'=>$questionnare,'progress'=>$progress]);
+            return view('progress.edit',['user'=>$user,'peso'=>$peso,'persi'=>$chilePersi,'girocoscia'=>$girocoscia,'girovita'=>$girovita,'fianchi'=>$fianchi,'cft'=>$cft,'presi'=>$chilePresi,'questionnare'=>$questionnare,'progress'=>$progress]);
         }
     }
 
@@ -179,10 +190,10 @@ class ProgressController extends Controller
             $file->move(public_path('img/'), $filename);
             $progress->second_photo = $filename;
         }
-        $progress->girovita = $request->girovita;
-        $progress->girocoscia = $request->girocoscia;
-        $progress->fianchi = $request->fianchi;
-        $progress->circonferenza_toracica = $request->circonferenza_toracica;
+//        $progress->girovita = $request->girovita;
+//        $progress->girocoscia = $request->girocoscia;
+//        $progress->fianchi = $request->fianchi;
+//        $progress->circonferenza_toracica = $request->circonferenza_toracica;
         if($request->note != '')
         $progress->note = $request->note;
         $progress->save();

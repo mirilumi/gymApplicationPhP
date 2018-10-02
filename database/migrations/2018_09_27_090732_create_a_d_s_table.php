@@ -29,6 +29,6 @@ class CreateADSTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('a_d_s');
+        Schema::dropIfExists('a_d_s_s');
     }
 }

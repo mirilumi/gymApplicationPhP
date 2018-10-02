@@ -18,10 +18,10 @@ class CreateProgressesTable extends Migration
 //            $table->string('sesso')->nullable();
 //            $table->string('kili_persi')->nullable();
 //            $table->string('kili_presi')->nullable();
-            $table->string('girovita')->nullable();
-            $table->string('girocoscia')->nullable();
-            $table->string('fianchi')->nullable();
-            $table->string('circonferenza_toracica')->nullable();
+//            $table->string('girovita')->nullable();
+//            $table->string('girocoscia')->nullable();
+//            $table->string('fianchi')->nullable();
+//            $table->string('circonferenza_toracica')->nullable();
             $table->string('first_photo')->nullable();
             $table->string('second_photo')->nullable();
             $table->text('note')->nullable();

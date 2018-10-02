@@ -12,7 +12,7 @@
                             <th>Nome</th>
                             {{--<th>Cognome</th>--}}
                             <th>Progressi</th>
-                            <th>Charts</th>
+                            <th>Grafico</th>
                         </tr>
 
                         @foreach ($users as $user)
@@ -22,7 +22,7 @@
                                     <a href=" {!! url('progress/'.$user->id) !!}" class="btn btn-dark">Progressi</a>
                                 </td>
                                 <td>
-                                    <a href=" {!! url('chart/'.$user->id) !!}" class="btn btn-dark">Charts</a>
+                                    <a href=" {!! url('chart/'.$user->id) !!}" class="btn btn-dark">Vedi Grafico</a>
                                 </td>
                             </tr>
                         @endforeach

@@ -15,12 +15,12 @@ class CreateUserTablesTable extends Migration
     {
         Schema::create('user_tables', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('muscolo');
-            $table->string('esercizio');
-            $table->string('serie');
-            $table->string('repetizioni');
-            $table->string('recupero');
-            $table->string('note');
+            $table->string('muscolo')->nullable();
+            $table->string('esercizio')->nullable();
+            $table->string('serie')->nullable();
+            $table->string('repetizioni')->nullable();
+            $table->string('recupero')->nullable();
+            $table->string('note')->nullable();
             $table->string('page_nr')->nullable();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')

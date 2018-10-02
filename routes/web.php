@@ -83,7 +83,7 @@ Route::group(['middleware' => 'admin','prefix' => 'admin', 'as' => 'admin.'], fu
     Route::get('defaultProgram/see', 'DefaultProgramController@see')->name('defaultProgramm.see');
     Route::get('defaultProgram/replicate/{id}', 'DefaultProgramController@replicate')->name('defaultProgramm.replicate');
     Route::post('defaultProgram/add', 'DefaultProgramController@add')->name('defaultProgramm.add');
-    Route::get('usersTable/delete/{id}',  'UserTableController@delete')->name('usersTable.delete');
+    Route::get('usersTable/delete/{id}/{pageId}',  'UserTableController@delete')->name('usersTable.delete');
     Route::get('usersTable/replicate/{id}/{page_nr}',  'UserTableController@replicate')->name('usersTable.replicate');
     Route::get('usersTable/userId/{userId}/replicate/{id}/{page_nr}',  'UserController@replicate')->name('usersTable.user.replicate');
     Route::post('thirdBox/{id}/thirdBoxEdit',  'ThirdBoxController@thirdBoxEdit')->name('thirdBoxEdit.edit');

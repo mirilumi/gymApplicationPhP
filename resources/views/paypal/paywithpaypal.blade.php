@@ -116,6 +116,9 @@
 
                     </form>
                 </div>
+                <div class="row">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/KOmtWWlNkWg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
                 {{--@for($i = 0;$i<count($ads)-1; $i++)--}}
                     {{--<br>--}}
                 {{--<div class="row">--}}

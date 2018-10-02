@@ -20,9 +20,9 @@ use PayPal\Api\Transaction;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Rest\ApiContext;
 use Session;
+use Newsletter;
 use URL;
 use Illuminate\Support\Facades\Mail;
-
 class PaymentController extends Controller
 {
     private $_api_context;
@@ -73,6 +73,9 @@ class PaymentController extends Controller
                     ->subject('Pagamento avvenuto con successo');
                 $message->from('support@maestrodelfitnessapp.maestrodelfitness.com', 'Maestro del Fitness');
             });
+            if ( ! Newsletter::isSubscribed($user->email) ) {
+                Newsletter::subscribe($user->email);
+            }
         }else{
             $user = new User();
             $user->email = $request->email;
@@ -95,6 +98,9 @@ class PaymentController extends Controller
                     ->subject('Pagamento avvenuto con successo');
                 $message->from('support@maestrodelfitnessapp.maestrodelfitness.com', 'Maestro del Fitness');
             });
+            if ( ! Newsletter::isSubscribed($user->email) ) {
+                Newsletter::subscribe($user->email);
+            }
         }
         $redirectUrl = $this->getRedirectUrl($request->get('amount'));
         return redirect($redirectUrl);
@@ -170,6 +176,9 @@ class PaymentController extends Controller
                         ->subject('Pagamento avvenuto con successo');
                     $message->from('support@maestrodelfitnessapp.maestrodelfitness.com', 'Maestro del Fitness');
                 });
+                if ( ! Newsletter::isSubscribed($user->email) ) {
+                    Newsletter::subscribe($user->email);
+                }
             }else{
                 $user = new User();
                 $user->email = $request->email;
@@ -191,6 +200,9 @@ class PaymentController extends Controller
                         ->subject('Pagamento avvenuto con successo');
                     $message->from('support@maestrodelfitnessapp.maestrodelfitness.com', 'Maestro del Fitness');
                 });
+                if ( ! Newsletter::isSubscribed($user->email) ) {
+                    Newsletter::subscribe($user->email);
+                }
             }
             $payment->create($this->_api_context);
 

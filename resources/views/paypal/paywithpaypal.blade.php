@@ -129,10 +129,6 @@
 
                     </form>
                 </div>
-                <div class="row">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/PvVScNeMfxw" frameborder="0"
-                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
                 {{--@for($i = 0;$i<count($ads)-1; $i++)--}}
                 {{--<br>--}}
                 {{--<div class="row">--}}
@@ -144,15 +140,16 @@
                 {{--</div>--}}
                 {{--</div>--}}
                 {{--@endfor--}}
+                <br>
+                <iframe  style="width: 100%" height="350" src="https://www.youtube.com/embed/PvVScNeMfxw" frameborder="0"
+                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
             <div class="col-md-6">
                 {{--<img src="{{asset('/images/5099.png')}}" alt="" title="" style="width: 80%;">--}}
                 {{--<div style="border-style: solid;border-color: #0f0f0f">--}}
 
-                <div class="row">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/1Iq6WJzrRdk" frameborder="0"
+                    <iframe style="width: 100%" height="315" src="https://www.youtube.com/embed/1Iq6WJzrRdk" frameborder="0"
                             allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
                 {{--<iframe width="420" height="315"--}}
                 {{--src="https://youtu.be/1Iq6WJzrRdk">--}}
                 {{--</iframe>--}}

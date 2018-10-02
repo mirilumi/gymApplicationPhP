@@ -128,11 +128,11 @@
                         <img src="{{asset('/images/paypalimage.png')}}" alt="" title="" style="width: 80%;">
 
                     </form>
+
                 </div>
-                <div class="row">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/PvVScNeMfxw" frameborder="0"
-                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
+                <br>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/PvVScNeMfxw" frameborder="0"
+                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 {{--<div class="row">--}}
                 {{--<div class="box box-default">--}}
                 {{--<div class="box-body">--}}
@@ -146,10 +146,8 @@
             <div class="col-md-6">
                 {{--<img src="{{asset('/images/5099.png')}}" alt="" title="" style="width: 80%;">--}}
                 {{--<div style="border-style: solid;border-color: #0f0f0f">--}}
-                <div class="row">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/1Iq6WJzrRdk" frameborder="0"
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/1Iq6WJzrRdk" frameborder="0"
                             allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
                 <br/><h6><b>MEMBERSHIP MAESTRO DEL FITNESS </b></h6>
                 <br/><h4>Accesso a un pannello personalizzato.</h4>
                 <br/><h4>Pacchetti di allenamento Completi.</h4>

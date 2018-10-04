@@ -107,13 +107,13 @@ class PaymentController extends Controller
     }
     public function getRedirectUrl($amount){
         switch ($amount) {
-            case 29.99:
+            case 14.99:
                 return "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4Q4PXRATBCBF2";
                 break;
-            case 24.99:
+            case 10.99:
                 return "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=77P83BFRLLMU6";
                 break;
-            case 19.99:
+            case 7.99:
                 return "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4Q4PXRATBCBF2";
                 break;
             default:
@@ -249,13 +249,13 @@ class PaymentController extends Controller
     }
     public function getPurchase($amount){
         switch ($amount) {
-            case 14.99:
+            case 7.99:
                 return "12 Mesi Membership 14.99/Mese";
                 break;
-            case 19.99:
+            case 10.99:
                 return "6 Mesi Membership 19.99/Mese";
                 break;
-            case 24.99:
+            case 14.99:
                 return "3 Mesi Membership 24.99/Mese";
                 break;
             case 39.99:

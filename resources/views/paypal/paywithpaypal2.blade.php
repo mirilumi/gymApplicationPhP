@@ -103,9 +103,9 @@
                                 <label for="amount" class="col-md-12 col-form-label">Scegli il tuo programma</label>
 
                                 <select id="amount" name="amount" class="form-control">
-                                    <option value="24.99">3 Mesi Membership 24.99/Mese</option>
-                                    <option value="19.99">6 Mesi Membership 19.99/Mese</option>
-                                    <option value="14.99">12 Mesi Membership 14.99/Mese</option>
+                                    <option value="14.99">3 Mesi Membership 24.99/Mese</option>
+                                    <option value="10.99">6 Mesi Membership 19.99/Mese</option>
+                                    <option value="7.99">12 Mesi Membership 14.99/Mese</option>
                                 </select>
                             </div>
                             <div class="col-md-1"></div>

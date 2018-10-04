@@ -228,40 +228,46 @@ class UserController extends Controller
      * @param  int  $page_nr
      * @return Response
      */
-    public function preview($id){
-        $defaultProgram = DefaultProgram::find($id);
-        $userTables = [];
-        $programmes = [];
-        $userTableMappings = UserTableMapping::where('default_program_id', $defaultProgram->id)->get();
-        foreach ($userTableMappings as $userTableMapping){
-            $userTables[] = UserTableDefault::find($userTableMapping->user_table_id);
-        }
-        if($defaultProgram->third_box_id != null){
-            $thirdBoxTable = ThirdBoxTableDefault::where('id', $defaultProgram->third_box_id)->first();
-        }else{
-            $thirdBoxTable = new ThirdBoxTableDefault();
-        }
-        if($defaultProgram->second_box_id != null){
-            $secondBoxTable = SecondBoxDefault::where('id', $defaultProgram->second_box_id)->first();
+    public function preview($id,$page_nr){
+        $user = User::find($id);
+        $userTables = UserTable::where('user_id', $id)->where('page_nr',$page_nr)->get();
+        $secondBoxTables = SecondBox::where('user_id', $id)->where('page_nr',$page_nr)->get();
+        $thirdBoxTables = ThirdBoxTable::where('user_id', $id)->where('page_nr',$page_nr)->get();
+        return view('users.preview',array('user'=>$user,'page_nr'=>$page_nr,'userTables'=>$userTables,'secondBoxTables'=>$secondBoxTables,'thirdBoxTables'=>$thirdBoxTables));
 
-        }else{
-            $secondBoxTable = new SecondBoxDefault();
-        }
-        $userProgrammes = UserProgramme::where('user_id',$id)->get();
-        foreach ($userProgrammes as $userProgramme){
-            $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
-        }
-        if($defaultProgram->is_blank){
-            $blankPage = BlankPage::where('default_program_id',$defaultProgram->id)->first();
-            return view('defaultProgram.blank.preview',array('blankPage'=>$blankPage,'defaultProgram'=>$defaultProgram,'thirdBoxTable'=>$thirdBoxTable,'secondBoxTable'=>$secondBoxTable,'userProgrammes'=>$programmes));
-        }else{
-            $userTables = [];
-            $userTableMappings = UserTableMapping::where('default_program_id', $defaultProgram->id)->get();
-            foreach ($userTableMappings as $userTableMapping){
-                $userTables[] = UserTableDefault::find($userTableMapping->user_table_id);
-            }
-            return view('defaultProgram.preview',array('userTables'=>$userTables,'defaultProgram'=>$defaultProgram,'thirdBoxTable'=>$thirdBoxTable,'secondBoxTable'=>$secondBoxTable,'userProgrammes'=>$programmes));
-        }
+//        $defaultProgram = DefaultProgram::find($id);
+//        $userTables = [];
+//        $programmes = [];
+//        $userTableMappings = UserTableMapping::where('default_program_id', $defaultProgram->id)->get();
+//        foreach ($userTableMappings as $userTableMapping){
+//            $userTables[] = UserTableDefault::find($userTableMapping->user_table_id);
+//        }
+//        if($defaultProgram->third_box_id != null){
+//            $thirdBoxTable = ThirdBoxTableDefault::where('id', $defaultProgram->third_box_id)->first();
+//        }else{
+//            $thirdBoxTable = new ThirdBoxTableDefault();
+//        }
+//        if($defaultProgram->second_box_id != null){
+//            $secondBoxTable = SecondBoxDefault::where('id', $defaultProgram->second_box_id)->first();
+//
+//        }else{
+//            $secondBoxTable = new SecondBoxDefault();
+//        }
+//        $userProgrammes = UserProgramme::where('user_id',$id)->get();
+//        foreach ($userProgrammes as $userProgramme){
+//            $programmes[] = DefaultProgram::where('id',$userProgramme->programme_id)->first();
+//        }
+//        if($defaultProgram->is_blank){
+//            $blankPage = BlankPage::where('default_program_id',$defaultProgram->id)->first();
+//            return view('defaultProgram.blank.preview',array('blankPage'=>$blankPage,'defaultProgram'=>$defaultProgram,'thirdBoxTable'=>$thirdBoxTable,'secondBoxTable'=>$secondBoxTable,'userProgrammes'=>$programmes));
+//        }else{
+//            $userTables = [];
+//            $userTableMappings = UserTableMapping::where('default_program_id', $defaultProgram->id)->get();
+//            foreach ($userTableMappings as $userTableMapping){
+//                $userTables[] = UserTableDefault::find($userTableMapping->user_table_id);
+//            }
+//            return view('defaultProgram.preview',array('userTables'=>$userTables,'defaultProgram'=>$defaultProgram,'thirdBoxTable'=>$thirdBoxTable,'secondBoxTable'=>$secondBoxTable,'userProgrammes'=>$programmes));
+//        }
 
 
     }

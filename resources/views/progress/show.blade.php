@@ -8,7 +8,7 @@
             <div class="form-group row">
 
                 <div class="col-md-6">
-                    <label>NOME<span class="star">*</span></label>
+                    <label>Nome<span class="star">*</span></label>
                     <input id="name" type="text" class="form-control" name="name" value="{{ $questionnare->name}}"
                            disabled>
                 </div>
@@ -17,7 +17,7 @@
             <div class="form-group row">
 
                 <div class="col-md-6">
-                    <label for="cognome">COGNOME</label>
+                    <label for="cognome">Cognome</label>
                     <input id="cognome" type="text" class="form-control" value="{{$questionnare->cognome}}"
                            name="cognome" disabled>
                 </div>
@@ -104,7 +104,7 @@
                 <div class="col-md-6">
                     {{--<a  href=" {!! url('edit/progress/'.$user->id) !!}" class="btn btn-lg btn" >Edit</a>--}}
                     <input type="button" class="btn btn-lg btn-danger"
-                           onclick="location.href='{!! url("edit/progress/".$user->id) !!}';" value="Edit"/>
+                           onclick="location.href='{!! url("edit/progress/".$user->id) !!}';" value="Modifica"/>
                 </div>
             </div>
             <hr>

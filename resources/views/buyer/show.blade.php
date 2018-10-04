@@ -8,7 +8,7 @@
                 <div class="form-group row">
 
                     <div class="col-md-6">
-                        <label >NOME<span class="star">*</span></label>
+                        <label >Nome<span class="star">*</span></label>
                         <input id="name" type="text" class="form-control"  name="name" value="{{ $user->name}}"  disabled>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
             <div class="form-group row">
 
                     <div class="col-md-6">
-                        <label for="cognome">COGNOME</label>
+                        <label for="cognome">Cognome</label>
                         <input id="cognome" type="text" class="form-control" value="{{$user->cognome}}" name="cognome" disabled>
                     </div>
                 </div>

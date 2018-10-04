@@ -2,7 +2,7 @@
 
 @section('content')
     <div>
-    <a type="button" href="{!! url('user/pdf/'.$page_nr) !!} ">Scarica Versione PDF</a>
+    <a type="button" class="btn btn-md btn-danger" href="{!! url('user/pdf/'.$page_nr) !!} ">Scarica Versione PDF</a>
     </div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">

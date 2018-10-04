@@ -40,7 +40,7 @@
                         @csrf
                         <br>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">NOME<span
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Nome<span
                                         class="star">*</span></label>
 
                             <div class="col-md-6">
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">COGNOME</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Cognome</label>
 
                             <div class="col-md-6">
                                 <input id="cognome" type="text"

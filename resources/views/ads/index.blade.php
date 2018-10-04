@@ -3,14 +3,14 @@
 @section('content')
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel" style="background-color: white">
-                <div class="x_content" style="background-color: white">
+            <div class="x_panel" style="background-color: white;color: black">
+                <div class="x_content" style="background-color: white;color: black">
                     <table id="datatable" class="table table-striped table-bordered">
                         <thead>
                         <tr>
                             <th>Nome</th>
                             <th>Url</th>
-                            <th>Edit</th>
+                            <th>Modifica</th>
                             {{--<th>Delete</th>--}}
                         </tr>
                             @foreach ($ads as $ad)

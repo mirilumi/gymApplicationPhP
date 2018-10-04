@@ -3,8 +3,8 @@
 @section('content')
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel" style="background-color: white">
-                <div class="x_content" style="background-color: white">
+            <div class="x_panel" style="background-color: white;color: black">
+                <div class="x_content" style="background-color: white;color: black">
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="col-md-8">
@@ -42,7 +42,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="name" class="col-md-4 col-form-label text-md-right">NOME<span class="star">*</span></label>
+                                                <label for="name" class="col-md-4 col-form-label text-md-right">Nome<span class="star">*</span></label>
 
                                                 <div class="col-md-6">
                                                     <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Rispondi Qui" name="name" value="{{$questionnare->name}}" required autofocus>
@@ -55,7 +55,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="name" class="col-md-4 col-form-label text-md-right">COGNOME<span class="star">*</span></label>
+                                                <label for="name" class="col-md-4 col-form-label text-md-right">Cognome<span class="star">*</span></label>
 
                                                 <div class="col-md-6">
                                                     <input id="cognome" type="text" class="form-control{{ $errors->has('cognome') ? ' is-invalid' : '' }}" placeholder="Rispondi Qui" name="cognome" value="{{$questionnare->cognome}}" required autofocus>

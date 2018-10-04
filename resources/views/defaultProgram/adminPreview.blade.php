@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel" style="background-color: white">
+            <div class="x_panel" style="background-color: white;color: black">
                 <div class="x_content" style="background-color: white">
                    <h1>{{$defaultProgram->name}}</h1>
                     @if(count($userTables)>0)

@@ -3,8 +3,8 @@
 @section('content')
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel" style="background-color: white">
-                <div class="x_content" style="background-color: white">
+            <div class="x_panel" style="background-color: white;color: black">
+                <div class="x_content" style="background-color: white;color: black">
                     <div class="row">
                         <div class="col-md-4"></div>
                             <div class="col-md-4">

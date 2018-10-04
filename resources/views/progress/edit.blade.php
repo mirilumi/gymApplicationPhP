@@ -154,7 +154,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label></label>
-                                    <button type="Submit" class="form-control btn btn-sm btn btn-danger">Edit Peso
+                                    <button type="Submit" class="form-control btn btn-sm btn btn-danger">Modifica Peso
                                     </button>
                                 </div>
                             </div>
@@ -173,7 +173,7 @@
                                name="questionare_id">
                     </div>
                     <div class="col-md-2">
-                        <button type="Submit" class="btn btn-sm btn btn-danger">Add Peso</button>
+                        <button type="Submit" class="btn btn-sm btn btn-danger">Scrivi il tuo peso</button>
                     </div>
                 </form>
             </div>
@@ -200,7 +200,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label></label>
-                                    <button type="Submit" class="form-control btn btn-sm btn btn-danger">Edit Chile
+                                    <button type="Submit" class="form-control btn btn-sm btn btn-danger">Modifica Chile
                                         Persi
                                     </button>
                                 </div>
@@ -220,7 +220,7 @@
                                name="questionare_id">
                     </div>
                     <div class="col-md-2">
-                        <button type="Submit" class="btn btn-sm btn btn-danger">Add Chile Persi</button>
+                        <button type="Submit" class="btn btn-sm btn btn-danger">Scrivi i chili persi</button>
                     </div>
                 </form>
             </div>
@@ -248,7 +248,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label></label>
-                                    <button type="Submit" class="form-control btn btn-sm btn btn-danger">Edit Chile
+                                    <button type="Submit" class="form-control btn btn-sm btn btn-danger">Modifica Chile
                                         Presi
                                     </button>
                                 </div>
@@ -268,7 +268,7 @@
                                name="questionare_id">
                     </div>
                     <div class="col-md-2">
-                        <button type="Submit" class="btn btn-sm btn btn-danger">Add Chile Presi</button>
+                        <button type="Submit" class="btn btn-sm btn btn-danger">Scrivi i chili presi</button>
                     </div>
                 </form>
             </div>
@@ -295,7 +295,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label></label>
-                                    <button type="Submit" class="form-control btn btn-sm btn btn-danger">Edit GIROCOSCIA
+                                    <button type="Submit" class="form-control btn btn-sm btn btn-danger">Modifica GIROCOSCIA
                                     </button>
                                 </div>
                             </div>
@@ -314,7 +314,7 @@
                                name="questionare_id">
                     </div>
                     <div class="col-md-2">
-                        <button type="Submit" class="btn btn-sm btn btn-danger">Add GIROCOSCIA</button>
+                        <button type="Submit" class="btn btn-sm btn btn-danger">Misura Girocoscia</button>
                     </div>
                 </form>
             </div>
@@ -341,7 +341,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label></label>
-                                    <button type="Submit" class="form-control btn btn-sm btn btn-danger">Edit GIROVITA
+                                    <button type="Submit" class="form-control btn btn-sm btn btn-danger">Modifica GIROVITA
                                     </button>
                                 </div>
                             </div>
@@ -360,7 +360,7 @@
                                name="questionare_id">
                     </div>
                     <div class="col-md-2">
-                        <button type="Submit" class="btn btn-sm btn btn-danger">Add GIROVITA</button>
+                        <button type="Submit" class="btn btn-sm btn btn-danger">Misura Girovita</button>
                     </div>
                 </form>
             </div>
@@ -387,7 +387,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label></label>
-                                    <button type="Submit" class="form-control btn btn-sm btn btn-danger">Edit FIANCHI
+                                    <button type="Submit" class="form-control btn btn-sm btn btn-danger">Modifica FIANCHI
                                     </button>
                                 </div>
                             </div>
@@ -406,7 +406,7 @@
                                name="questionare_id">
                     </div>
                     <div class="col-md-2">
-                        <button type="Submit" class="btn btn-sm btn btn-danger">Add FIANCHI</button>
+                        <button type="Submit" class="btn btn-sm btn btn-danger">Misura Fianchi</button>
                     </div>
                 </form>
             </div>
@@ -433,7 +433,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label></label>
-                                    <button type="Submit" class="form-control btn btn-sm btn btn-danger">Edit CIRCONFERENZA TORACIA
+                                    <button type="Submit" class="form-control btn btn-sm btn btn-danger">Modifica CIRCONFERENZA TORACIA
                                     </button>
                                 </div>
                             </div>
@@ -452,7 +452,7 @@
                                name="questionare_id">
                     </div>
                     <div class="col-md-2">
-                        <button type="Submit" class="btn btn-sm btn btn-danger">Add CIRCONFERENZA TORACIA</button>
+                        <button type="Submit" class="btn btn-sm btn btn-danger">Misura Circonferenza Toracica</button>
                     </div>
                 </form>
             </div>

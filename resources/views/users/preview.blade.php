@@ -3,8 +3,8 @@
 @section('content')
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel" style="background-color: white">
-                <div class="x_content" style="background-color: white">
+            <div class="x_panel" style="background-color: white;color: black">
+                <div class="x_content" style="background-color: white;color: black">
                         @if(count($userTables)>0)
                         <table id="datatable" class="table table-striped table-bordered">
                             <tr>

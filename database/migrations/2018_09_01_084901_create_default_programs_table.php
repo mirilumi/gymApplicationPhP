@@ -17,13 +17,13 @@ class CreateDefaultProgramsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('second_box_id')->unsigned()->nullable();
-            $table->foreign('second_box_id')
-                ->references('id')->on('second_box_defaults')
-                ->onDelete('cascade');
+//            $table->foreign('second_box_id')
+//                ->references('id')->on('second_box_defaults')
+//                ->onDelete('cascade');
             $table->integer('third_box_id')->unsigned()->nullable();
-            $table->foreign('third_box_id')
-                ->references('id')->on('third_box_table_defaults')
-                ->onDelete('cascade');
+//            $table->foreign('third_box_id')
+//                ->references('id')->on('third_box_table_defaults')
+//                ->onDelete('cascade');
             $table->boolean('is_blank')->default(0);
             $table->timestamps();
         });

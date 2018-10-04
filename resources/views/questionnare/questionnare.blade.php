@@ -9,6 +9,13 @@
             </div>
             <div class="col-md-4"></div>
         </div>
+        {{--<div class="row">--}}
+            {{--<div class="col-md-4"></div>--}}
+            {{--@if(Session::has('message'))--}}
+                {{--<div class="alert-success">{{session()->get('message')}}</div>--}}
+            {{--@endif--}}
+        {{--</div>--}}
+        {{--<br>--}}
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">

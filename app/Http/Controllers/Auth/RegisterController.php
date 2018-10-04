@@ -91,7 +91,13 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
-
+//            session()->flash('message', 'Successfully registerd!  You will be notified with email when admin approves your request!');
+//        Mail::send('emails.newUser', $user, function($message) {
+//            $message->to('jetmirlumi2@gmail.com', 'Help Desk')
+////                ->cc(['carlo@maestrodelfitness.com','stefano@maestrodelfitness.com'])
+//                ->subject('New User in the system ');
+//            $message->from('support@maestrodelfitnessapp.maestrodelfitness.com','Admin');
+//        });
         return $this->registered($request, $user)
             ?: redirect('/questionnare');
     }

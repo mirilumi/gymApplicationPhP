@@ -83,9 +83,19 @@ class DefaultProgramController extends Controller
         $userTables = UserTable::where('user_id',$user_id)->get();
         $defaultProgram = new DefaultProgram();
         $defaultProgram->name = $request->name;
-        if($secondBoxTable)
-        $defaultProgram->second_box_id = $secondBoxTable->id;
-        if($thirdBoxTable)
+        if($secondBoxTable){
+            $secondBoxTableDefault = new SecondBoxDefault();
+            $secondBoxTableDefault->title = $secondBoxTable->title;
+            $secondBoxTableDefault->description = $secondBoxTable->description;
+            $secondBoxTableDefault->save();
+            $defaultProgram->second_box_id = $secondBoxTableDefault->id;
+        }
+        if($thirdBoxTable){
+            $thirdBoxTableDefault = new ThirdBoxTableDefault();
+            $thirdBoxTableDefault->description = $thirdBoxTable->description;
+            $thirdBoxTableDefault->image = $thirdBoxTable->image;
+            $thirdBoxTableDefault->save();
+        }
         $defaultProgram->third_box_id = $thirdBoxTable->id;
         $defaultProgram->save();
         foreach ($userTables as $userTable){

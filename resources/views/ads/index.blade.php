@@ -18,7 +18,7 @@
                                     <td>{{$ad->name}}</td>
                                     <td>{{$ad->url}}</td>
                                     <td>
-                                        <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('admin/ads/'.$ad->id) !!}'" value="Edit">
+                                        <input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('admin/ads/'.$ad->id) !!}'" value="Modifica">
                                     </td>
                                     {{--<td>--}}
                                         {{--<input type="button" class="btn btn-sm btn btn-block"  onclick="location.href = ' {!! url('admin/ads/'.$ad->id) !!}'" value="DELETE">--}}

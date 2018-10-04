@@ -1,7 +1,7 @@
 @extends('layouts.userLayout')
 
 @section('content')
-    <div class="row">
+    <div class="row" style="background-color: white;color: black">
         <!--<div class="row">-->
         <!--<div class="col-md-5"></div>-->
         <!--<div class="col-md-2"><h3>Maestro del Fitness</h3></div>-->

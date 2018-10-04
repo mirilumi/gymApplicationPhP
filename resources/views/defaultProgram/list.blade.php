@@ -11,7 +11,7 @@
                         <tr>
                             <th>Nome</th>
                             <th>DISPLAY</th>
-                            <th>Edit</th>
+                            <th>Modifica</th>
                             <th>Users</th>
                             <th>Delete</th>
                         </tr>

@@ -1,7 +1,7 @@
 @extends('layouts.userLayout')
 
 @section('content')
-    <div class="row">
+    <div class="row" style="background-color: white;color: black">
         <div class="card">
             <br>
             <div class="col-md-4"></div>
@@ -105,7 +105,7 @@
             <div class="col-md-4"></div>
             <div class="form-group row">
                 <div class="col-md-6">
-                    <input type="button" class="btn btn-lg btn-danger" onclick="location.href='{!! url('edit/progress/0') !!}';" value="Edit" />
+                    <input type="button" class="btn btn-lg btn-danger" onclick="location.href='{!! url('edit/progress/0') !!}';" value="Modifica" />
                 </div>
             </div>
             <hr>
@@ -328,7 +328,7 @@
             <hr>
         </div>
     </div>
-    <div class="row">
+    <div class="row" style="background-color: white;color: black">
         <div class="col-sm-6">
             <div class="row">
                 <div class="col-sm-6">
